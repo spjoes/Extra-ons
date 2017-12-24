@@ -1,4 +1,4 @@
-package com.spjoes.addoncrewlol;
+package com.spjoes.extraons;
 
 import com.mrcrayfish.device.api.app.Application;
 import com.mrcrayfish.device.api.app.Layout;

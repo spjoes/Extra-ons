@@ -1,4 +1,4 @@
-package com.spjoes.addoncrewlol;
+package com.spjoes.extraons;
 
 import java.io.File;
 
@@ -14,7 +14,7 @@ public class RunnableSelectFile implements Runnable {
 	
 	@Override
 	public void run() {
-		JFileChooser fc = new JFileChooser(Minecraft.getMinecraft().mcDataDir);
+		JFileChooser fc = new JFileChooser(System.getProperty("user.home"));
 		fc.setFileFilter(new FileFilter() {
 			@Override
 			public boolean accept(File f) {
