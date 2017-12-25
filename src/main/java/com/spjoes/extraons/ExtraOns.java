@@ -43,6 +43,8 @@ public class ExtraOns {
 	public static void onInit(FMLInitializationEvent e) {
 		CLICKER = ApplicationManager.registerApplication(new ResourceLocation(Constants.MODID, "clicker"), ApplicationClicker.class);
 		KARAOKE = ApplicationManager.registerApplication(new ResourceLocation(Constants.MODID, "karaoke"), ApplicationKaraoke.class);
+		
+		proxy.registerItemColors();
 	}
 	 
 }

@@ -80,13 +80,15 @@ public class ItemMic extends Item {
 	public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
 		String colText = "Color: ";
 		try {
+			if(stack.getItemDamage() >= 16) {
+				throw new Exception();
+			}
 			EnumDyeColor col = EnumDyeColor.byMetadata(stack.getItemDamage());
 			Field f = EnumDyeColor.class.getDeclaredField("chatColor");
 			f.setAccessible(true);
 			TextFormatting tf = (TextFormatting) f.get(col);
 			colText = colText + tf + TextFormatting.BOLD + col.getDyeColorName().toUpperCase().replaceAll("_", " ");
 		} catch(Exception e) {
-			e.printStackTrace();
 			colText = colText + TextFormatting.OBFUSCATED + TextFormatting.BOLD + "unknown";
 		}
 		tooltip.add(colText);
