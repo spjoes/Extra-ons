@@ -2,17 +2,30 @@ package com.spjoes.extraons;
 
 import com.mrcrayfish.device.api.ApplicationManager;
 import com.mrcrayfish.device.api.app.Application;
+import com.spjoes.extraons.apps.ApplicationClicker;
 import com.spjoes.extraons.apps.karaoke.ApplicationKaraoke;
+import com.spjoes.extraons.items.ItemHandler;
+import com.spjoes.extraons.recipes.RecipeHandler;
 
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 @Mod(modid=Constants.MODID, name=Constants.NAME, version=Constants.VERSION, dependencies=Constants.DEPS)
 public class ExtraOns {
 
 	public static Application CLICKER, KARAOKE;
+	
+	@EventHandler
+	public static void onPreInit(FMLPreInitializationEvent e) {
+		ItemHandler.registerItems();
+		RecipeHandler.registerRecipes();
+		
+		MinecraftForge.EVENT_BUS.register(new Events());
+	}
 	
 	@EventHandler
 	public static void onInit(FMLInitializationEvent e) {

@@ -1,4 +1,4 @@
-package com.spjoes.extraons;
+package com.spjoes.extraons.apps;
 
 import com.mrcrayfish.device.api.app.Application;
 import com.mrcrayfish.device.api.app.Layout;
