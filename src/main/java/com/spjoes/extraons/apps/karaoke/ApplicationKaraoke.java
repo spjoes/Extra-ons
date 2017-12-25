@@ -55,7 +55,7 @@ public class ApplicationKaraoke extends Application {
 			mc.fontRenderer.drawString("to this laptop", x, y+20, 0xFF0000);
 		});
 		
-		//this.line = new KaraokeLine("This is a long line of text that will be sung in 15 seconds and will stay on screen 1 extra second blah blah blah blah", 300);
+		this.line = new KaraokeLine("This is a long line of text that will be sung in 15 seconds and will stay on screen 1 extra second blah blah blah blah", 300);
 		
 		EntityPlayer pl = Minecraft.getMinecraft().player;
 		ItemStack stackMain = pl.getHeldItemMainhand();
