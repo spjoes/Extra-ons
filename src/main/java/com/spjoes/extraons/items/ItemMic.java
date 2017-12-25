@@ -1,12 +1,13 @@
 package com.spjoes.extraons.items;
 
+import java.lang.reflect.Field;
 import java.util.List;
 
 import com.mrcrayfish.device.init.DeviceBlocks;
 
-import it.unimi.dsi.fastutil.Stack;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -63,18 +64,30 @@ public class ItemMic extends Item {
 		return EnumActionResult.PASS;
 	}
 	
-	private boolean hasDevicePos(ItemStack stack) {
+	private static boolean hasDevicePos(ItemStack stack) {
 		return stack.hasTagCompound() && stack.getTagCompound().hasKey("devicePos", Constants.NBT.TAG_INT_ARRAY);
 	}
 	
 	@Override
 	public boolean hasEffect(ItemStack stack) {
-		return this.hasDevicePos(stack);
+		return hasDevicePos(stack);
 	}
 	
 	@Override
 	public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
-		if(this.hasDevicePos(stack)) {
+		String colText = "Color: ";
+		try {
+			EnumDyeColor col = EnumDyeColor.byMetadata(stack.getItemDamage());
+			Field f = EnumDyeColor.class.getDeclaredField("chatColor");
+			f.setAccessible(true);
+			TextFormatting tf = (TextFormatting) f.get(col);
+			colText = colText + tf + TextFormatting.BOLD + col.getDyeColorName().toUpperCase().replaceAll("_", " ");
+		} catch(Exception e) {
+			e.printStackTrace();
+			colText = colText + TextFormatting.OBFUSCATED + TextFormatting.BOLD + "unknown";
+		}
+		tooltip.add(colText);
+		if(hasDevicePos(stack)) {
 			int[] pos = stack.getTagCompound().getIntArray("devicePos");
 			tooltip.add(TextFormatting.AQUA + "Is linked to device at pos");
 			StringBuilder sb = new StringBuilder();
@@ -99,7 +112,21 @@ public class ItemMic extends Item {
 			sb.append(TextFormatting.GRAY);
 			sb.append(pos[2]);
 			tooltip.add(sb.toString());
+		} else {
+			tooltip.add("Right-click a computer to link it");
 		}
+	}
+	
+	public static boolean isCorrectMic(ItemStack stack, BlockPos pos) {
+		if(stack.getItem() == ItemHandler.MICROPHONE) {
+			if(hasDevicePos(stack)) {
+				int[] linkpos = stack.getTagCompound().getIntArray("devicePos");
+				if(linkpos[0] == pos.getX() && linkpos[1] == pos.getY() && linkpos[2] == pos.getZ()) {
+					return true;
+				}
+			}
+		}
+		return false;
 	}
 	
 }

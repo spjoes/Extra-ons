@@ -1,27 +1,16 @@
 package com.spjoes.extraons.apps.karaoke;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.nio.file.FileSystem;
-import java.nio.file.FileSystems;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Enumeration;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipFile;
-
 import com.mrcrayfish.device.api.app.Application;
 import com.mrcrayfish.device.api.app.Layout;
 import com.mrcrayfish.device.api.app.component.Button;
+import com.mrcrayfish.device.api.app.component.Label;
 import com.mrcrayfish.device.core.Laptop;
 import com.spjoes.extraons.RunnableSelectFile;
+import com.spjoes.extraons.items.ItemMic;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 
 /**
@@ -32,14 +21,18 @@ import net.minecraft.nbt.NBTTagCompound;
 public class ApplicationKaraoke extends Application {
 
 	private Layout menuLayout;
+	private Layout noMicLayout;
 	private Button openFileButton;
+	private Label noMicLabel;
+	
 	private RunnableSelectFile select;
 	private Karaoke karaoke;
-	
 	private KaraokeLine line;
 	
 	@Override
 	public void init() {
+		// Since it's client side only, I can do this without worries
+		
 		this.menuLayout = new Layout(100, 100);
 		
 		this.openFileButton = new Button(5, 75, "Open file");
@@ -55,7 +48,18 @@ public class ApplicationKaraoke extends Application {
 		
 		//this.setCurrentLayout(this.menuLayout);
 		
-		this.line = new KaraokeLine("This is a long line of text that will be sung in 15 seconds and will stay on screen 1 extra second blah blah blah blah", 300);
+		this.noMicLayout = new Layout(100, 100);
+		this.noMicLabel = new Label("You don't have a mic :(", 0, 0);
+		this.noMicLayout.addComponent(this.noMicLabel);
+		
+		//this.line = new KaraokeLine("This is a long line of text that will be sung in 15 seconds and will stay on screen 1 extra second blah blah blah blah", 300);
+		
+		EntityPlayer pl = Minecraft.getMinecraft().player;
+		ItemStack stackMain = pl.getHeldItemMainhand();
+		ItemStack stackOff = pl.getHeldItemOffhand();
+		if(!ItemMic.isCorrectMic(stackMain, this.getLaptopPositon()) && !ItemMic.isCorrectMic(stackOff, this.getLaptopPositon())) {
+			this.setCurrentLayout(this.noMicLayout);
+		}
 	}
 	
 	@Override

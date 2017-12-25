@@ -5,12 +5,14 @@ import com.mrcrayfish.device.api.app.Application;
 import com.spjoes.extraons.apps.ApplicationClicker;
 import com.spjoes.extraons.apps.karaoke.ApplicationKaraoke;
 import com.spjoes.extraons.items.ItemHandler;
+import com.spjoes.extraons.proxies.CommonProxy;
 import com.spjoes.extraons.recipes.RecipeHandler;
 
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
+import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
@@ -19,12 +21,17 @@ public class ExtraOns {
 
 	public static Application CLICKER, KARAOKE;
 	
+	@SidedProxy(clientSide = "com.spjoes.extraons.proxies.ClientProxy", serverSide = "com.spjoes.extraons.proxies.CommonProxy")
+	private static CommonProxy proxy;
+	
 	@EventHandler
 	public static void onPreInit(FMLPreInitializationEvent e) {
 		ItemHandler.registerItems();
 		RecipeHandler.registerRecipes();
 		
 		MinecraftForge.EVENT_BUS.register(new Events());
+		
+		proxy.registerModels();
 	}
 	
 	@EventHandler
