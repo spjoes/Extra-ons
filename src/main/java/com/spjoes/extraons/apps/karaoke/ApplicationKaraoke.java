@@ -49,8 +49,11 @@ public class ApplicationKaraoke extends Application {
 		//this.setCurrentLayout(this.menuLayout);
 		
 		this.noMicLayout = new Layout(100, 100);
-		this.noMicLabel = new Label("You don't have a mic :(", 0, 0);
-		this.noMicLayout.addComponent(this.noMicLabel);
+		this.noMicLayout.setBackground((gui, mc, x, y, w, h, mx, my, active) -> {
+			mc.fontRenderer.drawString("You don't have a", x, y, 0xFF0000);
+			mc.fontRenderer.drawString("microphone linked", x, y+10, 0xFF0000);
+			mc.fontRenderer.drawString("to this laptop", x, y+20, 0xFF0000);
+		});
 		
 		//this.line = new KaraokeLine("This is a long line of text that will be sung in 15 seconds and will stay on screen 1 extra second blah blah blah blah", 300);
 		

@@ -52,6 +52,9 @@ public class ItemMic extends Item {
 			return EnumActionResult.SUCCESS;
 		}
 		if(world.getBlockState(pos).getBlock() == DeviceBlocks.LAPTOP) {
+			if(isCorrectMic(stack, pos)) {
+				return EnumActionResult.PASS;
+			}
 			if(!world.isRemote) {
 				if(!stack.hasTagCompound()) {
 					stack.setTagCompound(new NBTTagCompound());

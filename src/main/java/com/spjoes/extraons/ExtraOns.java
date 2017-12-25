@@ -4,10 +4,12 @@ import com.mrcrayfish.device.api.ApplicationManager;
 import com.mrcrayfish.device.api.app.Application;
 import com.spjoes.extraons.apps.ApplicationClicker;
 import com.spjoes.extraons.apps.karaoke.ApplicationKaraoke;
+import com.spjoes.extraons.items.CreativeTabExtraons;
 import com.spjoes.extraons.items.ItemHandler;
 import com.spjoes.extraons.proxies.CommonProxy;
 import com.spjoes.extraons.recipes.RecipeHandler;
 
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
@@ -24,10 +26,13 @@ public class ExtraOns {
 	@SidedProxy(clientSide = "com.spjoes.extraons.proxies.ClientProxy", serverSide = "com.spjoes.extraons.proxies.CommonProxy")
 	private static CommonProxy proxy;
 	
+	public static CreativeTabs TAB;
+	
 	@EventHandler
 	public static void onPreInit(FMLPreInitializationEvent e) {
 		ItemHandler.registerItems();
 		RecipeHandler.registerRecipes();
+		TAB = new CreativeTabExtraons();
 		
 		MinecraftForge.EVENT_BUS.register(new Events());
 		

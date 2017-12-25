@@ -1,0 +1,6 @@
+{
+	"parent": "extraons:item/mic/white",
+    "textures": {
+        "color": "blocks/wool_colored_white"
+    }
+}
