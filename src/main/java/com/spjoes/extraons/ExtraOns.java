@@ -4,10 +4,12 @@ import com.mrcrayfish.device.api.ApplicationManager;
 import com.mrcrayfish.device.api.app.Application;
 import com.spjoes.extraons.apps.ApplicationClicker;
 import com.spjoes.extraons.apps.karaoke.ApplicationKaraoke;
+import com.spjoes.extraons.blocks.BlockHandler;
 import com.spjoes.extraons.items.CreativeTabExtraons;
 import com.spjoes.extraons.items.ItemHandler;
 import com.spjoes.extraons.proxies.CommonProxy;
 import com.spjoes.extraons.recipes.RecipeHandler;
+import com.spjoes.extraons.tileentities.TileEntityHandler;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.util.ResourceLocation;
@@ -30,8 +32,10 @@ public class ExtraOns {
 	
 	@EventHandler
 	public static void onPreInit(FMLPreInitializationEvent e) {
+		BlockHandler.registerBlocks();
 		ItemHandler.registerItems();
 		RecipeHandler.registerRecipes();
+		TileEntityHandler.registerTileEntities();
 		TAB = new CreativeTabExtraons();
 		
 		MinecraftForge.EVENT_BUS.register(new Events());
