@@ -3,9 +3,12 @@ app.extraons.karaoke.name=Karaoke
 
 item.microphone.name=Microphone
 item.hdmi_cable.name=HDMI Cable
+item.phone.name=Phone
 
 tile.monitor.name=Monitor
 tile.central_unit.name=Central Unit
+
+itemGroup.extraons=Extra-Ons
 
 hdmi_cable.infos.not_device=%s isn't compatible
 hdmi_cable.infos.not_central_unit=You need to right-click a central unit first
