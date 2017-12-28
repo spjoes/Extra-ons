@@ -1,5 +1,6 @@
 package com.spjoes.extraons.client;
 
+import java.io.IOException;
 import java.util.Random;
 
 import org.lwjgl.input.Keyboard;
@@ -102,8 +103,8 @@ public class GuiMonitor extends Laptop {
 			if(bootTime > 0) {
 				tm.bindTexture(BIOS_SCREEN);
 				this.drawDispBG();
-				int numOfLines = ((TileEntityCentralUnit.BOOT_ON_TIME-bootTime)/BOOT_LINES.length) + 1;
-				if(numOfLines == BOOT_LINES.length + 1) {
+				int numOfLines = ((TileEntityCentralUnit.BOOT_ON_TIME-bootTime)/BOOT_LINES.length);
+				if(numOfLines > BOOT_LINES.length) {
 					numOfLines = BOOT_LINES.length;
 				}
 				FontRenderer fr = this.mc.fontRenderer;
@@ -118,6 +119,11 @@ public class GuiMonitor extends Laptop {
 				
 			}
 		}
+	}
+	
+	@Override
+	protected void mouseClicked(int mouseX, int mouseY, int mouseButton) throws IOException {
+		
 	}
 	
 	private void drawDispBG() {
