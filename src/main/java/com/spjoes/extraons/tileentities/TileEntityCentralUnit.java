@@ -1,15 +1,17 @@
 package com.spjoes.extraons.tileentities;
 
-import com.mrcrayfish.device.core.io.FileSystem;
 import com.mrcrayfish.device.tileentity.TileEntityLaptop;
 import com.spjoes.extraons.UsefulStuff;
+import com.spjoes.extraons.blocks.BlockCentralUnit;
 import com.spjoes.extraons.blocks.BlockHandler;
 import com.spjoes.extraons.items.ItemHandler;
 
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 import net.minecraftforge.common.util.Constants;
 
 public class TileEntityCentralUnit extends TileEntityLaptop {
@@ -54,6 +56,7 @@ public class TileEntityCentralUnit extends TileEntityLaptop {
 		if(this.bootTimer == 0) {
 			this.isOn = !this.isOn;
 			this.bootTimer = this.isOn ? BOOT_ON_TIME : BOOT_OFF_TIME;
+			this.world.setBlockState(this.pos, this.world.getBlockState(this.pos).withProperty(BlockCentralUnit.ON, this.isOn));
 		}
 	}
 	
@@ -93,6 +96,11 @@ public class TileEntityCentralUnit extends TileEntityLaptop {
 	
 	private boolean isCorrectPos(BlockPos pos) {
 		return this.world.getBlockState(pos).getBlock() == BlockHandler.MONITOR;
+	}
+	
+	@Override
+	public boolean shouldRefresh(World world, BlockPos pos, IBlockState oldState, IBlockState newState) {
+		return oldState.getBlock() != BlockHandler.CENTRAL_UNIT || newState.getBlock() != BlockHandler.CENTRAL_UNIT;
 	}
 	
 	/**

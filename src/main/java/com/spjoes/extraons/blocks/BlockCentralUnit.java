@@ -6,6 +6,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
@@ -19,16 +20,19 @@ import net.minecraft.world.World;
 
 public class BlockCentralUnit extends Block implements ITileEntityProvider {
 
+	//BlockDispenser
+	public static final PropertyBool ON = PropertyBool.create("on");
+	
 	public BlockCentralUnit() {
 		super(Material.IRON);
 		this.setRegistryName("central_unit");
 		this.setUnlocalizedName("central_unit");
-		this.setDefaultState(this.blockState.getBaseState().withProperty(BlockHorizontal.FACING, EnumFacing.NORTH));
+		this.setDefaultState(this.blockState.getBaseState().withProperty(BlockHorizontal.FACING, EnumFacing.NORTH).withProperty(ON, false));
 	}
 
 	@Override
 	protected BlockStateContainer createBlockState() {
-		return new BlockStateContainer(this, BlockHorizontal.FACING);
+		return new BlockStateContainer(this, BlockHorizontal.FACING, ON);
 	}
 	
 	@Override
@@ -53,11 +57,6 @@ public class BlockCentralUnit extends Block implements ITileEntityProvider {
 	@Override
 	public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer, EnumHand hand) {
 		return this.getDefaultState().withProperty(BlockHorizontal.FACING, placer.getHorizontalFacing());
-	}
-	
-	@Override
-	public BlockRenderLayer getBlockLayer() {
-		return BlockRenderLayer.SOLID;
 	}
 	
 	@Override
