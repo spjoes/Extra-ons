@@ -7,6 +7,7 @@ public class TileEntityHandler {
 
 	public static void registerTileEntities() {
 		TileEntity.register("monitor", TileEntityMonitor.class);
+		TileEntity.register("central_unit", TileEntityCentralUnit.class);
 	}
 	
 }

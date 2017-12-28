@@ -1,6 +1,6 @@
 package com.spjoes.extraons.blocks;
 
-import com.spjoes.extraons.tileentities.TileEntityMonitor;
+import com.spjoes.extraons.tileentities.TileEntityCentralUnit;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockHorizontal;
@@ -16,11 +16,11 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class BlockMonitor extends Block implements ITileEntityProvider {
-	
-	public BlockMonitor() {
+public class BlockCentralUnit extends Block implements ITileEntityProvider {
+
+	public BlockCentralUnit() {
 		super(Material.IRON);
-		this.setRegistryName("monitor");
+		this.setRegistryName("central_unit");
 		this.setDefaultState(this.blockState.getBaseState().withProperty(BlockHorizontal.FACING, EnumFacing.NORTH));
 	}
 
@@ -56,7 +56,7 @@ public class BlockMonitor extends Block implements ITileEntityProvider {
 
 	@Override
 	public TileEntity createNewTileEntity(World worldIn, int meta) {
-		return new TileEntityMonitor();
+		return new TileEntityCentralUnit();
 	}
 	
 }

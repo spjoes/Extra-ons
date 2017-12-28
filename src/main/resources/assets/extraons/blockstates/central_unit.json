@@ -1,0 +1,8 @@
+{
+	"variants": {
+		"facing=north": { "model": "extraons:central_unit" },
+		"facing=south": { "model": "extraons:central_unit", "y": 180 },
+		"facing=east": { "model": "extraons:central_unit", "y": 90 },
+		"facing=west": { "model": "extraons:central_unit", "y": 270 }
+	}
+}

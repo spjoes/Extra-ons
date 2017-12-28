@@ -20,6 +20,7 @@ public class CreativeTabExtraons extends CreativeTabs {
 		for(int i = 0; i < 16; i++) {
 			list.add(new ItemStack(ItemHandler.MICROPHONE, 1, i));
 		}
+		list.add(new ItemStack(ItemHandler.MONITOR_ITEM));
 	}
 
 }
