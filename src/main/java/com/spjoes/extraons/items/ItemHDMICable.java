@@ -26,6 +26,7 @@ public class ItemHDMICable extends Item {
 	public ItemHDMICable() {
 		this.setMaxStackSize(1);
 		this.setRegistryName("hdmi_cable");
+		this.setUnlocalizedName("hdmi_cable");
 	}
 	
 	@Override
@@ -39,6 +40,7 @@ public class ItemHDMICable extends Item {
 			} else {
 				NBTTagCompound nbt = new NBTTagCompound();
 				nbt.setIntArray("pos", UsefulStuff.toIntArray(pos));
+				stack.setTagCompound(nbt);
 				sendGameInfoMessage(player, "hdmi_cable.infos.go_click_monitor");
 			}
 		} else if(block == BlockHandler.MONITOR) {

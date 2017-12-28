@@ -21,6 +21,7 @@ public class BlockMonitor extends Block implements ITileEntityProvider {
 	public BlockMonitor() {
 		super(Material.IRON);
 		this.setRegistryName("monitor");
+		this.setUnlocalizedName("monitor");
 		this.setDefaultState(this.blockState.getBaseState().withProperty(BlockHorizontal.FACING, EnumFacing.NORTH));
 	}
 

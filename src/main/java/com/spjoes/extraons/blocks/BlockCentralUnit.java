@@ -21,6 +21,7 @@ public class BlockCentralUnit extends Block implements ITileEntityProvider {
 	public BlockCentralUnit() {
 		super(Material.IRON);
 		this.setRegistryName("central_unit");
+		this.setUnlocalizedName("central_unit");
 		this.setDefaultState(this.blockState.getBaseState().withProperty(BlockHorizontal.FACING, EnumFacing.NORTH));
 	}
 
