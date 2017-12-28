@@ -9,6 +9,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
@@ -38,6 +39,15 @@ public class BlockCentralUnit extends Block implements ITileEntityProvider {
 	@Override
 	public int getMetaFromState(IBlockState state) {
 		return state.getValue(BlockHorizontal.FACING).getHorizontalIndex();
+	}
+	
+	@Override
+	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
+		TileEntity te = worldIn.getTileEntity(pos);
+		if(te instanceof TileEntityCentralUnit) {
+			((TileEntityCentralUnit) te).toggleOn();
+		}
+		return true;
 	}
 	
 	@Override

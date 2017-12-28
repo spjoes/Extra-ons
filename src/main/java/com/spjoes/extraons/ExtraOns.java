@@ -5,6 +5,7 @@ import com.mrcrayfish.device.api.app.Application;
 import com.spjoes.extraons.apps.ApplicationClicker;
 import com.spjoes.extraons.apps.karaoke.ApplicationKaraoke;
 import com.spjoes.extraons.blocks.BlockHandler;
+import com.spjoes.extraons.client.GuiHandler;
 import com.spjoes.extraons.items.CreativeTabExtraons;
 import com.spjoes.extraons.items.ItemHandler;
 import com.spjoes.extraons.proxies.CommonProxy;
@@ -16,9 +17,11 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
+import net.minecraftforge.fml.common.Mod.Instance;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
 
 @Mod(modid=Constants.MODID, name=Constants.NAME, version=Constants.VERSION, dependencies=Constants.DEPS)
 public class ExtraOns {
@@ -27,6 +30,9 @@ public class ExtraOns {
 	
 	@SidedProxy(clientSide = "com.spjoes.extraons.proxies.ClientProxy", serverSide = "com.spjoes.extraons.proxies.CommonProxy")
 	private static CommonProxy proxy;
+	
+	@Instance
+	public static ExtraOns INSTANCE;
 	
 	public static CreativeTabs TAB;
 	
@@ -49,6 +55,8 @@ public class ExtraOns {
 		KARAOKE = ApplicationManager.registerApplication(new ResourceLocation(Constants.MODID, "karaoke"), ApplicationKaraoke.class);
 		
 		proxy.registerItemColors();
+		
+		NetworkRegistry.INSTANCE.registerGuiHandler(INSTANCE, new GuiHandler());
 	}
 	 
 }

@@ -11,4 +11,5 @@ public class UsefulStuff {
 	public static BlockPos toBlockPos(int[] pos) {
 		return new BlockPos(pos[0], pos[1], pos[2]);
 	}
+	
 }

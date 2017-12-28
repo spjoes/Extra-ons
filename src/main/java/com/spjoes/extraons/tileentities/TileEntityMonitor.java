@@ -25,6 +25,10 @@ public class TileEntityMonitor extends TileEntity implements ITickable {
 		}
 	}
 	
+	public BlockPos getCentralUnitPos() {
+		return this.centralUnitPos;
+	}
+	
 	public void link(BlockPos pos) throws WarpToZeldaException {
 		if(this.isCorrectPos(pos)) {
 			this.centralUnitPos = pos;

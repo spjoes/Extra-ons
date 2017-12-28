@@ -8,4 +8,7 @@ public class CommonProxy {
 	// Do nothing server side
 	public void registerItemColors() {}
 	
+	// Do nothing server side
+	public void registerTERenders() {}
+
 }

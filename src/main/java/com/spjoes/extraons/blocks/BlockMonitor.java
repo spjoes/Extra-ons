@@ -1,5 +1,6 @@
 package com.spjoes.extraons.blocks;
 
+import com.spjoes.extraons.ExtraOns;
 import com.spjoes.extraons.tileentities.TileEntityMonitor;
 
 import net.minecraft.block.Block;
@@ -9,6 +10,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
@@ -58,6 +60,14 @@ public class BlockMonitor extends Block implements ITileEntityProvider {
 	@Override
 	public TileEntity createNewTileEntity(World worldIn, int meta) {
 		return new TileEntityMonitor();
+	}
+	
+	@Override
+	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
+		if(worldIn.isRemote) {
+			playerIn.openGui(ExtraOns.INSTANCE, 0, worldIn, pos.getX(), pos.getY(), pos.getZ());
+		}
+		return true;
 	}
 	
 }

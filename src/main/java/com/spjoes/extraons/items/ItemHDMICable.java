@@ -1,5 +1,6 @@
 package com.spjoes.extraons.items;
 
+import com.mrcrayfish.device.block.BlockDevice;
 import com.spjoes.extraons.UsefulStuff;
 import com.spjoes.extraons.blocks.BlockHandler;
 import com.spjoes.extraons.tileentities.TileEntityCentralUnit;
@@ -62,13 +63,13 @@ public class ItemHDMICable extends Item {
 					stack.setTagCompound(null);
 				}
 			}
-		} else {
-			sendGameInfoMessage(player, "hdmi_cable.infos.not_device");
+		} else if(block instanceof BlockDevice) {
+			sendGameInfoMessage(player, "hdmi_cable.infos.not_device", block.getUnlocalizedName());
 		}
 		return EnumActionResult.SUCCESS;
 	}
 	
-	private void sendGameInfoMessage(EntityPlayer player, String message) {
+	private void sendGameInfoMessage(EntityPlayer player, String message, Object... args) {
 		if(player instanceof EntityPlayerMP) {
 			((EntityPlayerMP) player).connection.sendPacket(new SPacketChat(new TextComponentTranslation(message), ChatType.GAME_INFO));
 		}

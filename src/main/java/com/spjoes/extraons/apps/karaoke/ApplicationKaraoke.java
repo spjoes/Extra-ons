@@ -10,6 +10,7 @@ import com.spjoes.extraons.items.ItemMic;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 
@@ -22,17 +23,15 @@ public class ApplicationKaraoke extends Application {
 
 	private Layout menuLayout;
 	private Layout noMicLayout;
+	private Layout noMicHeldLayout;
 	private Button openFileButton;
 	private Label noMicLabel;
 	
 	private RunnableSelectFile select;
 	private Karaoke karaoke;
-	private KaraokeLine line;
 	
 	@Override
-	public void init() {
-		// Since it's client side only, I can do this without worries
-		
+	public void init() {		
 		this.menuLayout = new Layout(100, 100);
 		
 		this.openFileButton = new Button(5, 75, "Open file");
@@ -46,22 +45,37 @@ public class ApplicationKaraoke extends Application {
 		this.openFileButton.setToolTip("Opens file from your computer", "I mean your real computer, the one you're using to play Minecraft right now");
 		this.menuLayout.addComponent(this.openFileButton);
 		
-		//this.setCurrentLayout(this.menuLayout);
-		
 		this.noMicLayout = new Layout(100, 100);
 		this.noMicLayout.setBackground((gui, mc, x, y, w, h, mx, my, active) -> {
-			mc.fontRenderer.drawString("You don't have a", x, y, 0xFF0000);
-			mc.fontRenderer.drawString("microphone linked", x, y+10, 0xFF0000);
-			mc.fontRenderer.drawString("to this laptop", x, y+20, 0xFF0000);
+			mc.fontRenderer.drawString("You don't have a", x, y+36, 0xFF0000);
+			mc.fontRenderer.drawString("microphone linked", x, y+46, 0xFF0000);
+			mc.fontRenderer.drawString("to this laptop.", x, y+56, 0xFF0000);
 		});
 		
-		this.line = new KaraokeLine("This is a long line of text that will be sung in 15 seconds and will stay on screen 1 extra second blah blah blah blah", 300);
+		this.noMicHeldLayout = new Layout(100, 100);
+		this.noMicHeldLayout.setBackground((gui, mc, x, y, w, h, mx, my, active) -> {
+			mc.fontRenderer.drawString("You don't have a", x, y+36, 0xFF0000);
+			mc.fontRenderer.drawString("microphone in your", x, y+46, 0xFF0000);
+			mc.fontRenderer.drawString("hand.", x, y+56, 0xFF0000);
+		});
 		
+		// Since it's client side only, I can do this without worries
 		EntityPlayer pl = Minecraft.getMinecraft().player;
+		InventoryPlayer inv = pl.inventory;
+		boolean hasMic = false;
+		for(int i = 0; i < inv.getSizeInventory(); i++) {
+			if(ItemMic.isCorrectMic(inv.getStackInSlot(i), this.getLaptopPositon())) {
+				hasMic = true;
+			}
+		}
 		ItemStack stackMain = pl.getHeldItemMainhand();
 		ItemStack stackOff = pl.getHeldItemOffhand();
-		if(!ItemMic.isCorrectMic(stackMain, this.getLaptopPositon()) && !ItemMic.isCorrectMic(stackOff, this.getLaptopPositon())) {
+		if(!hasMic) {
 			this.setCurrentLayout(this.noMicLayout);
+		} else if(!ItemMic.isCorrectMic(stackMain, this.getLaptopPositon()) && !ItemMic.isCorrectMic(stackOff, this.getLaptopPositon())) {
+			this.setCurrentLayout(this.noMicHeldLayout);
+		} else {
+			this.setCurrentLayout(this.menuLayout);
 		}
 	}
 	
@@ -118,18 +132,11 @@ public class ApplicationKaraoke extends Application {
 			}
 			this.select = null;
 		}*/
-		
-		if(this.line != null) {
-			this.line.onTick();
-		}
 	}
 	
 	@Override
 	public void render(Laptop laptop, Minecraft mc, int x, int y, int mouseX, int mouseY, boolean active, float partialTicks) {
 		super.render(laptop, mc, x, y, mouseX, mouseY, active, partialTicks);
-		if(this.line != null) {
-			this.line.render(mc, x, y, partialTicks);
-		}
 	}
 	
 	@Override

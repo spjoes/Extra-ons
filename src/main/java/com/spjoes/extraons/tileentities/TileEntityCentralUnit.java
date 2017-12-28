@@ -1,6 +1,7 @@
 package com.spjoes.extraons.tileentities;
 
-import com.mrcrayfish.device.tileentity.TileEntityDevice;
+import com.mrcrayfish.device.core.io.FileSystem;
+import com.mrcrayfish.device.tileentity.TileEntityLaptop;
 import com.spjoes.extraons.UsefulStuff;
 import com.spjoes.extraons.blocks.BlockHandler;
 import com.spjoes.extraons.items.ItemHandler;
@@ -8,15 +9,19 @@ import com.spjoes.extraons.items.ItemHandler;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.ITickable;
 import net.minecraft.util.math.BlockPos;
+import net.minecraftforge.common.util.Constants;
 
-public class TileEntityCentralUnit extends TileEntityDevice {
+public class TileEntityCentralUnit extends TileEntityLaptop {
 
 	private BlockPos monitorPos;
 	
 	private String name = "Computer";
 	private boolean isOn = false;
+	private int bootTimer = 0; // In ticks, holds whenever you can turn it on/off
+	
+	public static final int BOOT_ON_TIME = 7*20;
+	public static final int BOOT_OFF_TIME = 3*20;
 	
 	@Override
 	public void update() {
@@ -25,6 +30,10 @@ public class TileEntityCentralUnit extends TileEntityDevice {
 				this.world.spawnEntity(new EntityItem(this.world, this.monitorPos.getX(), this.monitorPos.getY(), this.monitorPos.getZ(), new ItemStack(ItemHandler.HDMI_CABLE)));
 				this.monitorPos = null;
 			}
+		}
+		
+		if(this.bootTimer > 0) {
+			this.bootTimer --;
 		}
 	}
 
@@ -42,16 +51,27 @@ public class TileEntityCentralUnit extends TileEntityDevice {
 	}
 	
 	public void toggleOn() {
-		this.isOn = !this.isOn;
+		if(this.bootTimer == 0) {
+			this.isOn = !this.isOn;
+			this.bootTimer = this.isOn ? BOOT_ON_TIME : BOOT_OFF_TIME;
+		}
+	}
+	
+	public int getBootTimer() {
+		return this.bootTimer;
 	}
 	
 	@Override
 	public NBTTagCompound writeToNBT(NBTTagCompound compound) {
-		compound = super.writeToNBT(compound);
-		if(this.monitorPos != null) {
-			compound.setIntArray("monitorPos", UsefulStuff.toIntArray(this.monitorPos));
+		return super.writeToNBT(this.writeSyncTag());
+	}
+	
+	@Override
+	public void readFromNBT(NBTTagCompound compound) {
+		super.readFromNBT(compound);
+		if(compound.hasKey("monitorPos", Constants.NBT.TAG_INT_ARRAY)) {
+			this.monitorPos = UsefulStuff.toBlockPos(compound.getIntArray("monitorPos"));
 		}
-		return compound;
 	}
 	
 	@Override
