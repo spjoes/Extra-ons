@@ -1,50 +1,35 @@
 {
-	"credit": "Model generated using MrCrayfish's Model Creator (http://mrcrayfish.com/modelcreator/)",
-	"textures": {
-		"0": "extraons:blocks/central_unit"
-	},
-	"elements": [
-		{
-			"name": "Cube",
-			"from": [6, 0, 2],
-			"to": [13, 12, 14],
-			"faces": {
-				"north": {"uv": [4, 2, 11, 14], "texture": "#0"},
-				"east": {"uv": [2, 4, 14, 16], "texture": "#0"},
-				"south": {"uv": [6, 4, 13, 16], "texture": "#0"},
-				"west": {"uv": [2, 4, 14, 16], "texture": "#0"},
-				"up": {"uv": [6, 2, 13, 14], "texture": "#0"},
-				"down": {"uv": [6, 2, 13, 14], "texture": "#0"}
-			}
-		}
-	],
-	"display": {
-		"thirdperson_righthand": {
-			"scale": [0.375, 0.375, 0.375],
-			"rotation": [75, 45, 0],
-			"translation": [-1, 1, 0]
-		},
-		"thirdperson_lefthand": {
-			"scale": [0.375, 0.375, 0.375],
-			"rotation": [75, 45, 0],
-			"translation": [-1, 1, 0]
-		},
-		"firstperson_righthand": {"scale": [1, 1, 1]},
-		"head": {"scale": [1, 1, 1]},
-		"ground": {
-			"scale": [0.5, 0.5, 0.5],
-			"rotation": [0, 0, 0],
-			"translation": [0, 2, 0]
-		},
-		"fixed": {
-			"scale": [1, 1, 1],
-			"translation": [-0.5, 2, 0],
-			"rotation": [0, 90, 0]
-		},
-		"gui": {
-			"scale": [0.625, 0.625, 0.625],
-			"rotation": [30, 225, 0],
-			"translation": [0, 0, 0]
-		}
-	}
+    "__comment": "Model generated using MrCrayfish's Model Creator (http://mrcrayfish.com/modelcreator/)",
+    "textures": {
+        "0": "extraons:blocks/central_unit",
+        "1": "blocks/wool_colored_lime"
+    },
+    "elements": [
+        {
+            "name": "Cube",
+            "from": [ 4.0, 0.0, 2.0 ], 
+            "to": [ 12.0, 12.0, 14.0 ], 
+            "faces": {
+                "north": { "texture": "#0", "uv": [ 4.0, 2.0, 11.0, 14.0 ] },
+                "east": { "texture": "#0", "uv": [ 2.0, 4.0, 14.0, 16.0 ] },
+                "south": { "texture": "#0", "uv": [ 6.0, 4.0, 13.0, 16.0 ] },
+                "west": { "texture": "#0", "uv": [ 2.0, 4.0, 14.0, 16.0 ] },
+                "up": { "texture": "#0", "uv": [ 6.0, 2.0, 13.0, 14.0 ] },
+                "down": { "texture": "#0", "uv": [ 6.0, 2.0, 13.0, 14.0 ] }
+            }
+        },
+        {
+            "name": "on or off",
+            "from": [ 4.0, 12.0, 2.0 ], 
+            "to": [ 12.0, 13.0, 14.0 ], 
+            "faces": {
+                "north": { "texture": "#1", "uv": [ 0.0, 0.0, 8.0, 1.0 ] },
+                "east": { "texture": "#1", "uv": [ 0.0, 0.0, 12.0, 1.0 ] },
+                "south": { "texture": "#1", "uv": [ 0.0, 0.0, 8.0, 1.0 ] },
+                "west": { "texture": "#1", "uv": [ 0.0, 0.0, 12.0, 1.0 ] },
+                "up": { "texture": "#1", "uv": [ 0.0, 0.0, 8.0, 12.0 ] },
+                "down": { "texture": "#1", "uv": [ 0.0, 0.0, 8.0, 12.0 ] }
+            }
+        }
+    ]
 }

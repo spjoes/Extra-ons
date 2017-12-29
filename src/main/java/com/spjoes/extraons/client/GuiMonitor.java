@@ -1,5 +1,6 @@
 package com.spjoes.extraons.client;
 
+import java.io.IOException;
 import java.util.Random;
 
 import org.lwjgl.input.Keyboard;
@@ -41,6 +42,9 @@ public class GuiMonitor extends Laptop {
 	};
 	
 	private static String[] JOKE_LINES = {
+		"Give me a break",
+		"Wishing to be a real person",
+		"Eating cheese and crackers",
 		"Loading GRUB... Wait what?",
 		"Searching Google on Google",
 		"Snapping dat like button",
@@ -102,8 +106,12 @@ public class GuiMonitor extends Laptop {
 			if(bootTime > 0) {
 				tm.bindTexture(BIOS_SCREEN);
 				this.drawDispBG();
-				int numOfLines = ((TileEntityCentralUnit.BOOT_ON_TIME-bootTime)/BOOT_LINES.length) + 1;
-				if(numOfLines == BOOT_LINES.length + 1) {
+<<<<<<< HEAD
+				int numOfLines = ((TileEntityCentralUnit.BOOT_ON_TIME-bootTime)/BOOT_LINES.length);
+=======
+				int numOfLines = ((TileEntityCentralUnit.BOOT_ON_TIME-bootTime)/(TileEntityCentralUnit.BOOT_ON_TIME/BOOT_LINES.length)) + 1;
+>>>>>>> 7f8cbcb0c6cca609085a702bd62f201caff51523
+				if(numOfLines > BOOT_LINES.length) {
 					numOfLines = BOOT_LINES.length;
 				}
 				FontRenderer fr = this.mc.fontRenderer;
@@ -118,6 +126,11 @@ public class GuiMonitor extends Laptop {
 				
 			}
 		}
+	}
+	
+	@Override
+	protected void mouseClicked(int mouseX, int mouseY, int mouseButton) throws IOException {
+		
 	}
 	
 	private void drawDispBG() {

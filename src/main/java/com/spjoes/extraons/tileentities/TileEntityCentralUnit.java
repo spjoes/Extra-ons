@@ -1,15 +1,28 @@
 package com.spjoes.extraons.tileentities;
 
-import com.mrcrayfish.device.core.io.FileSystem;
 import com.mrcrayfish.device.tileentity.TileEntityLaptop;
 import com.spjoes.extraons.UsefulStuff;
+import com.spjoes.extraons.blocks.BlockCentralUnit;
 import com.spjoes.extraons.blocks.BlockHandler;
+import com.spjoes.extraons.client.SoundHandler;
 import com.spjoes.extraons.items.ItemHandler;
 
+<<<<<<< HEAD
+import net.minecraft.block.state.IBlockState;
+=======
+import io.netty.buffer.Unpooled;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.Minecraft;
+>>>>>>> 7f8cbcb0c6cca609085a702bd62f201caff51523
 import net.minecraft.entity.item.EntityItem;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.PacketBuffer;
+import net.minecraft.network.play.server.SPacketCustomPayload;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 import net.minecraftforge.common.util.Constants;
 
 public class TileEntityCentralUnit extends TileEntityLaptop {
@@ -19,6 +32,7 @@ public class TileEntityCentralUnit extends TileEntityLaptop {
 	private String name = "Computer";
 	private boolean isOn = false;
 	private int bootTimer = 0; // In ticks, holds whenever you can turn it on/off
+	private int soundLoopTimer = 0; 
 	
 	public static final int BOOT_ON_TIME = 7*20;
 	public static final int BOOT_OFF_TIME = 3*20;
@@ -34,6 +48,19 @@ public class TileEntityCentralUnit extends TileEntityLaptop {
 		
 		if(this.bootTimer > 0) {
 			this.bootTimer --;
+			if(this.bootTimer == 0 && !this.isOn) {
+				this.world.setBlockState(this.pos, this.world.getBlockState(this.pos).withProperty(BlockCentralUnit.ON, false));
+			}
+		}
+		
+		if(this.isOn && this.bootTimer == 0) {
+			this.soundLoopTimer --;
+			if(this.soundLoopTimer <= 0) {
+				this.world.playerEntities.forEach((pl) -> {
+					this.world.playSound(pl, this.pos, SoundHandler.CENTRAL_UNIT_LOOP, SoundCategory.BLOCKS, 1.0f, 1.0f);
+				});
+				this.soundLoopTimer = 86;
+			}
 		}
 	}
 
@@ -54,6 +81,21 @@ public class TileEntityCentralUnit extends TileEntityLaptop {
 		if(this.bootTimer == 0) {
 			this.isOn = !this.isOn;
 			this.bootTimer = this.isOn ? BOOT_ON_TIME : BOOT_OFF_TIME;
+<<<<<<< HEAD
+			this.world.setBlockState(this.pos, this.world.getBlockState(this.pos).withProperty(BlockCentralUnit.ON, this.isOn));
+=======
+			if(this.world.isRemote) {
+				this.world.playerEntities.forEach((pl) -> {
+					Minecraft.getMinecraft().getSoundHandler().stop("extraons:central_unit_loop", SoundCategory.BLOCKS);
+					this.world.playSound(pl, this.pos, this.isOn ? SoundHandler.CENTRAL_UNIT_BOOT_ON : SoundHandler.CENTRAL_UNIT_BOOT_OFF, SoundCategory.BLOCKS, 1.0f, 1.0f);
+				});
+			} else {
+				if(this.isOn) {
+					this.world.setBlockState(this.pos, this.world.getBlockState(this.pos).withProperty(BlockCentralUnit.ON, true));
+				}
+			}
+			this.soundLoopTimer = 0;
+>>>>>>> 7f8cbcb0c6cca609085a702bd62f201caff51523
 		}
 	}
 	
@@ -93,6 +135,11 @@ public class TileEntityCentralUnit extends TileEntityLaptop {
 	
 	private boolean isCorrectPos(BlockPos pos) {
 		return this.world.getBlockState(pos).getBlock() == BlockHandler.MONITOR;
+	}
+	
+	@Override
+	public boolean shouldRefresh(World world, BlockPos pos, IBlockState oldState, IBlockState newState) {
+		return oldState.getBlock() != BlockHandler.CENTRAL_UNIT || newState.getBlock() != BlockHandler.CENTRAL_UNIT;
 	}
 	
 	/**

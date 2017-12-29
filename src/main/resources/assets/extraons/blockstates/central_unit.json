@@ -1,8 +1,36 @@
 {
+	"forge_marker": 1,
+	"defaults": {
+		"model": "extraons:central_unit",
+		"textures": {
+			"0": "extraons:blocks/central_unit",
+			"1": "blocks/wool_colored_lime"
+		}
+	},
 	"variants": {
-		"facing=north": { "model": "extraons:central_unit" },
-		"facing=south": { "model": "extraons:central_unit", "y": 180 },
-		"facing=east": { "model": "extraons:central_unit", "y": 90 },
-		"facing=west": { "model": "extraons:central_unit", "y": 270 }
+		"on": {
+			true: {
+			
+			},
+			false: {
+				"textures": {
+					"1": "blocks/wool_colored_red"
+				}
+			}
+		},
+		"facing": {
+			"north": {
+			
+			},
+			"south": {
+				"y": 180
+			},
+			"east": {
+				"y": 90
+			},
+			"west": {
+				"y": 270
+			}
+		}
 	}
 }

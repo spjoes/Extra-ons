@@ -27,6 +27,16 @@ public class ClientProxy extends CommonProxy {
 		this.registerModel(ItemHandler.HDMI_CABLE, 0, new ResourceLocation(Constants.MODID, "hdmi_cable"));
 		this.registerModel(ItemHandler.TAB_ICON, 0, new ResourceLocation(Constants.MODID, "tab_icon"));
 		this.registerModel(ItemHandler.PHONE, 0, new ResourceLocation(Constants.MODID, "phone"));
+		this.registerModel(ItemHandler.HEADPHONEBLACK, 0, new ResourceLocation(Constants.MODID, "headphone_black"));
+		this.registerModel(ItemHandler.HEADPHONEBLUE, 0, new ResourceLocation(Constants.MODID, "headphone_blue"));
+		this.registerModel(ItemHandler.HEADPHONELIME, 0, new ResourceLocation(Constants.MODID, "headphone_lime"));
+		this.registerModel(ItemHandler.HEADPHONEORANGE, 0, new ResourceLocation(Constants.MODID, "headphone_orange"));
+		this.registerModel(ItemHandler.HEADPHONEPINK, 0, new ResourceLocation(Constants.MODID, "headphone_pink"));
+		this.registerModel(ItemHandler.HEADPHONEPURPLE, 0, new ResourceLocation(Constants.MODID, "headphone_purple"));
+		this.registerModel(ItemHandler.HEADPHONEYELLOW, 0, new ResourceLocation(Constants.MODID, "headphone_yellow"));
+		this.registerModel(ItemHandler.HEADPHONERED, 0, new ResourceLocation(Constants.MODID, "headphone_red"));
+		this.registerModel(ItemHandler.HEADPHONEWHITE, 0, new ResourceLocation(Constants.MODID, "headphone_white"));
+		this.registerModel(ItemHandler.HEADPHONERAINBOW, 0, new ResourceLocation(Constants.MODID, "headphone_rainbow"));
 	}
 	
 	@Override

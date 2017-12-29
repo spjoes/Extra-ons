@@ -53,8 +53,10 @@ public class TileEntityMonitor extends TileEntity implements ITickable {
 	@Override
 	public void readFromNBT(NBTTagCompound compound) {
 		super.readFromNBT(compound);
-		int[] posFromNBT = compound.getIntArray("centralUnitPos");
-		this.centralUnitPos = new BlockPos(posFromNBT[0], posFromNBT[1], posFromNBT[2]);
+		if(compound.hasKey("centralUnitPos")) {
+			int[] posFromNBT = compound.getIntArray("centralUnitPos");
+			this.centralUnitPos = new BlockPos(posFromNBT[0], posFromNBT[1], posFromNBT[2]);
+		}
 	}
 	
 	/**
