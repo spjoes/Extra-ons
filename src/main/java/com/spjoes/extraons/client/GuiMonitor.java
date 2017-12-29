@@ -103,7 +103,7 @@ public class GuiMonitor extends Laptop {
 			if(bootTime > 0) {
 				tm.bindTexture(BIOS_SCREEN);
 				this.drawDispBG();
-				int numOfLines = ((TileEntityCentralUnit.BOOT_ON_TIME-bootTime)/BOOT_LINES.length);
+				int numOfLines = ((TileEntityCentralUnit.BOOT_ON_TIME-bootTime)/(TileEntityCentralUnit.BOOT_ON_TIME/BOOT_LINES.length)) + 1;
 				if(numOfLines > BOOT_LINES.length) {
 					numOfLines = BOOT_LINES.length;
 				}

@@ -20,7 +20,6 @@ import net.minecraft.world.World;
 
 public class BlockCentralUnit extends Block implements ITileEntityProvider {
 
-	//BlockDispenser
 	public static final PropertyBool ON = PropertyBool.create("on");
 	
 	public BlockCentralUnit() {
