@@ -81,9 +81,7 @@ public class TileEntityCentralUnit extends TileEntityLaptop {
 		if(this.bootTimer == 0) {
 			this.isOn = !this.isOn;
 			this.bootTimer = this.isOn ? BOOT_ON_TIME : BOOT_OFF_TIME;
-<<<<<<< HEAD
 			this.world.setBlockState(this.pos, this.world.getBlockState(this.pos).withProperty(BlockCentralUnit.ON, this.isOn));
-=======
 			if(this.world.isRemote) {
 				this.world.playerEntities.forEach((pl) -> {
 					Minecraft.getMinecraft().getSoundHandler().stop("extraons:central_unit_loop", SoundCategory.BLOCKS);
@@ -95,7 +93,6 @@ public class TileEntityCentralUnit extends TileEntityLaptop {
 				}
 			}
 			this.soundLoopTimer = 0;
->>>>>>> 7f8cbcb0c6cca609085a702bd62f201caff51523
 		}
 	}
 	
