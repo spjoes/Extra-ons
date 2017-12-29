@@ -7,13 +7,11 @@ import com.spjoes.extraons.blocks.BlockHandler;
 import com.spjoes.extraons.client.SoundHandler;
 import com.spjoes.extraons.items.ItemHandler;
 
-<<<<<<< HEAD
+
 import net.minecraft.block.state.IBlockState;
-=======
 import io.netty.buffer.Unpooled;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
->>>>>>> 7f8cbcb0c6cca609085a702bd62f201caff51523
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
