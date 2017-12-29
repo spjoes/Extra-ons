@@ -8,7 +8,13 @@ import com.spjoes.extraons.client.SoundHandler;
 import com.spjoes.extraons.items.ItemHandler;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 import net.minecraft.block.state.IBlockState;
+=======
+import io.netty.buffer.Unpooled;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.Minecraft;
+>>>>>>> 7f8cbcb0c6cca609085a702bd62f201caff51523
 =======
 import io.netty.buffer.Unpooled;
 import net.minecraft.block.state.IBlockState;
@@ -82,8 +88,11 @@ public class TileEntityCentralUnit extends TileEntityLaptop {
 			this.isOn = !this.isOn;
 			this.bootTimer = this.isOn ? BOOT_ON_TIME : BOOT_OFF_TIME;
 <<<<<<< HEAD
+<<<<<<< HEAD
 			this.world.setBlockState(this.pos, this.world.getBlockState(this.pos).withProperty(BlockCentralUnit.ON, this.isOn));
 =======
+=======
+>>>>>>> 7f8cbcb0c6cca609085a702bd62f201caff51523
 			if(this.world.isRemote) {
 				this.world.playerEntities.forEach((pl) -> {
 					Minecraft.getMinecraft().getSoundHandler().stop("extraons:central_unit_loop", SoundCategory.BLOCKS);
@@ -95,6 +104,9 @@ public class TileEntityCentralUnit extends TileEntityLaptop {
 				}
 			}
 			this.soundLoopTimer = 0;
+<<<<<<< HEAD
+>>>>>>> 7f8cbcb0c6cca609085a702bd62f201caff51523
+=======
 >>>>>>> 7f8cbcb0c6cca609085a702bd62f201caff51523
 		}
 	}
