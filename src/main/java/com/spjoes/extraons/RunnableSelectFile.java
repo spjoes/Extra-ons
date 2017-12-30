@@ -1,5 +1,7 @@
 package com.spjoes.extraons;
 
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.io.File;
 
 import javax.swing.JFileChooser;
@@ -27,6 +29,16 @@ public class RunnableSelectFile implements Runnable {
 			}
 		});
 		fc.setMultiSelectionEnabled(false); // Makes sure you can only select one file
+		fc.addFocusListener(new FocusListener() {
+			@Override
+			public void focusLost(FocusEvent e) {
+				// For some reason, loosing focus of the window destroys the window
+				isClosed = true;
+			}
+			
+			@Override
+			public void focusGained(FocusEvent e) { }
+		});
 		int ret = fc.showOpenDialog(null);
 		
 		this.isClosed = true;

@@ -18,7 +18,7 @@ public class ItemHandler {
 		CENTRAL_UNIT_ITEM = new ItemBlock(BlockHandler.CENTRAL_UNIT).setRegistryName(BlockHandler.CENTRAL_UNIT.getRegistryName());
 		HDMI_CABLE = new ItemHDMICable();
 		PHONE = new ItemPhone();
-		HEADPHONES = new ItemHeadPhones();
+		HEADPHONES = new ItemHeadphones();
 		
 		ForgeRegistries.ITEMS.register(MICROPHONE);
 		ForgeRegistries.ITEMS.register(TAB_ICON);

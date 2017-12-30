@@ -9,8 +9,9 @@ import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Arrays;
 import java.util.Enumeration;
+import java.util.Random;
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
@@ -20,12 +21,12 @@ import com.mrcrayfish.device.api.app.component.Button;
 import com.mrcrayfish.device.api.app.component.Label;
 import com.mrcrayfish.device.core.Laptop;
 import com.spjoes.extraons.RunnableSelectFile;
-import com.spjoes.extraons.items.ItemMic;
+import com.spjoes.extraons.items.ItemLinkable;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.item.ItemStack;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.nbt.NBTTagCompound;
 
 /**
@@ -78,15 +79,24 @@ public class ApplicationKaraoke extends Application {
 		InventoryPlayer inv = pl.inventory;
 		boolean hasMic = false;
 		for(int i = 0; i < inv.getSizeInventory(); i++) {
-			if(ItemMic.isCorrectMic(inv.getStackInSlot(i), this.getLaptopPositon())) {
+			if(ItemLinkable.isLinked(inv.getStackInSlot(i), this.getLaptopPositon())) {
 				hasMic = true;
 			}
 		}
-		ItemStack stackMain = pl.getHeldItemMainhand();
-		ItemStack stackOff = pl.getHeldItemOffhand();
+		
+		AtomicBoolean holdingLinkable = new AtomicBoolean(false);
+		ItemLinkable.getLinkables().forEach(linkable -> {
+			EntityEquipmentSlot[] slots = linkable.getCorrectSlots();
+			for(EntityEquipmentSlot slot : slots) {
+				if(pl.getItemStackFromSlot(slot).getItem() == linkable) {
+					holdingLinkable.set(true);
+				}
+			}
+		});
+		
 		if(!hasMic) {
 			this.setCurrentLayout(this.noMicLayout);
-		} else if(!ItemMic.isCorrectMic(stackMain, this.getLaptopPositon()) && !ItemMic.isCorrectMic(stackOff, this.getLaptopPositon())) {
+		} else if(!holdingLinkable.get()) {
 			this.setCurrentLayout(this.noMicHeldLayout);
 		} else {
 			this.setCurrentLayout(this.menuLayout);
@@ -126,15 +136,15 @@ public class ApplicationKaraoke extends Application {
 							String line;
 							while((line = in.readLine()) != null) {
 								fileContent.append(line);
+								fileContent.append('\n');
 							}
 							text = fileContent.toString();
 						}
 					}
 					
-					this.karaoke = new Karaoke(music);
+					this.karaoke = new Karaoke(music, text);
 					
 					this.setCurrentLayout(new Layout(200, 100));
-					//this.line = new KaraokeLine(Arrays.<String>asList("This is a long line of text that will be sung in 5 seconds"));
 				} catch(Throwable e) {
 					e.printStackTrace();
 				}
@@ -146,6 +156,14 @@ public class ApplicationKaraoke extends Application {
 			}
 			this.select = null;
 		}
+	}
+	
+	@Override
+	public String getWindowTitle() {
+		if(this.karaoke != null) {
+			return this.karaoke.getNameAndAuthor();
+		}
+		return super.getWindowTitle();
 	}
 	
 	@Override
