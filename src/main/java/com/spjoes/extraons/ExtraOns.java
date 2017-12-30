@@ -47,6 +47,7 @@ public class ExtraOns {
 		MinecraftForge.EVENT_BUS.register(new Events());
 		
 		proxy.registerModels();
+		proxy.registerTERenders();
 	}
 	
 	@EventHandler

@@ -24,16 +24,9 @@ public class CreativeTabExtraons extends CreativeTabs {
 		list.add(new ItemStack(ItemHandler.CENTRAL_UNIT_ITEM));
 		list.add(new ItemStack(ItemHandler.HDMI_CABLE));
 		list.add(new ItemStack(ItemHandler.PHONE));
-		list.add(new ItemStack(ItemHandler.HEADPHONEBLACK));
-		list.add(new ItemStack(ItemHandler.HEADPHONEBLUE));
-		list.add(new ItemStack(ItemHandler.HEADPHONELIME));
-		list.add(new ItemStack(ItemHandler.HEADPHONEORANGE));
-		list.add(new ItemStack(ItemHandler.HEADPHONEPINK));
-		list.add(new ItemStack(ItemHandler.HEADPHONEPURPLE));
-		list.add(new ItemStack(ItemHandler.HEADPHONEYELLOW));
-		list.add(new ItemStack(ItemHandler.HEADPHONERED));
-		list.add(new ItemStack(ItemHandler.HEADPHONEWHITE));
-		list.add(new ItemStack(ItemHandler.HEADPHONERAINBOW));
+		for(int i = 0; i < 17; i++) {
+			list.add(new ItemStack(ItemHandler.HEADPHONES, 1, i));
+		}
 	}
 
 }

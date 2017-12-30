@@ -1,5 +1,19 @@
 package com.spjoes.extraons.apps.karaoke;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.nio.file.FileSystem;
+import java.nio.file.FileSystems;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Arrays;
+import java.util.Enumeration;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipFile;
+
 import com.mrcrayfish.device.api.app.Application;
 import com.mrcrayfish.device.api.app.Layout;
 import com.mrcrayfish.device.api.app.component.Button;
@@ -82,7 +96,7 @@ public class ApplicationKaraoke extends Application {
 	@Override
 	public void onTick() {
 		super.onTick();
-		/*if(this.select != null && this.select.isClosed()) {
+		if(this.select != null && this.select.isClosed()) {
 			if(this.select.isFileSelected()) {
 				ZipFile zip = null;
 				File music = null;
@@ -120,7 +134,7 @@ public class ApplicationKaraoke extends Application {
 					this.karaoke = new Karaoke(music);
 					
 					this.setCurrentLayout(new Layout(200, 100));
-					this.line = new KaraokeLine(Arrays.<String>asList("This is a long line of text that will be sung in 5 seconds"));
+					//this.line = new KaraokeLine(Arrays.<String>asList("This is a long line of text that will be sung in 5 seconds"));
 				} catch(Throwable e) {
 					e.printStackTrace();
 				}
@@ -131,7 +145,7 @@ public class ApplicationKaraoke extends Application {
 				}
 			}
 			this.select = null;
-		}*/
+		}
 	}
 	
 	@Override

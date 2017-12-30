@@ -1,0 +1,7 @@
+{
+	"parent": "extraons:item/headphones",
+	"textures": {
+		"0": "extraons:items/headphones_rainbow",
+		"particle": "extraons:items/headphones_rainbow"
+	}
+}
