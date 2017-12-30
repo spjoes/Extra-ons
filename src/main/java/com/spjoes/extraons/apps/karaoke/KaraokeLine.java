@@ -12,12 +12,13 @@ import net.minecraft.client.gui.ScaledResolution;
 public class KaraokeLine {
 
 	private List<String> lines;
+	private int start;
 	private int duration;
 	private int position;
 	private int height;
 	private int totalWidth;
 	
-	public KaraokeLine(String text, int duration) {
+	public KaraokeLine(String text, int start, int duration) {
 		FontRenderer fr = Minecraft.getMinecraft().fontRenderer;
 		
 		this.lines = new ArrayList<String>();
@@ -37,6 +38,8 @@ public class KaraokeLine {
 		this.lines.add(lineToAdd);
 		
 		this.height = (this.lines.size()-1)*10+8; // Because I want a padding of 2 pixels between each line
+		
+		this.start = start;
 		
 		this.duration = duration; // in ticks
 		
@@ -93,7 +96,15 @@ public class KaraokeLine {
 	}
 	
 	public void onTick() {
-		this.position = (this.position + 1)%(this.duration + 20);
+		this.position = Math.min(this.position + 1, this.duration);
+	}
+	
+	public int getStart() {
+		return this.start;
+	}
+	
+	public int getDuration() {
+		return this.duration;
 	}
 	
 }

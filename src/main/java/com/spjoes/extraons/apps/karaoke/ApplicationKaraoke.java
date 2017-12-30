@@ -63,15 +63,16 @@ public class ApplicationKaraoke extends Application {
 		this.noMicLayout = new Layout(100, 100);
 		this.noMicLayout.setBackground((gui, mc, x, y, w, h, mx, my, active) -> {
 			mc.fontRenderer.drawString("You don't have a", x, y+36, 0xFF0000);
-			mc.fontRenderer.drawString("microphone linked", x, y+46, 0xFF0000);
+			mc.fontRenderer.drawString("a device linked", x, y+46, 0xFF0000);
 			mc.fontRenderer.drawString("to this laptop.", x, y+56, 0xFF0000);
 		});
 		
 		this.noMicHeldLayout = new Layout(100, 100);
 		this.noMicHeldLayout.setBackground((gui, mc, x, y, w, h, mx, my, active) -> {
-			mc.fontRenderer.drawString("You don't have a", x, y+36, 0xFF0000);
-			mc.fontRenderer.drawString("microphone in your", x, y+46, 0xFF0000);
-			mc.fontRenderer.drawString("hand.", x, y+56, 0xFF0000);
+			mc.fontRenderer.drawString("You don't have a", x, y+26, 0xFF0000);
+			mc.fontRenderer.drawString("microphone in your", x, y+36, 0xFF0000);
+			mc.fontRenderer.drawString("hand, or a headset", x, y+46, 0xFF0000);
+			mc.fontRenderer.drawString("on your head.", x, y+56, 0xFF0000);
 		});
 		
 		// Since it's client side only, I can do this without worries
@@ -142,7 +143,7 @@ public class ApplicationKaraoke extends Application {
 						}
 					}
 					
-					this.karaoke = new Karaoke(music, text);
+					this.karaoke = new Karaoke(this, music, text);
 					
 					this.setCurrentLayout(new Layout(200, 100));
 				} catch(Throwable e) {
@@ -156,12 +157,16 @@ public class ApplicationKaraoke extends Application {
 			}
 			this.select = null;
 		}
+		
+		if(this.karaoke != null) {
+			this.karaoke.onTick();
+		}
 	}
 	
 	@Override
 	public String getWindowTitle() {
 		if(this.karaoke != null) {
-			return this.karaoke.getNameAndAuthor();
+			return this.karaoke.getNameAndArtist();
 		}
 		return super.getWindowTitle();
 	}
@@ -169,6 +174,9 @@ public class ApplicationKaraoke extends Application {
 	@Override
 	public void render(Laptop laptop, Minecraft mc, int x, int y, int mouseX, int mouseY, boolean active, float partialTicks) {
 		super.render(laptop, mc, x, y, mouseX, mouseY, active, partialTicks);
+		if(this.karaoke != null) {
+			this.karaoke.render(mc, x, y, partialTicks);
+		}
 	}
 	
 	@Override
@@ -186,7 +194,13 @@ public class ApplicationKaraoke extends Application {
 		super.onClose();
 		if(this.karaoke != null) {
 			this.karaoke.stop();
+			this.karaoke = null;
 		}
+	}
+
+	public void menu() {
+		this.setCurrentLayout(this.menuLayout);
+		this.karaoke = null;
 	}
 	
 }
