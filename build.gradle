@@ -12,8 +12,8 @@ apply plugin: 'net.minecraftforge.gradle.forge'
 
 
 version = "1.0"
-group = "com.spjoes.addoncrewlol" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "addoncrewlol"
+group = "com.spjoes.extraons" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+archivesBaseName = "extraons"
 
 sourceCompatibility = targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
 compileJava {

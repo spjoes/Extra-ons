@@ -1,8 +1,18 @@
 {
+	"forge_marker": 1,
+	"defaults": {
+		"model": "extraons:monitor"
+	},
 	"variants": {
-		"facing=north": { "model": "extraons:monitor" },
-		"facing=south": { "model": "extraons:monitor", "y": 180 },
-		"facing=east": { "model": "extraons:monitor", "y": 90 },
-		"facing=west": { "model": "extraons:monitor", "y": 270 }
+		"facing": {
+			"north": { "y":   0 },
+			"south": { "y": 180 },
+			"east" : { "y":  90 },
+			"west" : { "y": 270 }
+		},
+		"on_wall": {
+			false: {	},
+			true : { "model": "extraons:monitor_wall" }
+		}
 	}
 }
