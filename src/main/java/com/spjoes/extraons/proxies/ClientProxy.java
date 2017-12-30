@@ -19,11 +19,11 @@ public class ClientProxy extends CommonProxy {
 
 	@Override
 	public void registerModels() {
-		for(int i = 0; i < 16; i++) {
-			this.registerModel(ItemHandler.MICROPHONE, i, new ResourceLocation(Constants.MODID, "mic"));
-			this.registerModel(ItemHandler.HEADPHONES, i, new ResourceLocation(Constants.MODID, "headphones"));
+		for(EnumDyeColor col : EnumDyeColor.values()) {
+			this.registerModel(ItemHandler.MICROPHONE, col.getMetadata(), new ResourceLocation(Constants.MODID, "mic"));
+			this.registerModel(ItemHandler.HEADPHONES, col.getMetadata(), new ResourceLocation(Constants.MODID, "headphones/" + col.getName()));
 		}
-		this.registerModel(ItemHandler.HEADPHONES, 16, new ResourceLocation(Constants.MODID, "headphones_rainbow"));
+		this.registerModel(ItemHandler.HEADPHONES, 16, new ResourceLocation(Constants.MODID, "headphones/white"));
 		this.registerModel(ItemHandler.MONITOR_ITEM, 0, new ResourceLocation(Constants.MODID, "monitor"));
 		this.registerModel(ItemHandler.CENTRAL_UNIT_ITEM, 0, new ResourceLocation(Constants.MODID, "central_unit"));
 		this.registerModel(ItemHandler.HDMI_CABLE, 0, new ResourceLocation(Constants.MODID, "hdmi_cable"));
@@ -39,7 +39,35 @@ public class ClientProxy extends CommonProxy {
 				return tintIndex == 1 && stack.getItemDamage() < 16 ? EnumDyeColor.byMetadata(stack.getItemDamage()).getColorValue() : 0xFFFFFF;
 			}
 		};
-		Minecraft.getMinecraft().getItemColors().registerItemColorHandler(color, ItemHandler.MICROPHONE, ItemHandler.HEADPHONES);
+		Minecraft.getMinecraft().getItemColors().registerItemColorHandler(color, ItemHandler.MICROPHONE);
+		IItemColor jeb = new IItemColor() {
+			@Override
+			public int getColorFromItemstack(ItemStack stack, int tintIndex) {
+				int time = (int) (Minecraft.getSystemTime()%6000);
+				int r = 0, g = 0, b = 0;
+				if(time < 1000) {
+					r = 255;
+					g = (int) ((time/1000.0)*255);
+				} else if(time < 2000) {
+					g = 255;
+					r = (int) ((1.0-((time-1000)/1000.0))*255);
+				} else if(time < 3000) {
+					g = 255;
+					b = (int) (((time-2000)/1000.0)*255);
+				} else if(time < 4000) {
+					b = 255;
+					g = (int) ((1.0-((time-3000)/1000.0))*255);
+				} else if(time < 5000) {
+					b = 255;
+					r = (int) (((time-4000)/1000.0)*255);
+				} else {
+					r = 255;
+					b = (int) ((1.0-((time-5000)/1000.0))*255);
+				}
+				return tintIndex == 1 && stack.getItemDamage() == 16 ? ((r & 0xFF) << 16) | ((g & 0xFF) << 8) | ((b & 0xFF) << 0) : 0xFFFFFF;
+			}
+		};
+		Minecraft.getMinecraft().getItemColors().registerItemColorHandler(jeb, ItemHandler.HEADPHONES);
 	}
 	
 	private void registerModel(Item item, int damage, ResourceLocation rl) {
