@@ -9,12 +9,13 @@ import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
 public class ItemHandler {
 
-	public static Item MICROPHONE, TAB_ICON, MONITOR_ITEM, CENTRAL_UNIT_ITEM, HDMI_CABLE, PHONE, HEADPHONES;
+	public static Item MICROPHONE, TAB_ICON, MONITOR_ITEM, CENTRAL_UNIT_ITEM, HDMI_CABLE, PHONE, HEADPHONES, MOUSE;
 	
 	public static void registerItems() {
 		MICROPHONE = new ItemMic();
 		TAB_ICON = new Item().setRegistryName(Constants.MODID, "tab_icon");
 		MONITOR_ITEM = new ItemBlock(BlockHandler.MONITOR).setRegistryName(BlockHandler.MONITOR.getRegistryName());
+		MOUSE = new ItemBlock(BlockHandler.MOUSE).setRegistryName(BlockHandler.MOUSE.getRegistryName());
 		CENTRAL_UNIT_ITEM = new ItemBlock(BlockHandler.CENTRAL_UNIT).setRegistryName(BlockHandler.CENTRAL_UNIT.getRegistryName());
 		HDMI_CABLE = new ItemHDMICable();
 		PHONE = new ItemPhone();
@@ -23,6 +24,7 @@ public class ItemHandler {
 		ForgeRegistries.ITEMS.register(MICROPHONE);
 		ForgeRegistries.ITEMS.register(TAB_ICON);
 		ForgeRegistries.ITEMS.register(MONITOR_ITEM);
+		ForgeRegistries.ITEMS.register(MOUSE);
 		ForgeRegistries.ITEMS.register(CENTRAL_UNIT_ITEM);
 		ForgeRegistries.ITEMS.register(HDMI_CABLE);
 		ForgeRegistries.ITEMS.register(PHONE);

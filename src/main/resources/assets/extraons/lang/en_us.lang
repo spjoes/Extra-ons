@@ -17,6 +17,7 @@ item.headphone_rainbow.name=Rainbow Head Phones
 
 tile.monitor.name=Monitor
 tile.central_unit.name=Central Unit
+tile.mouse.name=Computer Mouse
 
 itemGroup.extraons=Extra-Ons
 
