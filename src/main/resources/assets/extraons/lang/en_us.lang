@@ -4,16 +4,8 @@ app.extraons.karaoke.name=Karaoke
 item.microphone.name=Microphone
 item.hdmi_cable.name=HDMI Cable
 item.phone.name=Phone
-item.headphone_black.name=Black Head Phones
-item.headphone_blue.name=Blue Head Phones
-item.headphone_lime.name=Lime Head Phones
-item.headphone_orange.name=Orange Head Phones
-item.headphone_pink.name=Pink Head Phones
-item.headphone_purple.name=Purple Head Phones
-item.headphone_yellow.name=Yellow Head Phones
-item.headphone_red.name=Red Head Phones
-item.headphone_white.name=White Head Phones
-item.headphone_rainbow.name=Rainbow Head Phones
+item.headphones.name=Head Phones
+
 
 tile.monitor.name=Monitor
 tile.central_unit.name=Central Unit
