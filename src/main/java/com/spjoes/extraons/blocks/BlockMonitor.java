@@ -40,12 +40,12 @@ public class BlockMonitor extends Block implements ITileEntityProvider {
 	
 	@Override
 	public IBlockState getStateFromMeta(int meta) {
-		return this.getDefaultState().withProperty(BlockHorizontal.FACING, EnumFacing.getHorizontal(meta));
+		return this.getDefaultState().withProperty(BlockHorizontal.FACING, EnumFacing.getHorizontal(meta%4)).withProperty(ON_WALL, meta >= 4);
 	}
 	
 	@Override
 	public int getMetaFromState(IBlockState state) {
-		return state.getValue(BlockHorizontal.FACING).getHorizontalIndex();
+		return state.getValue(BlockHorizontal.FACING).getHorizontalIndex() + (state.getValue(ON_WALL) ? 0 : 4);
 	}
 	
 	@Override

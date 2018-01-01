@@ -17,7 +17,7 @@ public class CreativeTabExtraons extends CreativeTabs {
 	
 	@Override
 	public void displayAllRelevantItems(NonNullList<ItemStack> list) {
-		for(int i = 0; i < 16; i++) {
+		for(int i = 0; i < 17; i++) {
 			list.add(new ItemStack(ItemHandler.MICROPHONE, 1, i));
 		}
 		list.add(new ItemStack(ItemHandler.MONITOR_ITEM));

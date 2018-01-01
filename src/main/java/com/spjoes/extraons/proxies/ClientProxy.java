@@ -23,6 +23,7 @@ public class ClientProxy extends CommonProxy {
 			this.registerModel(ItemHandler.MICROPHONE, col.getMetadata(), new ResourceLocation(Constants.MODID, "mic/" + col.getName()));
 			this.registerModel(ItemHandler.HEADPHONES, col.getMetadata(), new ResourceLocation(Constants.MODID, "headphones/" + col.getName()));
 		}
+		this.registerModel(ItemHandler.MICROPHONE, 16, new ResourceLocation(Constants.MODID, "mic/white"));
 		this.registerModel(ItemHandler.HEADPHONES, 16, new ResourceLocation(Constants.MODID, "headphones/white"));
 		this.registerModel(ItemHandler.MONITOR_ITEM, 0, new ResourceLocation(Constants.MODID, "monitor"));
 		this.registerModel(ItemHandler.MOUSE, 0, new ResourceLocation(Constants.MODID, "mouse"));
@@ -34,13 +35,6 @@ public class ClientProxy extends CommonProxy {
 	
 	@Override
 	public void registerItemColors() {
-		IItemColor color = new IItemColor() {
-			@Override
-			public int getColorFromItemstack(ItemStack stack, int tintIndex) {
-				return tintIndex == 1 && stack.getItemDamage() < 16 ? EnumDyeColor.byMetadata(stack.getItemDamage()).getColorValue() : 0xFFFFFF;
-			}
-		};
-		Minecraft.getMinecraft().getItemColors().registerItemColorHandler(color, ItemHandler.MICROPHONE);
 		IItemColor jeb = new IItemColor() {
 			@Override
 			public int getColorFromItemstack(ItemStack stack, int tintIndex) {
@@ -68,7 +62,7 @@ public class ClientProxy extends CommonProxy {
 				return tintIndex == 1 && stack.getItemDamage() == 16 ? ((r & 0xFF) << 16) | ((g & 0xFF) << 8) | ((b & 0xFF) << 0) : 0xFFFFFF;
 			}
 		};
-		Minecraft.getMinecraft().getItemColors().registerItemColorHandler(jeb, ItemHandler.HEADPHONES);
+		Minecraft.getMinecraft().getItemColors().registerItemColorHandler(jeb, ItemHandler.HEADPHONES, ItemHandler.MICROPHONE);
 	}
 	
 	private void registerModel(Item item, int damage, ResourceLocation rl) {
