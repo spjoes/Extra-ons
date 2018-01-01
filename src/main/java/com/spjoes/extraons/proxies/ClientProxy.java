@@ -20,9 +20,10 @@ public class ClientProxy extends CommonProxy {
 	@Override
 	public void registerModels() {
 		for(EnumDyeColor col : EnumDyeColor.values()) {
-			this.registerModel(ItemHandler.MICROPHONE, col.getMetadata(), new ResourceLocation(Constants.MODID, "mic"));
+			
 			this.registerModel(ItemHandler.HEADPHONES, col.getMetadata(), new ResourceLocation(Constants.MODID, "headphones/" + col.getName()));
 		}
+		this.registerModel(ItemHandler.MICROPHONE, 0, new ResourceLocation(Constants.MODID, "mic"));
 		this.registerModel(ItemHandler.HEADPHONES, 16, new ResourceLocation(Constants.MODID, "headphones/white"));
 		this.registerModel(ItemHandler.MONITOR_ITEM, 0, new ResourceLocation(Constants.MODID, "monitor"));
 		this.registerModel(ItemHandler.MOUSE, 0, new ResourceLocation(Constants.MODID, "mouse"));
