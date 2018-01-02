@@ -21,7 +21,7 @@ public class CreativeTabExtraons extends CreativeTabs {
 			list.add(new ItemStack(ItemHandler.MICROPHONE, 1, i));
 		}
 		list.add(new ItemStack(ItemHandler.MONITOR_ITEM));
-		list.add(new ItemStack(ItemHandler.MOUSE));
+		list.add(new ItemStack(ItemHandler.MOUSE_ITEM));
 		list.add(new ItemStack(ItemHandler.CENTRAL_UNIT_ITEM));
 		list.add(new ItemStack(ItemHandler.HDMI_CABLE));
 		list.add(new ItemStack(ItemHandler.PHONE));

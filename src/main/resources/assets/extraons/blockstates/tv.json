@@ -1,0 +1,51 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"model": "extraons:tv"
+	},
+	"variants": {
+		"facing": {
+			"north": {
+				"y": 0
+			},
+			"south": {
+				"y": 180
+			},
+			"east": {
+				"y": 90
+			},
+			"west": {
+				"y": 270
+			}
+		},
+		"channel": {
+			"free_real_estate": {
+				"textures": {
+					"1": "extraons:blocks/tv/estate"
+				}
+			},
+			"wow_wink": {
+			
+			},
+			"pig_riding": {
+			
+			},
+			"diamond": {
+			
+			},
+			"ha": {
+			
+			}
+		},
+		"on": {
+			true: {
+				"model": "extraons:tv_on"
+			},
+			false: {
+				"textures": {
+					"1": "blocks/bedrock"
+				}
+			}
+		}
+	}
+}
