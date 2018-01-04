@@ -1,34 +1,53 @@
 package com.spjoes.extraons.tileentities;
 
+import java.lang.reflect.Field;
+
+import com.spjoes.extraons.Constants;
 import com.spjoes.extraons.blocks.BlockHandler;
 import com.spjoes.extraons.blocks.BlockTV;
+import com.spjoes.extraons.blocks.BlockTV.TVChannels;
 
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 
 public class TileEntityTV extends TileEntity {
 	
-	private int channelId = -1; //Just because I'm lazy to check whever it's on or not
+	private int channelId = 0; //Just because I'm lazy to check whever it's on or not
 	
 	public void next() {
-		System.out.println("next");
 		this.channelId ++;
 		if(this.channelId == BlockTV.TVChannels.count()) {
-			this.channelId = 0;
+			this.channelId = 1;
 		}
-		IBlockState state = this.world.getBlockState(this.pos);
-		if(!state.getValue(BlockTV.ON)) {
-			state = state.withProperty(BlockTV.ON, true);
-		}
-		//System.out.println(this.channelId);
-		this.world.setBlockState(this.pos, state.withProperty(BlockTV.CHANNEL, BlockTV.TVChannels.get(this.channelId)));
+		this.updateState();
 	}
 	
 	public void shutdown() {
-		this.world.setBlockState(this.pos, this.world.getBlockState(this.pos).withProperty(BlockTV.ON, false));
-		this.channelId = -1;
+		this.channelId = 0;
+		this.updateState();
+	}
+	
+	private void updateState() {
+		TVChannels channel = BlockTV.TVChannels.get(this.channelId);
+		this.world.setBlockState(this.pos, this.world.getBlockState(this.pos).withProperty(BlockTV.CHANNEL, channel));
+		if(this.world.isRemote) {
+			try {
+				TextureAtlasSprite atlas = Minecraft.getMinecraft().getTextureMapBlocks().getAtlasSprite(Constants.MODID + ":blocks/tv/" + channel.getTextureName());
+				if(atlas != null) {
+					String fieldName = ObfuscationReflectionHelper.remapFieldNames(TextureAtlasSprite.class.getName(), "field_110973_g")[0];
+					Field f = TextureAtlasSprite.class.getDeclaredField(fieldName);
+					f.setAccessible(true);
+					f.setInt(atlas, 0);
+				}
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
 	}
 	
 	@Override

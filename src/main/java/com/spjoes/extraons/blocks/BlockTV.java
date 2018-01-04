@@ -21,7 +21,6 @@ import net.minecraft.world.World;
 
 public class BlockTV extends Block implements ITileEntityProvider {
 	
-	public static final PropertyBool ON = PropertyBool.create("on");
 	public static final PropertyEnum CHANNEL = PropertyEnum.<TVChannels>create("channel", TVChannels.class);
 	
 	public BlockTV() {
@@ -29,13 +28,12 @@ public class BlockTV extends Block implements ITileEntityProvider {
 		this.setRegistryName("tv");
 		this.setDefaultState(this.blockState.getBaseState()
 				.withProperty(BlockHorizontal.FACING, EnumFacing.NORTH)
-				.withProperty(ON, false)
-				.withProperty(CHANNEL, TVChannels.FREE_REAL_ESTATE));
+				.withProperty(CHANNEL, TVChannels.NONE));
 	}
 	
 	@Override
 	protected BlockStateContainer createBlockState() {
-		return new BlockStateContainer(this, BlockHorizontal.FACING, ON, CHANNEL);
+		return new BlockStateContainer(this, BlockHorizontal.FACING, CHANNEL);
 	}
 	
 	@Override
@@ -70,17 +68,14 @@ public class BlockTV extends Block implements ITileEntityProvider {
 	
     @Override
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
-    	if(!worldIn.isRemote) {
-	    	TileEntity te = worldIn.getTileEntity(pos);
-	    	if(te instanceof TileEntityTV) {
-	    		TileEntityTV tv = (TileEntityTV) te;
-	    		if(playerIn.isSneaking()) {
-	    			tv.shutdown();
-	    		} else {
-	    			tv.next();
-	    		}
-	    		return true;
-	    	}
+    	TileEntity te = worldIn.getTileEntity(pos);
+    	if(te instanceof TileEntityTV) {
+    		TileEntityTV tv = (TileEntityTV) te;
+    		if(playerIn.isSneaking()) {
+    			tv.shutdown();
+    		} else {
+    			tv.next();
+    		}
     	}
     	return true;
     }
@@ -91,20 +86,32 @@ public class BlockTV extends Block implements ITileEntityProvider {
     }
     
 	public static enum TVChannels implements IStringSerializable {
-		FREE_REAL_ESTATE,
-		WOW_WINK,
+		NONE,
+		FREE_REAL_ESTATE("estate"),
+		WOW_WINK("wow"),
 		PIG_RIDING,
 		DIAMOND,
-		HA;
+		HA("ha"),
+		BANANA_MAN;
+		
+		private String textureName;
 		
 		TVChannels() {
-			// In case of a sound
+			this(null);
+		}
+		
+		TVChannels(String textureName) {
+			this.textureName = textureName;
 		}
 		
 		@Override
 		public String getName() {
 			return this.name().toLowerCase();
-		}		
+		}
+		
+		public String getTextureName() {
+			return this.textureName;
+		}
 	
 		public static int count() {
 			return values().length;
@@ -114,7 +121,7 @@ public class BlockTV extends Block implements ITileEntityProvider {
 			if(channelId >= 0 && channelId < count()) {
 				return values()[channelId];
 			}
-			return null;
+			return NONE;
 		}
 		
 	}
