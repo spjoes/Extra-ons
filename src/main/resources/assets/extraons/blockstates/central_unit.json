@@ -3,8 +3,12 @@
 	"defaults": {
 		"model": "extraons:central_unit",
 		"textures": {
-			"0": "extraons:blocks/central_unit",
-			"1": "blocks/wool_colored_lime"
+		"0": "blocks/anvil_base",
+		"1": "blocks/concrete_lime",
+		"2": "blocks/iron_block",
+		"3": "blocks/wool_colored_black",
+		"4": "blocks/stone",
+		"particle": "blocks/anvil_base"
 		}
 	},
 	"variants": {
@@ -14,7 +18,7 @@
 			},
 			false: {
 				"textures": {
-					"1": "blocks/wool_colored_red"
+					"1": "blocks/concrete_red"
 				}
 			}
 		},
