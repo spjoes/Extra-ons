@@ -5,9 +5,9 @@
 	},
 	"variants": {
 		"facing": {
-			"north": { "y":   0 },
-			"south": { "y": 180 },
-			"east" : { "y":  90 },
+			"north": { "y": 180 },
+			"south": { "y": 0 },
+			"east" : { "y": 90 },
 			"west" : { "y": 270 }
 		},
 		"on_wall": {
