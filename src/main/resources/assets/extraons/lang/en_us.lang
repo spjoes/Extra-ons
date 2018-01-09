@@ -10,6 +10,7 @@ item.headphones.name=Head Phones
 tile.monitor.name=Monitor
 tile.central_unit.name=Central Unit
 tile.mouse.name=Computer Mouse
+tile.console.name=Creeper Console
 
 itemGroup.extraons=Extra-Ons
 

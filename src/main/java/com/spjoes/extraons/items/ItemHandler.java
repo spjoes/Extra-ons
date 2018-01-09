@@ -10,7 +10,7 @@ import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
 public class ItemHandler {
 
-	public static Item MICROPHONE, TAB_ICON, MONITOR_ITEM, CENTRAL_UNIT_ITEM, HDMI_CABLE, PHONE, HEADPHONES, MOUSE_ITEM, TV_ITEM, CONSOLE;
+	public static Item MICROPHONE, TAB_ICON, MONITOR_ITEM, CENTRAL_UNIT_ITEM, HDMI_CABLE, PHONE, HEADPHONES, MOUSE_ITEM, TV_ITEM, CONSOLE, CONTROLLER;
 	
 	public static void registerItems() {
 		MICROPHONE = new ItemMic();
@@ -23,8 +23,9 @@ public class ItemHandler {
 		PHONE = new ItemPhone();
 		HEADPHONES = new ItemHeadphones();
 		TV_ITEM = createIB(BlockHandler.TV);
+		CONTROLLER = new ItemController();
 		
-		registerAll(MICROPHONE, TAB_ICON, MONITOR_ITEM, CENTRAL_UNIT_ITEM, HDMI_CABLE, PHONE, HEADPHONES, MOUSE_ITEM, TV_ITEM, CONSOLE);
+		registerAll(MICROPHONE, TAB_ICON, MONITOR_ITEM, CENTRAL_UNIT_ITEM, HDMI_CABLE, PHONE, HEADPHONES, MOUSE_ITEM, TV_ITEM, CONSOLE, CONTROLLER);
 	}
 	
 	private static Item createIB(Block block) {
