@@ -5,12 +5,13 @@ item.microphone.name=Microphone
 item.hdmi_cable.name=HDMI Cable
 item.phone.name=Phone
 item.headphones.name=Head Phones
+item.controller.name=Controller
 
 
 tile.monitor.name=Monitor
 tile.central_unit.name=Central Unit
 tile.mouse.name=Computer Mouse
-tile.console.name=Creeper Console
+tile.console.name=Console
 
 itemGroup.extraons=Extra-Ons
 
