@@ -9,6 +9,7 @@ public class TileEntityHandler {
 		TileEntity.register("monitor", TileEntityMonitor.class);
 		TileEntity.register("central_unit", TileEntityCentralUnit.class);
 		TileEntity.register("tv", TileEntityTV.class);
+		TileEntity.register("console", TileEntityConsole.class);
 	}
 	
 }

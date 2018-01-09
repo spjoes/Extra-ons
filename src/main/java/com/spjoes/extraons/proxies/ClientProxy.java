@@ -27,7 +27,9 @@ public class ClientProxy extends CommonProxy {
 		this.registerModel(ItemHandler.HEADPHONES, 16, new ResourceLocation(Constants.MODID, "headphones/white"));
 		this.registerModel(ItemHandler.MONITOR_ITEM, 0, new ResourceLocation(Constants.MODID, "monitor"));
 		this.registerModel(ItemHandler.MOUSE_ITEM, 0, new ResourceLocation(Constants.MODID, "mouse"));
-		this.registerModel(ItemHandler.CONSOLE_CREEPER_ITEM, 0, new ResourceLocation(Constants.MODID, "console_creeper"));
+		this.registerModel(ItemHandler.CONSOLE, 0, new ResourceLocation(Constants.MODID, "console_creeper"));
+		this.registerModel(ItemHandler.CONSOLE, 1, new ResourceLocation(Constants.MODID, "console_pig"));
+		this.registerModel(ItemHandler.CONSOLE, 2, new ResourceLocation(Constants.MODID, "console_cow"));
 		this.registerModel(ItemHandler.CENTRAL_UNIT_ITEM, 0, new ResourceLocation(Constants.MODID, "central_unit"));
 		this.registerModel(ItemHandler.HDMI_CABLE, 0, new ResourceLocation(Constants.MODID, "hdmi_cable"));
 		this.registerModel(ItemHandler.TAB_ICON, 0, new ResourceLocation(Constants.MODID, "tab_icon"));
