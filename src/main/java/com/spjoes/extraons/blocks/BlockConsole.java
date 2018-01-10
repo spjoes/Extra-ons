@@ -1,6 +1,8 @@
 package com.spjoes.extraons.blocks;
 
+import com.spjoes.extraons.ExtraOns;
 import com.spjoes.extraons.tileentities.TileEntityConsole;
+import com.spjoes.extraons.tileentities.TileEntityMonitor;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockHorizontal;
@@ -10,8 +12,10 @@ import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.IStringSerializable;
@@ -27,6 +31,16 @@ public class BlockConsole extends Block implements ITileEntityProvider {
 		this.setRegistryName("console");
 		this.setUnlocalizedName("console");
 		this.setDefaultState(this.getBlockState().getBaseState().withProperty(TYPE, EnumConsoleType.UNKNOWN));
+	}
+	
+	@Override
+	public BlockRenderLayer getBlockLayer() {
+		return BlockRenderLayer.SOLID;
+	}
+	
+	@Override
+	public boolean isOpaqueCube(IBlockState state) {
+		return false;
 	}
 	
 	@Override
@@ -82,6 +96,16 @@ public class BlockConsole extends Block implements ITileEntityProvider {
 			return name().toLowerCase();
 		}
 		
+		public TileEntity createNewTileEntity(World worldIn, int meta) {
+			return new TileEntityMonitor();
+		}
+		
+		public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
+			if(worldIn.isRemote) {
+				playerIn.openGui(ExtraOns.INSTANCE, 0, worldIn, pos.getX(), pos.getY(), pos.getZ());
+			}
+			return true;
+		
 	}
     
-}
+} }
