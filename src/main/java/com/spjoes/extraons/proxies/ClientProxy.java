@@ -1,6 +1,7 @@
 package com.spjoes.extraons.proxies;
 
 import com.spjoes.extraons.Constants;
+import com.spjoes.extraons.blocks.BlockConsole.EnumConsoleType;
 import com.spjoes.extraons.client.TESRCentralUnit;
 import com.spjoes.extraons.items.ItemHandler;
 import com.spjoes.extraons.tileentities.TileEntityCentralUnit;
@@ -23,19 +24,20 @@ public class ClientProxy extends CommonProxy {
 			this.registerModel(ItemHandler.MICROPHONE, col.getMetadata(), new ResourceLocation(Constants.MODID, "mic/" + col.getName()));
 			this.registerModel(ItemHandler.HEADPHONES, col.getMetadata(), new ResourceLocation(Constants.MODID, "headphones/" + col.getName()));
 		}
+		for(int i = 0; i < 3; i++) {
+			EnumConsoleType type = EnumConsoleType.fromMeta(i);
+			this.registerModel(ItemHandler.CONSOLE, i, new ResourceLocation(Constants.MODID, "console_" + type.getName()));
+			this.registerModel(ItemHandler.CONTROLLER, i, new ResourceLocation(Constants.MODID, "controller_" + type.getName()));
+		}
 		this.registerModel(ItemHandler.MICROPHONE, 16, new ResourceLocation(Constants.MODID, "mic/white"));
 		this.registerModel(ItemHandler.HEADPHONES, 16, new ResourceLocation(Constants.MODID, "headphones/white"));
 		this.registerModel(ItemHandler.MONITOR_ITEM, 0, new ResourceLocation(Constants.MODID, "monitor"));
 		this.registerModel(ItemHandler.MOUSE_ITEM, 0, new ResourceLocation(Constants.MODID, "mouse"));
-		this.registerModel(ItemHandler.CONSOLE, 0, new ResourceLocation(Constants.MODID, "console_creeper"));
-		this.registerModel(ItemHandler.CONSOLE, 1, new ResourceLocation(Constants.MODID, "console_pig"));
-		this.registerModel(ItemHandler.CONSOLE, 2, new ResourceLocation(Constants.MODID, "console_cow"));
 		this.registerModel(ItemHandler.CENTRAL_UNIT_ITEM, 0, new ResourceLocation(Constants.MODID, "central_unit"));
 		this.registerModel(ItemHandler.HDMI_CABLE, 0, new ResourceLocation(Constants.MODID, "hdmi_cable"));
 		this.registerModel(ItemHandler.TAB_ICON, 0, new ResourceLocation(Constants.MODID, "tab_icon"));
 		this.registerModel(ItemHandler.PHONE, 0, new ResourceLocation(Constants.MODID, "phone"));
 		this.registerModel(ItemHandler.TV_ITEM, 0, new ResourceLocation(Constants.MODID, "tv"));
-		this.registerModel(ItemHandler.CONTROLLER, 0, new ResourceLocation(Constants.MODID, "controller"));
 		this.registerModel(ItemHandler.SMB, 0, new ResourceLocation(Constants.MODID, "smb"));
 	}
 	
