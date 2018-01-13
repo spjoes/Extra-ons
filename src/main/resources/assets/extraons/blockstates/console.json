@@ -19,6 +19,7 @@
 			}
 		},
 		"type": {
+			"unknown": { }, // Already the default
 			"creeper": { }, // Already the default
 			"pig": { "model": "extraons:console_pig" },
 			"cow": { "model": "extraons:console_cow" }
