@@ -8,6 +8,8 @@ import com.spjoes.extraons.blocks.BlockHandler;
 import com.spjoes.extraons.client.GuiHandler;
 import com.spjoes.extraons.items.CreativeTabExtraons;
 import com.spjoes.extraons.items.ItemHandler;
+import com.spjoes.extraons.network.ToastMessage;
+import com.spjoes.extraons.network.ToastMessageHandler;
 import com.spjoes.extraons.proxies.CommonProxy;
 import com.spjoes.extraons.recipes.RecipeHandler;
 import com.spjoes.extraons.tileentities.TileEntityHandler;
@@ -22,6 +24,8 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
+import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
+import net.minecraftforge.fml.relauncher.Side;
 
 @Mod(modid=Constants.MODID, name=Constants.NAME, version=Constants.VERSION, dependencies=Constants.DEPS, acceptedMinecraftVersions=Constants.MCVER)
 public class ExtraOns {
@@ -36,6 +40,8 @@ public class ExtraOns {
 	
 	public static CreativeTabs TAB;
 	
+	public static final SimpleNetworkWrapper wrapper = NetworkRegistry.INSTANCE.newSimpleChannel(Constants.MODID);
+	
 	@EventHandler
 	public static void onPreInit(FMLPreInitializationEvent e) {
 		BlockHandler.registerBlocks();
@@ -48,6 +54,8 @@ public class ExtraOns {
 		
 		proxy.registerModels();
 		proxy.registerTERenders();
+		
+		wrapper.registerMessage(ToastMessageHandler.class, ToastMessage.class, 0, Side.CLIENT);
 	}
 	
 	@EventHandler

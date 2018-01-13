@@ -19,5 +19,5 @@ hdmi_cable.infos.not_device=%s isn't compatible
 hdmi_cable.infos.not_central_unit=You need to right-click a central unit first
 hdmi_cable.infos.not_monitor=You need to right-click a monitor now
 hdmi_cable.infos.go_click_monitor=Now right-click a monitor to link it
-hdmi_cable.infos.success=Successfully linked the monitor and the central unit
-hdmi_cable.infos.fail=Failed to link the monitor and the central unit
+hdmi_cable.infos.success=Link succeeded
+hdmi_cable.infos.fail=Link failed

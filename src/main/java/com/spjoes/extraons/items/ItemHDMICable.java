@@ -1,8 +1,10 @@
 package com.spjoes.extraons.items;
 
 import com.mrcrayfish.device.block.BlockDevice;
+import com.spjoes.extraons.ExtraOns;
 import com.spjoes.extraons.UsefulStuff;
 import com.spjoes.extraons.blocks.BlockHandler;
+import com.spjoes.extraons.network.ToastMessage;
 import com.spjoes.extraons.tileentities.TileEntityCentralUnit;
 import com.spjoes.extraons.tileentities.TileEntityMonitor;
 
@@ -57,7 +59,7 @@ public class ItemHDMICable extends Item {
 					centralUnit.link(pos);
 					
 					stack.shrink(1);
-					sendGameInfoMessage(player, "hdmi_cable.infos.success");
+					sendToastMessage(player, "hdmi_cable.infos.success");
 				} catch(Exception e) {
 					sendGameInfoMessage(player, "hdmi_cable.infos.fail");
 					stack.setTagCompound(null);
@@ -72,6 +74,17 @@ public class ItemHDMICable extends Item {
 	private void sendGameInfoMessage(EntityPlayer player, String message, Object... args) {
 		if(player instanceof EntityPlayerMP) {
 			((EntityPlayerMP) player).connection.sendPacket(new SPacketChat(new TextComponentTranslation(message), ChatType.GAME_INFO));
+		}
+	}
+	
+	private void sendToastMessage(EntityPlayer player, String message, Object... args) {
+		if(player instanceof EntityPlayerMP) {
+			String[] strings = new String[args.length + 1];
+			strings[0] = message;
+			for(int i = 0; i < args.length; i++) {
+				strings[i + 1] = args[i].toString();
+			}
+			ExtraOns.wrapper.sendTo(new ToastMessage(strings), (EntityPlayerMP) player);
 		}
 	}
 	
