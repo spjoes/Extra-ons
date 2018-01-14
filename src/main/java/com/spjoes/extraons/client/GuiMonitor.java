@@ -56,6 +56,12 @@ public class GuiMonitor extends Laptop {
 	static final int SCREEN_WIDTH = DEVICE_WIDTH - BORDER * 2;
 	static final int SCREEN_HEIGHT = DEVICE_HEIGHT - BORDER * 2;
 	
+	private static final ArrayList<ResourceLocation> BACKGROUNDS = new ArrayList<ResourceLocation>();
+	static {
+		BACKGROUNDS.add(new ResourceLocation(Constants.MODID, "textures/backgrounds/grass"));
+	}
+	private static final int BGINDEX = 0;
+	
 	private Layout context;
 	private Window[] windows = new Window[10];
 	private TaskBar bar;
@@ -123,6 +129,9 @@ public class GuiMonitor extends Laptop {
 				WINDOW_HEIGHT = null;
 			}
 		}
+		
+		BACKGROUNDS.clear();
+		BACKGROUNDS.add(new ResourceLocation(Constants.MODID, "textures/backgrounds/grass.png"));
 	}
 	
 	@Override
@@ -185,7 +194,7 @@ public class GuiMonitor extends Laptop {
 				}
 			} else {
 				/* Wallpaper */
-				this.mc.getTextureManager().bindTexture(new ResourceLocation("minecraft", "textures/blocks/redstone_ore.png"));
+				this.mc.getTextureManager().bindTexture(BACKGROUNDS.get(BGINDEX));
 				this.drawDispBG();
 
 				drawString(fontRenderer, "DbrownOS - v. " + Constants.VERSION, posX + BORDER + 5, posY + BORDER + 5, Color.WHITE.getRGB());
