@@ -1,5 +1,6 @@
 package com.spjoes.extraons.tileentities;
 
+import com.mrcrayfish.device.core.Settings;
 import com.mrcrayfish.device.tileentity.TileEntityLaptop;
 import com.spjoes.extraons.UsefulStuff;
 import com.spjoes.extraons.blocks.BlockCentralUnit;
@@ -26,6 +27,8 @@ import net.minecraftforge.common.util.Constants;
 public class TileEntityCentralUnit extends TileEntityLaptop {
 
 	private BlockPos monitorPos;
+	
+	private Settings settings;
 	
 	private String name = "Computer";
 	private boolean isOn = false;
@@ -147,6 +150,10 @@ public class TileEntityCentralUnit extends TileEntityLaptop {
 			return "Link failed. Reason: I prefer Super Mario over The Legend of Zelda";
 		}		
 		
+	}
+
+	public Settings getSettings() {
+		return this.settings;
 	}
 
 }

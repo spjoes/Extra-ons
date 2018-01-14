@@ -30,7 +30,7 @@ import net.minecraftforge.fml.relauncher.Side;
 @Mod(modid=Constants.MODID, name=Constants.NAME, version=Constants.VERSION, dependencies=Constants.DEPS, acceptedMinecraftVersions=Constants.MCVER)
 public class ExtraOns {
 
-	public static Application CLICKER, KARAOKE;
+	public static Application CLICKER, KARAOKE, CUSETTINGS;
 	
 	@SidedProxy(clientSide = "com.spjoes.extraons.proxies.ClientProxy", serverSide = "com.spjoes.extraons.proxies.CommonProxy")
 	private static CommonProxy proxy;

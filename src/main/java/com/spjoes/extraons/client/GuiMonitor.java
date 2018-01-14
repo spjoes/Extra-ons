@@ -6,6 +6,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
@@ -58,7 +59,10 @@ public class GuiMonitor extends Laptop {
 	
 	private static final ArrayList<ResourceLocation> BACKGROUNDS = new ArrayList<ResourceLocation>();
 	static {
-		BACKGROUNDS.add(new ResourceLocation(Constants.MODID, "textures/backgrounds/grass"));
+		String[] names = {"grass", "creeper", "slime"};
+		for(String name : names) {
+			BACKGROUNDS.add(new ResourceLocation(Constants.MODID, "textures/backgrounds/" + name + ".png"));
+		}
 	}
 	private static final int BGINDEX = 0;
 	
@@ -99,6 +103,8 @@ public class GuiMonitor extends Laptop {
 	private int lastMouseX;
 	private int lastMouseY;
 	
+	private List<Application> APPLICATIONS;
+	
 	private static Field WINDOW_OFFSETX, WINDOW_OFFSETY, WINDOW_WIDTH, WINDOW_HEIGHT;
 	
 	public GuiMonitor(TileEntityCentralUnit unit) {
@@ -107,7 +113,17 @@ public class GuiMonitor extends Laptop {
 		this.appData = unit.getApplicationData();
 		this.systemData = unit.getSystemData();
 		this.JOKE_LINE_INDEX = new Random().nextInt(JOKE_LINES.length);
-		this.bar = new DesktopTaskbar(this.getApplications());
+		this.APPLICATIONS = new ArrayList<Application>();
+		super.getApplications().forEach((app) -> {
+			boolean valid = true;
+			try {
+				if(app.getInfo().getFormattedId().equals("cdm.settings")) {
+					valid = false;
+				}
+			} catch(Exception e) {}
+			if(valid) { this.APPLICATIONS.add(app); };
+		});
+		this.bar = new DesktopTaskbar(this.APPLICATIONS);
 		
 		if(WINDOW_OFFSETX == null) {
 			try {
@@ -130,8 +146,6 @@ public class GuiMonitor extends Laptop {
 			}
 		}
 		
-		BACKGROUNDS.clear();
-		BACKGROUNDS.add(new ResourceLocation(Constants.MODID, "textures/backgrounds/grass.png"));
 	}
 	
 	@Override
@@ -241,7 +255,7 @@ public class GuiMonitor extends Laptop {
 				}
 			}
 			
-			this.bar.handleClick(this, this.posX, this.posY + BORDER + SCREEN_HEIGHT - TaskBar.BAR_HEIGHT, mouseX, mouseY, mouseButton);
+			this.bar.handleClick(this, this.posX + BORDER, this.posY + BORDER + SCREEN_HEIGHT - TaskBar.BAR_HEIGHT, mouseX, mouseY, mouseButton);
 			
 			for(int i = 0; i < windows.length; i++) {
 				Window<Application> window = windows[i];
@@ -456,7 +470,7 @@ public class GuiMonitor extends Laptop {
 	
 	@Override
 	public Settings getSettings() {
-		return null;
+		return this.unit.getSettings();
 	}
 	
 	@Override
