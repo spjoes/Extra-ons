@@ -1,34 +1,26 @@
 package com.spjoes.extraons.tileentities;
 
 import com.mrcrayfish.device.core.Settings;
-import com.mrcrayfish.device.tileentity.TileEntityLaptop;
+import com.mrcrayfish.device.tileentity.TileEntityDevice;
 import com.spjoes.extraons.UsefulStuff;
 import com.spjoes.extraons.blocks.BlockCentralUnit;
 import com.spjoes.extraons.blocks.BlockHandler;
 import com.spjoes.extraons.client.SoundHandler;
 import com.spjoes.extraons.items.ItemHandler;
 
-
-import net.minecraft.block.state.IBlockState;
-import io.netty.buffer.Unpooled;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.item.EntityItem;
-import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.network.PacketBuffer;
-import net.minecraft.network.play.server.SPacketCustomPayload;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.Constants;
 
-public class TileEntityCentralUnit extends TileEntityLaptop {
+public class TileEntityCentralUnit extends TileEntityDevice {
 
 	private BlockPos monitorPos;
-	
-	private Settings settings;
 	
 	private String name = "Computer";
 	private boolean isOn = false;
@@ -150,10 +142,6 @@ public class TileEntityCentralUnit extends TileEntityLaptop {
 			return "Link failed. Reason: I prefer Super Mario over The Legend of Zelda";
 		}		
 		
-	}
-
-	public Settings getSettings() {
-		return this.settings;
 	}
 
 }
