@@ -5,7 +5,7 @@ import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
 public class BlockHandler {
 
-	public static Block MONITOR, CENTRAL_UNIT, MOUSE, TV, CONSOLE;
+	public static Block MONITOR, CENTRAL_UNIT, MOUSE, TV, CONSOLE, KEYBOARD, CHAIR;
 	
 	public static void registerBlocks() {
 		MONITOR = new BlockMonitor();
@@ -13,12 +13,16 @@ public class BlockHandler {
 		MOUSE = new BlockMouse();
 		TV = new BlockTV();
 		CONSOLE = new BlockConsole();
+		KEYBOARD = new BlockKeyboard();
+		CHAIR = new BlockChair();
 		
 		ForgeRegistries.BLOCKS.register(MONITOR);
 		ForgeRegistries.BLOCKS.register(CENTRAL_UNIT);
 		ForgeRegistries.BLOCKS.register(MOUSE);
 		ForgeRegistries.BLOCKS.register(TV);
 		ForgeRegistries.BLOCKS.register(CONSOLE);
+		ForgeRegistries.BLOCKS.register(KEYBOARD);
+		ForgeRegistries.BLOCKS.register(CHAIR);
 	}
 	
 }

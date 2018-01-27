@@ -10,7 +10,7 @@ import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
 public class ItemHandler {
 
-	public static Item MICROPHONE, TAB_ICON, MONITOR_ITEM, CENTRAL_UNIT_ITEM, HDMI_CABLE, PHONE, HEADPHONES, MOUSE_ITEM, TV_ITEM, CONSOLE, CONTROLLER, SMB;
+	public static Item MICROPHONE, TAB_ICON, MONITOR_ITEM, CENTRAL_UNIT_ITEM, HDMI_CABLE, PHONE, HEADPHONES, MOUSE_ITEM, TV_ITEM, CONSOLE, CONTROLLER, SMB, KEYBOARD, CHAIR;
 	
 	public static void registerItems() {
 		MICROPHONE = new ItemMic();
@@ -18,6 +18,8 @@ public class ItemHandler {
 		MONITOR_ITEM = createIB(BlockHandler.MONITOR);
 		CONSOLE = createIB(BlockHandler.CONSOLE, true);
 		MOUSE_ITEM = createIB(BlockHandler.MOUSE);
+		KEYBOARD = createIB(BlockHandler.KEYBOARD);
+		CHAIR = createIB(BlockHandler.CHAIR);
 		CENTRAL_UNIT_ITEM = new ItemBlock(BlockHandler.CENTRAL_UNIT).setRegistryName(BlockHandler.CENTRAL_UNIT.getRegistryName());
 		HDMI_CABLE = new ItemHDMICable();
 		PHONE = new ItemPhone();
@@ -26,7 +28,7 @@ public class ItemHandler {
 		CONTROLLER = new ItemController();
 		SMB = new ItemSMB();
 		
-		registerAll(MICROPHONE, TAB_ICON, MONITOR_ITEM, CENTRAL_UNIT_ITEM, HDMI_CABLE, PHONE, HEADPHONES, MOUSE_ITEM, TV_ITEM, CONSOLE, CONTROLLER, SMB);
+		registerAll(MICROPHONE, TAB_ICON, MONITOR_ITEM, CENTRAL_UNIT_ITEM, HDMI_CABLE, PHONE, HEADPHONES, MOUSE_ITEM, TV_ITEM, CONSOLE, CONTROLLER, SMB, KEYBOARD, CHAIR);
 	}
 	
 	private static Item createIB(Block block) {

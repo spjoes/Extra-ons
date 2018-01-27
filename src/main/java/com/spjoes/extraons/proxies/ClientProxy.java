@@ -39,6 +39,8 @@ public class ClientProxy extends CommonProxy {
 		this.registerModel(ItemHandler.PHONE, 0, new ResourceLocation(Constants.MODID, "phone"));
 		this.registerModel(ItemHandler.TV_ITEM, 0, new ResourceLocation(Constants.MODID, "tv"));
 		this.registerModel(ItemHandler.SMB, 0, new ResourceLocation(Constants.MODID, "smb"));
+		this.registerModel(ItemHandler.KEYBOARD, 0, new ResourceLocation(Constants.MODID, "keyboard"));
+		this.registerModel(ItemHandler.CHAIR, 0, new ResourceLocation(Constants.MODID, "chair"));
 	}
 	
 	@Override

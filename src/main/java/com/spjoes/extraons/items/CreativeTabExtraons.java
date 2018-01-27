@@ -26,6 +26,9 @@ public class CreativeTabExtraons extends CreativeTabs {
 		list.add(new ItemStack(ItemHandler.HDMI_CABLE));
 		list.add(new ItemStack(ItemHandler.PHONE));
 		list.add(new ItemStack(ItemHandler.SMB));
+		list.add(new ItemStack(ItemHandler.TV_ITEM));
+		list.add(new ItemStack(ItemHandler.KEYBOARD));
+		list.add(new ItemStack(ItemHandler.CHAIR));
 		for(int i = 0; i < 3; i++) {
 			list.add(new ItemStack(ItemHandler.CONSOLE, 1, i));
 		}

@@ -12,6 +12,7 @@ tile.monitor.name=Monitor
 tile.central_unit.name=Central Unit
 tile.mouse.name=Computer Mouse
 tile.console.name=Console
+tile.chair.name=Gaming Chair
 
 itemGroup.extraons=Extra-Ons
 

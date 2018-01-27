@@ -68,7 +68,12 @@ public class TileEntityMonitor extends TileEntity implements ITickable {
 		@Override
 		public String getMessage() {
 			return "Link failed. Reason: he warped to Zelda";
-		}		
+		}	
+		
+		/**
+		 * spjoes approved
+		 * @author spjoes
+		 */
 		
 	}
 	

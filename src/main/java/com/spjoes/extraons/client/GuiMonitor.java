@@ -59,7 +59,7 @@ public class GuiMonitor extends Laptop {
 	
 	private static final ArrayList<ResourceLocation> BACKGROUNDS = new ArrayList<ResourceLocation>();
 	static {
-		String[] names = {"grass", "creeper", "slime"};
+		String[] names = {"grass", "creeper", "slime", "coolcat"};
 		for(String name : names) {
 			BACKGROUNDS.add(new ResourceLocation(Constants.MODID, "textures/backgrounds/" + name + ".png"));
 		}
