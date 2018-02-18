@@ -56,6 +56,10 @@ public class ExtraOns {
 		proxy.registerTERenders();
 		
 		wrapper.registerMessage(ToastMessageHandler.class, ToastMessage.class, 0, Side.CLIENT);
+		
+		
+		
+		
 	}
 	
 	@EventHandler

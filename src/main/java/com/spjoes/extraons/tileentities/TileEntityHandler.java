@@ -10,6 +10,7 @@ public class TileEntityHandler {
 		TileEntity.register("central_unit", TileEntityCentralUnit.class);
 		TileEntity.register("tv", TileEntityTV.class);
 		TileEntity.register("console", TileEntityConsole.class);
+		TileEntity.register("chair", TileEntityChair.class);
 	}
 	
 }

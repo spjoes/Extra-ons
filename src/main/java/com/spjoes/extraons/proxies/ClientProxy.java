@@ -34,6 +34,7 @@ public class ClientProxy extends CommonProxy {
 		this.registerModel(ItemHandler.MONITOR_ITEM, 0, new ResourceLocation(Constants.MODID, "monitor"));
 		this.registerModel(ItemHandler.MOUSE_ITEM, 0, new ResourceLocation(Constants.MODID, "mouse"));
 		this.registerModel(ItemHandler.CENTRAL_UNIT_ITEM, 0, new ResourceLocation(Constants.MODID, "central_unit"));
+		this.registerModel(ItemHandler.MACHINE, 0, new ResourceLocation(Constants.MODID, "machine"));
 		this.registerModel(ItemHandler.HDMI_CABLE, 0, new ResourceLocation(Constants.MODID, "hdmi_cable"));
 		this.registerModel(ItemHandler.TAB_ICON, 0, new ResourceLocation(Constants.MODID, "tab_icon"));
 		this.registerModel(ItemHandler.PHONE, 0, new ResourceLocation(Constants.MODID, "phone"));
@@ -41,6 +42,7 @@ public class ClientProxy extends CommonProxy {
 		this.registerModel(ItemHandler.SMB, 0, new ResourceLocation(Constants.MODID, "smb"));
 		this.registerModel(ItemHandler.KEYBOARD, 0, new ResourceLocation(Constants.MODID, "keyboard"));
 		this.registerModel(ItemHandler.CHAIR, 0, new ResourceLocation(Constants.MODID, "chair"));
+		this.registerModel(ItemHandler.CUP, 0, new ResourceLocation(Constants.MODID, "cup"));
 	}
 	
 	@Override

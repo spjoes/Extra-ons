@@ -1,0 +1,10 @@
+{
+    "name": "Clicker game",
+    "author": "spjoes/Dbrown55",
+    "description": "Clicker with the system time",
+    "version": "1.0",
+    "icon": "extraons:textures/app/icon/clicker.png",
+    "screenshots": [
+        "textures/app/store/clicker.png"
+    ]
+}
