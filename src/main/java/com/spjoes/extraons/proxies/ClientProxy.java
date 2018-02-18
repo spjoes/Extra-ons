@@ -49,7 +49,7 @@ public class ClientProxy extends CommonProxy {
 	public void registerItemColors() {
 		IItemColor jeb = new IItemColor() {
 			@Override
-			public int getColorFromItemstack(ItemStack stack, int tintIndex) {
+			public int colorMultiplier(ItemStack stack, int tintIndex) {
 				int time = (int) (Minecraft.getSystemTime()%6000);
 				int r = 0, g = 0, b = 0;
 				if(time < 1000) {

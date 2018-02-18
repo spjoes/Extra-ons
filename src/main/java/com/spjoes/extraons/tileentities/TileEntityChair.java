@@ -18,7 +18,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 /**
  * Author: MrCrayfish
  */
-public class TileEntityChair extends TileEntitySync implements IItemColor
+public class TileEntityChair extends TileEntitySync
 {
     private EnumDyeColor color = EnumDyeColor.RED;
 
@@ -80,9 +80,4 @@ public class TileEntityChair extends TileEntitySync implements IItemColor
         return getBlockMetadata() * 90F + 180F;
     }
 
-	@Override
-	public int getColorFromItemstack(ItemStack stack, int tintIndex) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 }

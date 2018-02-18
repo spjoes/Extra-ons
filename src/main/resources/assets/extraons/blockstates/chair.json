@@ -1,11 +1,7 @@
 {
 	"forge_marker": 1,
 	"defaults": {
-		"model": "extraons:chair",
-		"textures": {
-		"0": "extraons:chair",
-		"particle": "extraons:chair"
-		}
+		"model": "extraons:chair"
 	},
 	"variants": {
 		"facing": {
@@ -21,6 +17,10 @@
 			"west": {
 				"y": 180
 			}
+		},
+		"type": {
+			"legs": {},
+			"seat": {}
 		}
 	}
 }

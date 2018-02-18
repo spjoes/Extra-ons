@@ -47,7 +47,7 @@ public class BlockChair extends Block {
 	
 	@Override
 	protected BlockStateContainer createBlockState() {
-		return new BlockStateContainer(this, BlockHorizontal.FACING);
+		return new BlockStateContainer(this, BlockHorizontal.FACING, TYPE);
 	}
 	
 
@@ -103,11 +103,22 @@ public class BlockChair extends Block {
         return new TileEntityOfficeChair();
     }
 
-  
+    @Override
+    public int getMetaFromState(IBlockState state) {
+    	return (state.getValue(TYPE).ordinal() << 2) + state.getValue(BlockHorizontal.FACING).getHorizontalIndex();
+    }
+    
+    @Override
+    public IBlockState getStateFromMeta(int meta) {
+    	IBlockState state = this.getDefaultState();
+    	state.withProperty(BlockHorizontal.FACING, EnumFacing.getHorizontal(meta & 0b11));
+    	state.withProperty(TYPE, Type.values()[((meta & 0b100) >> 2)]);
+    	return state;
+    }
 
     public enum Type implements IStringSerializable
     {
-        LEGS, SEAT, FULL;
+        LEGS, SEAT;
 
         @Override
         public String getName()
