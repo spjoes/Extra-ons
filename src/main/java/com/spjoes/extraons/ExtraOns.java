@@ -4,25 +4,20 @@ import com.mrcrayfish.device.api.ApplicationManager;
 import com.mrcrayfish.device.api.app.Application;
 import com.spjoes.extraons.apps.ApplicationClicker;
 import com.spjoes.extraons.apps.karaoke.ApplicationKaraoke;
-import com.spjoes.extraons.blocks.BlockHandler;
+import com.spjoes.extraons.handlers.BlockHandler;
 import com.spjoes.extraons.client.GuiHandler;
 import com.spjoes.extraons.items.CreativeTabExtraons;
-import com.spjoes.extraons.items.ItemHandler;
+import com.spjoes.extraons.handlers.ItemHandler;
 import com.spjoes.extraons.network.ToastMessage;
 import com.spjoes.extraons.network.ToastMessageHandler;
 import com.spjoes.extraons.proxies.CommonProxy;
-import com.spjoes.extraons.recipes.RecipeHandler;
-import com.spjoes.extraons.tileentities.TileEntityHandler;
+import com.spjoes.extraons.handlers.TileEntityHandler;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.Mod.EventHandler;
-import net.minecraftforge.fml.common.Mod.Instance;
-import net.minecraftforge.fml.common.SidedProxy;
-import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.Mod.*;
+import net.minecraftforge.fml.common.*;
+import net.minecraftforge.fml.common.event.*;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.fml.relauncher.Side;
@@ -46,20 +41,14 @@ public class ExtraOns {
 	public static void onPreInit(FMLPreInitializationEvent e) {
 		BlockHandler.registerBlocks();
 		ItemHandler.registerItems();
-		RecipeHandler.registerRecipes();
 		TileEntityHandler.registerTileEntities();
 		TAB = new CreativeTabExtraons();
-		
-		MinecraftForge.EVENT_BUS.register(new Events());
+
 		
 		proxy.registerModels();
 		proxy.registerTERenders();
 		
 		wrapper.registerMessage(ToastMessageHandler.class, ToastMessage.class, 0, Side.CLIENT);
-		
-		
-		
-		
 	}
 	
 	@EventHandler

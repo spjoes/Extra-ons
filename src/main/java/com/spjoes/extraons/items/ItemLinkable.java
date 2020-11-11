@@ -23,16 +23,16 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.util.Constants;
 
 public abstract class ItemLinkable extends Item {
-	
+
 	private static final ArrayList<ItemLinkable> LINKABLES = new ArrayList<ItemLinkable>();
-	
+
 	public ItemLinkable() {
 		this.setMaxDamage(0);
 		this.setHasSubtypes(true);
 		this.setMaxStackSize(1);
 		LINKABLES.add(this);
 	}
-	
+
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
 		ItemStack stack = playerIn.getHeldItem(handIn);
@@ -45,7 +45,7 @@ public abstract class ItemLinkable extends Item {
 		}
 		return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, stack);
 	}
-	
+
 	@Override
 	public EnumActionResult onItemUseFirst(EntityPlayer player, World world, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ, EnumHand hand) {
 		ItemStack stack = player.getHeldItem(hand);
@@ -64,11 +64,11 @@ public abstract class ItemLinkable extends Item {
 		}
 		return EnumActionResult.PASS;
 	}
-	
+
 	private static boolean hasDevicePos(ItemStack stack) {
 		return stack.hasTagCompound() && stack.getTagCompound().hasKey("devicePos", Constants.NBT.TAG_INT_ARRAY);
 	}
-	
+
 	public static boolean isLinked(ItemStack stack, BlockPos pos) {
 		if(stack.getItem() instanceof ItemLinkable) {
 			if(hasDevicePos(stack)) {
@@ -80,26 +80,26 @@ public abstract class ItemLinkable extends Item {
 		}
 		return false;
 	}
-	
+
 	@Override
 	public boolean hasEffect(ItemStack stack) {
 		return hasDevicePos(stack);
 	}
-	
+
 	@Override
 	public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
 		String colText = "Color: ";
 		try {
 			if(stack.getItemDamage() == 16) {
-				colText = colText + 
-							TextFormatting.RED + TextFormatting.BOLD + "R"
+				colText = colText +
+						TextFormatting.RED + TextFormatting.BOLD + "R"
 						+	TextFormatting.GOLD + TextFormatting.BOLD + "A"
 						+	TextFormatting.YELLOW + TextFormatting.BOLD + "I"
 						+	TextFormatting.GREEN + TextFormatting.BOLD + "N"
 						+	TextFormatting.DARK_GREEN + TextFormatting.BOLD + "B"
 						+	TextFormatting.BLUE + TextFormatting.BOLD + "O"
 						+	TextFormatting.LIGHT_PURPLE + TextFormatting.BOLD + "W";
-			} else if(stack.getItemDamage() < 16) { 
+			} else if(stack.getItemDamage() < 16) {
 				EnumDyeColor col = EnumDyeColor.byMetadata(stack.getItemDamage());
 				Field f = EnumDyeColor.class.getDeclaredField("chatColor");
 				f.setAccessible(true);
@@ -141,12 +141,12 @@ public abstract class ItemLinkable extends Item {
 			tooltip.add("Right-click a computer to link it");
 		}
 	}
-	
+
 	public abstract EntityEquipmentSlot[] getCorrectSlots();
-	
-	
+
+
 	public static ArrayList<ItemLinkable> getLinkables() {
 		return LINKABLES;
 	}
-	
+
 }

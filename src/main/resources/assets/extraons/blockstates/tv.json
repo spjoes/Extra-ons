@@ -35,19 +35,20 @@
 					"1": "extraons:blocks/tv/wow"
 				}
 			},
-			"pig_riding": {
-			
-			},
-			"diamond": {
-			
+			"inner": {
+				"textures": {
+					"1": "extraons:blocks/tv/inner"
+				}
 			},
 			"ha": {
 				"textures": {
 					"1": "extraons:blocks/tv/ha"
 				}
 			},
-			"banana_man": {
-			
+			"bongo": {
+				"textures": {
+					"1": "extraons:blocks/tv/bongo"
+				}
 			}
 		}
 	}

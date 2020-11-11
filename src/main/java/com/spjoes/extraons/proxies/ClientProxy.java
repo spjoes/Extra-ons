@@ -3,7 +3,7 @@ package com.spjoes.extraons.proxies;
 import com.spjoes.extraons.Constants;
 import com.spjoes.extraons.blocks.BlockConsole.EnumConsoleType;
 import com.spjoes.extraons.client.TESRCentralUnit;
-import com.spjoes.extraons.items.ItemHandler;
+import com.spjoes.extraons.handlers.ItemHandler;
 import com.spjoes.extraons.tileentities.TileEntityCentralUnit;
 
 import net.minecraft.client.Minecraft;
@@ -34,7 +34,6 @@ public class ClientProxy extends CommonProxy {
 		this.registerModel(ItemHandler.MONITOR_ITEM, 0, new ResourceLocation(Constants.MODID, "monitor"));
 		this.registerModel(ItemHandler.MOUSE_ITEM, 0, new ResourceLocation(Constants.MODID, "mouse"));
 		this.registerModel(ItemHandler.CENTRAL_UNIT_ITEM, 0, new ResourceLocation(Constants.MODID, "central_unit"));
-		this.registerModel(ItemHandler.MACHINE, 0, new ResourceLocation(Constants.MODID, "machine"));
 		this.registerModel(ItemHandler.HDMI_CABLE, 0, new ResourceLocation(Constants.MODID, "hdmi_cable"));
 		this.registerModel(ItemHandler.TAB_ICON, 0, new ResourceLocation(Constants.MODID, "tab_icon"));
 		this.registerModel(ItemHandler.PHONE, 0, new ResourceLocation(Constants.MODID, "phone"));
@@ -42,9 +41,10 @@ public class ClientProxy extends CommonProxy {
 		this.registerModel(ItemHandler.SMB, 0, new ResourceLocation(Constants.MODID, "smb"));
 		this.registerModel(ItemHandler.KEYBOARD, 0, new ResourceLocation(Constants.MODID, "keyboard"));
 		this.registerModel(ItemHandler.CHAIR, 0, new ResourceLocation(Constants.MODID, "chair"));
-		this.registerModel(ItemHandler.CUP, 0, new ResourceLocation(Constants.MODID, "cup"));
+		this.registerModel(ItemHandler.MIC_HANDLE, 0, new ResourceLocation(Constants.MODID, "mic_handle"));
+		this.registerModel(ItemHandler.MIC_CABLE, 0, new ResourceLocation(Constants.MODID, "mic_cable"));
 	}
-	
+
 	@Override
 	public void registerItemColors() {
 		IItemColor jeb = new IItemColor() {
@@ -76,14 +76,14 @@ public class ClientProxy extends CommonProxy {
 		};
 		Minecraft.getMinecraft().getItemColors().registerItemColorHandler(jeb, ItemHandler.HEADPHONES, ItemHandler.MICROPHONE);
 	}
-	
+
 	private void registerModel(Item item, int damage, ResourceLocation rl) {
 		ModelLoader.setCustomModelResourceLocation(item, damage, new ModelResourceLocation(rl, "inventory"));
 	}
-	
+
 	@Override
 	public void registerTERenders() {
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityCentralUnit.class, new TESRCentralUnit());
 	}
-	
+
 }

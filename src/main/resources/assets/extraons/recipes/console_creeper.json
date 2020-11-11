@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "xxx",
+    "gsj",
+    "xxx"
+  ],
+  "key":
+  {
+    "x":
+    {
+      "item": "cdm:plastic_frame"
+    },
+    "s":
+    {
+      "item": "minecraft:skull",
+      "data": 4
+    },
+    "g":
+    {
+      "item": "minecraft:wool",
+      "data": 13
+    },
+    "j":
+    {
+      "item": "minecraft:jukebox"
+    }
+  },
+  "result":
+  {
+    "item": "extraons:console",
+    "data": 0,
+    "count": 1
+  }
+}

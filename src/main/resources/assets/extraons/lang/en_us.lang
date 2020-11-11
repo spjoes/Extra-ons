@@ -3,9 +3,12 @@ app.extraons.karaoke.name=Karaoke
 
 item.microphone.name=Microphone
 item.hdmi_cable.name=HDMI Cable
+item.mic_cable.name=Microphone Cable
 item.phone.name=Phone
 item.headphones.name=Head Phones
 item.controller.name=Controller
+item.smb.name=Super Minecraft Bros
+item.mic_handle.name=Microphone Handle
 
 
 tile.monitor.name=Monitor
@@ -13,6 +16,8 @@ tile.central_unit.name=Central Unit
 tile.mouse.name=Computer Mouse
 tile.console.name=Console
 tile.chair.name=Gaming Chair
+tile.keyboard.name=Keyboard
+tile.null.name=TV
 
 itemGroup.extraons=Extra-Ons
 

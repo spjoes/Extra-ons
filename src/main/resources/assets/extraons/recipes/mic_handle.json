@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "$W$",
+    "$W$",
+    "$W$"
+  ],
+  "key":
+  {
+    "W":
+    {
+      "item": "minecraft:iron_ingot"
+    },
+    "$":
+    {
+      "item": "minecraft:stained_hardened_clay",
+      "data": 15
+    }
+  },
+  "result":
+  {
+    "item": "extraons:mic_handle",
+    "count": 1
+  }
+}

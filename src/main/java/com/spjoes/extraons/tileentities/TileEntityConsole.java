@@ -1,7 +1,7 @@
 package com.spjoes.extraons.tileentities;
 
 import com.spjoes.extraons.blocks.BlockConsole;
-import com.spjoes.extraons.blocks.BlockHandler;
+import com.spjoes.extraons.handlers.BlockHandler;
 import com.spjoes.extraons.blocks.BlockConsole.EnumConsoleType;
 
 import net.minecraft.block.state.IBlockState;

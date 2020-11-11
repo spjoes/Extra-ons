@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    " $ ",
+    " C ",
+    " / "
+  ],
+  "key":
+  {
+    "/":
+    {
+      "item": "extraons:mic_handle"
+    },
+    "C":
+    {
+      "item": "extraons:mic_cable"
+    },
+    "$":
+    {
+      "item": "minecraft:noteblock"
+    }
+  },
+  "result":
+  {
+    "item": "extraons:microphone",
+    "data": 0,
+    "count": 1
+  }
+}

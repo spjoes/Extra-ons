@@ -10,7 +10,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Enumeration;
-import java.util.Random;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
@@ -28,6 +27,9 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.math.BlockPos;
+
+import javax.annotation.Nullable;
 
 /**
  * Karaoke app. Uses <a href="http://www.javazoom.net/jlgui/api.html">jlGui's BasicPlayer</a>.
@@ -46,7 +48,7 @@ public class ApplicationKaraoke extends Application {
 	private Karaoke karaoke;
 	
 	@Override
-	public void init() {		
+	public void init() {
 		this.menuLayout = new Layout(100, 100);
 		
 		this.openFileButton = new Button(5, 75, "Open file");
@@ -103,7 +105,7 @@ public class ApplicationKaraoke extends Application {
 			this.setCurrentLayout(this.menuLayout);
 		}
 	}
-	
+
 	@Override
 	public void onTick() {
 		super.onTick();

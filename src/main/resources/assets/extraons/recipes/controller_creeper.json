@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "xxx",
+    "xcx",
+    "x x"
+  ],
+  "key":
+  {
+    "x":
+    {
+      "item": "cdm:plastic_frame"
+    },
+    "c":
+    {
+      "item": "minecraft:skull",
+      "data": 4
+    }
+  },
+  "result":
+  {
+    "item": "extraons:controller",
+    "data": 0,
+    "count": 1
+  }
+}

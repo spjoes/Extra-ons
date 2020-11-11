@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "xxx",
+    "xsx",
+    "xmx"
+  ],
+  "key":
+  {
+    "x":
+    {
+      "item": "cdm:plastic_frame"
+    },
+    "s":
+    {
+      "item": "cdm:screen"
+    },
+    "m":
+    {
+      "item": "cdm:motherboard"
+    }
+  },
+  "result":
+  {
+    "item": "extraons:tv",
+    "count": 1
+  }
+}

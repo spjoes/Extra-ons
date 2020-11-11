@@ -20,4 +20,6 @@ build
 # other
 eclipse
 run
-src/main/resources/assets/extraons/textures/blocks/tv/raw/*
+
+# Files from Forge MDK
+forge*changelog.txt
