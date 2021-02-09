@@ -1,0 +1,27 @@
+{
+    "__comment": "Made with TheDestruc7i0n's advancements generator: https://advancements.thedestruc7i0n.ca",
+    "display": {
+        "title": {
+            "text": "A Next Gen Experience!"
+        },
+        "description": {
+            "text": "Place a down a console"
+        },
+        "icon": {
+            "item": "extraons:console_creeper"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "Place a Creeper Console": {
+            "trigger": "minecraft:placed_block",
+            "conditions": {
+                "block": "extraons:console_creeper"
+            }
+        }
+    },
+    "parent": "extraons:compressed_plastic"
+}

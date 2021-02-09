@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "   ",
+    "WWW",
+    "WWW"
+  ],
+  "key": {
+    "W": {
+      "item": "extraons:plastic"
+    }
+  },
+  "result": {
+    "item": "extraons:connector_rod",
+    "count": 1
+  }
+}

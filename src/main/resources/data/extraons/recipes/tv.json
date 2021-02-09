@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "   ",
+    " C ",
+    " B "
+  ],
+  "key": {
+    "C": {
+      "item": "extraons:covered_screen"
+    },
+    "B": {
+      "item": "extraons:tv_base"
+    }
+  },
+  "result": {
+    "item": "extraons:tv",
+    "count": 1
+  }
+}

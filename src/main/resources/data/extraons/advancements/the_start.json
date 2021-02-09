@@ -1,0 +1,40 @@
+{
+  "__comment": "Made with TheDestruc7i0n's advancements generator: https://advancements.thedestruc7i0n.ca",
+  "display": {
+    "title": {
+      "text": "Extra-Ons",
+      "bold": false,
+      "italic": false,
+      "underlined": false,
+      "obfuscated": false
+    },
+    "description": {
+      "text": "All started in 2018",
+      "bold": false
+    },
+    "icon": {
+      "item": "extraons:hdmi_cable"
+    },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": false,
+    "background": "minecraft:textures/gui/advancements/backgrounds/stone.png"
+  },
+  "criteria": {
+    "Craft Compressed Plastic": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "extraons:rubber",
+            "count": {
+              "min": 1,
+              "max": 64
+            }
+          }
+        ]
+      }
+    }
+  }
+}

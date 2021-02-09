@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "HW ",
+    " W ",
+    " WH"
+  ],
+  "key": {
+    "W": {
+      "item": "extraons:covered_wires"
+    },
+    "H": {
+      "item": "extraons:hdmi_socket"
+    }
+  },
+  "result": {
+    "item": "extraons:hdmi_cable",
+    "count": 1
+  }
+}

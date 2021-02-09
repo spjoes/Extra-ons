@@ -1,0 +1,27 @@
+{
+    "__comment": "Made with TheDestruc7i0n's advancements generator: https://advancements.thedestruc7i0n.ca",
+    "display": {
+        "title": {
+            "text": "Grab Your Popcorn!"
+        },
+        "description": {
+            "text": "Place down a TV"
+        },
+        "icon": {
+            "item": "extraons:tv"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "Place a TV": {
+            "trigger": "minecraft:placed_block",
+            "conditions": {
+                "block": "extraons:tv"
+            }
+        }
+    },
+    "parent": "extraons:craft_tv"
+}

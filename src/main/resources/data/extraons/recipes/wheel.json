@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "RWR",
+    "WCW",
+    "RWR"
+  ],
+  "key": {
+    "W": {
+      "item": "extraons:plastic"
+    },
+    "C": {
+      "item": "extraons:connector_rod"
+    },
+    "R": {
+      "item": "extraons:rubber"
+    }
+  },
+  "result": {
+    "item": "extraons:wheel",
+    "count": 1
+  }
+}

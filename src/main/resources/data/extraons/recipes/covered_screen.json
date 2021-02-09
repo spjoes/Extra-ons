@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "WWW",
+    "WSW",
+    "WWW"
+  ],
+  "key": {
+    "W": {
+      "item": "extraons:plastic"
+    },
+    "S": {
+      "item": "extraons:screen"
+    }
+  },
+  "result": {
+    "item": "extraons:covered_screen",
+    "count": 1
+  }
+}

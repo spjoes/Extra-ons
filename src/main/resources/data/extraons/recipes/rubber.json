@@ -1,0 +1,8 @@
+{
+  "type": "extraons:extractor",
+  "ingredient": {
+    "tag": "minecraft:logs"
+  },
+  "result": "extraons:rubber",
+  "experience": 0.2
+}

@@ -1,6 +1,6 @@
 {
-	"parent": "item/generated",
-	"textures": {
-		"layer0": "extraons:items/hdmi_cable"
-	}
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "extraons:item/hdmi_cable"
+  }
 }

@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "W W",
+    "NLN",
+    "WWW"
+  ],
+  "key": {
+    "W": {
+      "item": "extraons:compressed_plastic"
+    },
+    "N": {
+      "item": "minecraft:note_block"
+    },
+    "L": {
+      "item": "minecraft:pink_wool"
+    }
+  },
+  "result": {
+    "item": "extraons:console_pig",
+    "count": 1
+  }
+}

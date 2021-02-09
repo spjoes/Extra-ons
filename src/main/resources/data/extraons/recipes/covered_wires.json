@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "RRR",
+    "EEE",
+    "RRR"
+  ],
+  "key": {
+    "E": {
+      "item": "extraons:exposed_wires"
+    },
+    "R": {
+      "item": "extraons:rubber"
+    }
+  },
+  "result": {
+    "item": "extraons:covered_wires",
+    "count": 1
+  }
+}

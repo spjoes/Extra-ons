@@ -1,6 +1,14 @@
 {
-	"central_unit_boot_on": {"category": "player", "sounds": ["extraons:central_unit_boot_on"], "subtitle": ""},
-	"central_unit_boot_off": {"category": "player", "sounds": ["extraons:central_unit_boot_off"], "subtitle": ""},
-	"central_unit_loop": {"category": "player", "sounds": ["extraons:central_unit_loop"], "subtitle": ""}
-
+  "console_startup": {
+    "subtitle": "subtitles.extraons.console_startup",
+    "sounds": [
+      "extraons:console_startup"
+    ]
+  },
+  "tv_click": {
+    "subtitle": "subtitles.extraons.tv_click",
+    "sounds": [
+      "extraons:tv_click"
+    ]
+  }
 }

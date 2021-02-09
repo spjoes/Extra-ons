@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": "extraons",
+  "version": "${version}",
+
+  "name": "Extra-Ons",
+  "description": "An Add-on mod that was originally made for MrCrayfish's Device Mod and now back as a port in 2021!!!",
+  "authors": [
+    "spjoes"
+  ],
+  "contact": {
+    "homepage": "https://fabricmc.net/",
+    "sources": "https://github.com/FabricMC/fabric-example-mod"
+  },
+
+  "license": "CC0-1.0",
+  "icon": "assets/extraons/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.split.extraons.Main"
+    ],
+    "client": [
+      "com.split.extraons.MainClient"
+    ]
+  },
+  "mixins": [
+    "extraons.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.7.4",
+    "fabric": "*",
+    "minecraft": "1.16.x"
+  },
+  "suggests": {
+    "another-mod": "*"
+  },
+  "accessWidener": "extraons.accesswidener"
+}

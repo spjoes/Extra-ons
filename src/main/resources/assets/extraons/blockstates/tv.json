@@ -1,54 +1,24 @@
 {
-	"forge_marker": 1,
-	"defaults": {
-		"model": "extraons:tv_on"
-	},
-	"variants": {
-		"facing": {
-			"north": {
-				"y": 0
-			},
-			"south": {
-				"y": 180
-			},
-			"east": {
-				"y": 90
-			},
-			"west": {
-				"y": 270
-			}
-		},
-		"channel": {
-			"none": {
-				"model": "extraons:tv",
-				"textures": {
-					"1": "blocks/bedrock"
-				}
-			},
-			"free_real_estate": {
-				"textures": {
-					"1": "extraons:blocks/tv/estate"
-				}
-			},
-			"wow_wink": {
-				"textures": {
-					"1": "extraons:blocks/tv/wow"
-				}
-			},
-			"pig_riding": {
-			
-			},
-			"diamond": {
-			
-			},
-			"ha": {
-				"textures": {
-					"1": "extraons:blocks/tv/ha"
-				}
-			},
-			"banana_man": {
-			
-			}
-		}
-	}
+  "variants": {
+    "facing=north,channel=0": { "model": "extraons:block/tv" },
+    "facing=east,channel=0":  { "model": "extraons:block/tv", "y":  90},
+    "facing=south,channel=0": { "model": "extraons:block/tv", "y": 180 },
+    "facing=west,channel=0":  { "model": "extraons:block/tv", "y": 270 },
+    "facing=north,channel=1": { "model": "extraons:block/tv_bongo" },
+    "facing=east,channel=1":  { "model": "extraons:block/tv_bongo", "y":  90},
+    "facing=south,channel=1": { "model": "extraons:block/tv_bongo", "y": 180 },
+    "facing=west,channel=1":  { "model": "extraons:block/tv_bongo", "y": 270 },
+    "facing=north,channel=2": { "model": "extraons:block/tv_nyan" },
+    "facing=east,channel=2":  { "model": "extraons:block/tv_nyan", "y":  90},
+    "facing=south,channel=2": { "model": "extraons:block/tv_nyan", "y": 180 },
+    "facing=west,channel=2":  { "model": "extraons:block/tv_nyan", "y": 270 },
+    "facing=north,channel=3": { "model": "extraons:block/tv_inner" },
+    "facing=east,channel=3":  { "model": "extraons:block/tv_inner", "y":  90},
+    "facing=south,channel=3": { "model": "extraons:block/tv_inner", "y": 180 },
+    "facing=west,channel=3":  { "model": "extraons:block/tv_inner", "y": 270 },
+    "facing=north,channel=4": { "model": "extraons:block/tv" },
+    "facing=east,channel=4":  { "model": "extraons:block/tv", "y":  90},
+    "facing=south,channel=4": { "model": "extraons:block/tv", "y": 180 },
+    "facing=west,channel=4":  { "model": "extraons:block/tv", "y": 270 }
+  }
 }

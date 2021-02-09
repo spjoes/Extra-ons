@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "   ",
+    " W ",
+    "WWW"
+  ],
+  "key": {
+    "W": {
+      "item": "extraons:plastic"
+    }
+  },
+  "result": {
+    "item": "extraons:tv_base",
+    "count": 1
+  }
+}

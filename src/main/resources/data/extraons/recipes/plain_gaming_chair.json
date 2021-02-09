@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " B ",
+    " S ",
+    "WCW"
+  ],
+  "key": {
+    "W": {
+      "item": "extraons:wheel"
+    },
+    "S": {
+      "item": "extraons:seat"
+    },
+    "C": {
+      "item": "extraons:connector_rod"
+    },
+    "B": {
+      "item": "extraons:back"
+    }
+  },
+  "result": {
+    "item": "extraons:plain_gaming_chair",
+    "count": 1
+  }
+}
