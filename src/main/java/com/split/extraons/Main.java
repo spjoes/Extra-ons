@@ -2,12 +2,12 @@ package com.split.extraons;
 
 import com.split.extraons.blocks.*;
 import com.split.extraons.extractor.*;
-import com.split.extraons.items.HDMICableItem;
-import com.split.extraons.items.dyingkits.YellowDyingKit;
+import com.split.extraons.items.*;
 import net.minecraft.entity.*;
 import net.minecraft.item.*;
 import net.minecraft.block.*;
 import net.minecraft.recipe.*;
+import net.minecraft.util.*;
 import com.split.extraons.gamingchair.GamingChairSitEntity;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
@@ -18,7 +18,6 @@ import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.recipe.CookingRecipeSerializer;
 import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.sound.SoundEvent;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 public class Main implements ModInitializer {
@@ -48,7 +47,7 @@ public class Main implements ModInitializer {
     public static final Item COVERED_WIRES = new Item(new Item.Settings().group(Main.MAIN_GROUP));
     public static final Item HDMI_SOCKET = new Item(new Item.Settings().group(Main.MAIN_GROUP));
     public static final Item MIC_SOCKET = new Item(new Item.Settings().group(Main.MAIN_GROUP));
-    public static final YellowDyingKit YELLOW_DYING_KIT = new YellowDyingKit(new Item.Settings().group(Main.MAIN_GROUP).maxCount(1));
+    public static final DyingKitItem YELLOW_DYING_KIT = new DyingKitItem(new Item.Settings().group(Main.MAIN_GROUP).maxCount(1), DyeColor.YELLOW);
 
     //Extractor Stuff
     public static final BlockEntityType EXTRACTOR_BLOCK_ENTITY;

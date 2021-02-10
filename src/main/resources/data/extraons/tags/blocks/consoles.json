@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "extraons:console_cow",
+    "extraons:console_creeper",
+    "extraons:console_pig"
+  ]
+}

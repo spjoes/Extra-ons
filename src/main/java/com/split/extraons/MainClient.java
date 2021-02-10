@@ -5,6 +5,7 @@ import com.split.extraons.gamingchair.GamingChairSitEntity;
 import com.split.extraons.gamingchair.S2CEntitySpawnPacket;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.rendereregistry.v1.EntityRendererRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.client.screenhandler.v1.ScreenRegistry;
 import net.fabricmc.fabric.api.network.ClientSidePacketRegistry;
 import net.minecraft.client.render.Frustum;
@@ -19,6 +20,7 @@ public class MainClient implements ClientModInitializer {
 
         EntityRendererRegistry.INSTANCE.register(Main.SIT_ENTITY_TYPE, (entityRenderDispatcher, context) -> new EmptyRenderer(entityRenderDispatcher));
         ScreenRegistry.register(Main.EXTRACTOR_SCREEN_HANDLER, ExtractorScreen::new);
+        ColorProviderRegistry.BLOCK.register((state, view, pos, tintIndex) -> 0xFFFFFF, Main.PLAIN_GAMING_CHAIR_BLOCK);
         registerClientboundPackets();
     }
 
@@ -45,5 +47,6 @@ public class MainClient implements ClientModInitializer {
 
     public static void registerClientboundPackets() {
         ClientSidePacketRegistry.INSTANCE.register(S2CEntitySpawnPacket.ID, S2CEntitySpawnPacket::onPacket);
+
     }
 }

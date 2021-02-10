@@ -1,12 +1,8 @@
 {
   "variants": {
-    "facing=north,color=0": { "model": "extraons:block/plain_gaming_chair", "y": 180},
-    "facing=east,color=0":  { "model": "extraons:block/plain_gaming_chair", "y": 270},
-    "facing=south,color=0": { "model": "extraons:block/plain_gaming_chair", "y": 360},
-    "facing=west,color=0":  { "model": "extraons:block/plain_gaming_chair", "y": 90},
-    "facing=north,color=1": { "model": "extraons:block/yellow_gaming_chair", "y": 180},
-    "facing=east,color=1":  { "model": "extraons:block/yellow_gaming_chair", "y": 270},
-    "facing=south,color=1": { "model": "extraons:block/yellow_gaming_chair", "y": 360},
-    "facing=west,color=1":  { "model": "extraons:block/yellow_gaming_chair", "y": 90}
+    "facing=north": { "model": "extraons:block/plain_gaming_chair", "y": 180},
+    "facing=east":  { "model": "extraons:block/plain_gaming_chair", "y": 270},
+    "facing=south": { "model": "extraons:block/plain_gaming_chair", "y": 360},
+    "facing=west":  { "model": "extraons:block/plain_gaming_chair", "y": 90}
   }
 }

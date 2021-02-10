@@ -2,6 +2,7 @@ package com.split.extraons.blocks;
 
 import com.split.extraons.Main;
 import com.split.extraons.gamingchair.GamingChairSitEntity;
+import com.split.extraons.items.DyingKitItem;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
 import net.minecraft.entity.player.PlayerEntity;
@@ -42,23 +43,23 @@ public class GamingChairBlock extends HorizontalFacingBlock {
     public ActionResult onUse(BlockState blockState, World world, BlockPos blockPos, PlayerEntity playerEntity, Hand hand, BlockHitResult blockHitResult) {
 
         if(!world.isClient) {
-            if (playerEntity.getItemsHand() == Main.YELLOW_DYING_KIT) {
-                world.setBlockState(blockPos, blockState.with(COLORID, 1));
-            }
+                if (playerEntity.getItemsHand().iterator().next().getItem() instanceof DyingKitItem) {
+                    world.setBlockState(blockPos, blockState.with(COLORID,((DyingKitItem) playerEntity.getItemsHand().iterator().next().getItem()).getDyeColor().getId()), 3);
+                }
         }
-//        else if (!blockState.get(OCCUPIED))
-//        {
-//            GamingChairSitEntity sit = SIT_ENTITY_TYPE.create(world);
-//            Vec3d pos = new Vec3d(blockHitResult.getBlockPos().getX() + 0.5D, blockHitResult.getBlockPos().getY() + 0.25D, blockHitResult.getBlockPos().getZ() + 0.5D);
-//
-//            world.setBlockState(blockPos, blockState.with(OCCUPIED, true));
-//            sit.updatePosition(pos.getX(), pos.getY(), pos.getZ());
-//
-//            world.spawnEntity(sit);
-//            playerEntity.startRiding(sit);
-//            return ActionResult.SUCCESS;
-//        }
 
+            else if (!blockState.get(OCCUPIED))
+            {
+                GamingChairSitEntity sit = SIT_ENTITY_TYPE.create(world);
+                Vec3d pos = new Vec3d(blockHitResult.getBlockPos().getX() + 0.5D, blockHitResult.getBlockPos().getY() + 0.25D, blockHitResult.getBlockPos().getZ() + 0.5D);
+
+                world.setBlockState(blockPos, blockState.with(OCCUPIED, true));
+                sit.updatePosition(pos.getX(), pos.getY(), pos.getZ());
+
+                world.spawnEntity(sit);
+                playerEntity.startRiding(sit);
+                return ActionResult.SUCCESS;
+            }
         return ActionResult.SUCCESS;
     }
 
