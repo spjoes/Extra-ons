@@ -12,6 +12,7 @@ import net.fabricmc.fabric.api.network.ClientSidePacketRegistry;
 import net.minecraft.client.render.Frustum;
 import net.minecraft.client.render.entity.EntityRenderDispatcher;
 import net.minecraft.client.render.entity.EntityRenderer;
+import net.minecraft.util.DyeColor;
 import net.minecraft.util.Identifier;
 
 public class MainClient implements ClientModInitializer {

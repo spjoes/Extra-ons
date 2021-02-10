@@ -1,7 +1,19 @@
 package com.split.extraons.items;
 
+import com.split.extraons.Main;
+
+import net.minecraft.block.BlockState;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemUsageContext;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.util.ActionResult;
 import net.minecraft.util.DyeColor;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
+
+import static com.split.extraons.blocks.GamingChairBlock.COLORID;
 
 public class DyingKitItem extends Item {
 
@@ -16,5 +28,24 @@ public class DyingKitItem extends Item {
         return this.color;
     }
 
-
+    @Override
+    public ActionResult useOnBlock(ItemUsageContext context) {
+        PlayerEntity playerEntity = context.getPlayer();
+        ItemStack stack = context.getStack();
+        BlockPos blockPos = context.getBlockPos();
+        World world = context.getWorld();
+        BlockState blockState = world.getBlockState(blockPos);
+        if (playerEntity.isSneaking()) {
+            System.out.println("sneaking");
+            System.out.println(stack.getItem());
+            System.out.println(stack.getItem() instanceof DyingKitItem);
+            if (stack.getItem() instanceof DyingKitItem) {
+                System.out.println("kit");
+                world.playSound(null, blockPos, Main.PAINT_SPLASH_EVENT, SoundCategory.BLOCKS, 0.5f, 1f);
+                world.setBlockState(blockPos, blockState.with(COLORID, ((DyingKitItem) stack.getItem()).getDyeColor()), 3);
+                return ActionResult.CONSUME;
+            }
+        }
+        return ActionResult.PASS;
+    }
 }

@@ -10,14 +10,17 @@ import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.Packet;
+import net.minecraft.util.DyeColor;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 
 public class GamingChairSitEntity extends Entity
 {
-    public GamingChairSitEntity(EntityType<? extends GamingChairSitEntity> type, World world)
-    {
+
+    private DyeColor chairColor;
+
+    public GamingChairSitEntity(EntityType<? extends GamingChairSitEntity> type, World world) {
         super(type, world);
         noClip = true;
     }
@@ -42,16 +45,15 @@ public class GamingChairSitEntity extends Entity
     {
         super.tick();
 
-        if(!hasPassengers()||world.getBlockState(getBlockPos()).isAir())
+        if(!world.isClient && !hasPassengers() || world.getBlockState(getBlockPos()).isAir())
         {
             Block block = world.getBlockState(getBlockPos()).getBlock();
 
             if (block instanceof GamingChairBlock) {
                 GamingChairBlock cb = (GamingChairBlock) block;
                 Direction facing = world.getBlockState(getBlockPos()).get(GamingChairBlock.FACING);
-                world.setBlockState(getBlockPos(), cb.getDefaultState().with(GamingChairBlock.OCCUPIED, false).with(GamingChairBlock.FACING, facing));
+                world.setBlockState(getBlockPos(), cb.getDefaultState().with(GamingChairBlock.OCCUPIED, false).with(GamingChairBlock.FACING, facing).with(GamingChairBlock.COLORID, chairColor));
             }
-
 
             remove();
         }
@@ -59,12 +61,12 @@ public class GamingChairSitEntity extends Entity
 
     @Override
     protected void readCustomDataFromTag(CompoundTag tag) {
-
+        tag.putInt("color", chairColor.getId());
     }
 
     @Override
     protected void writeCustomDataToTag(CompoundTag tag) {
-
+        chairColor = DyeColor.byId(tag.getInt("color"));
     }
 
     @Override
@@ -89,4 +91,7 @@ public class GamingChairSitEntity extends Entity
         super.addPassenger(passenger);
     }
 
+    public void setColor(DyeColor color) {
+        this.chairColor = color;
+    }
 }
