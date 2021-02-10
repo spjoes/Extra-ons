@@ -1,5 +1,6 @@
 package com.split.extraons;
 
+import com.split.extraons.blocks.GamingChairBlock;
 import com.split.extraons.extractor.ExtractorScreen;
 import com.split.extraons.gamingchair.GamingChairSitEntity;
 import com.split.extraons.gamingchair.S2CEntitySpawnPacket;
@@ -20,7 +21,7 @@ public class MainClient implements ClientModInitializer {
 
         EntityRendererRegistry.INSTANCE.register(Main.SIT_ENTITY_TYPE, (entityRenderDispatcher, context) -> new EmptyRenderer(entityRenderDispatcher));
         ScreenRegistry.register(Main.EXTRACTOR_SCREEN_HANDLER, ExtractorScreen::new);
-        ColorProviderRegistry.BLOCK.register((state, view, pos, tintIndex) -> 0xFFFFFF, Main.PLAIN_GAMING_CHAIR_BLOCK);
+        ColorProviderRegistry.BLOCK.register((state, view, pos, tintIndex) -> state.get(GamingChairBlock.COLORID).getFireworkColor(), Main.PLAIN_GAMING_CHAIR_BLOCK);
         registerClientboundPackets();
     }
 

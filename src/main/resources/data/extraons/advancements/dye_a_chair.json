@@ -1,0 +1,33 @@
+{
+  "__comment": "Made with TheDestruc7i0n's advancements generator: https://advancements.thedestruc7i0n.ca",
+  "display": {
+    "title": {
+      "text": "Colors. Colors Everywhere!"
+    },
+    "description": {
+      "text": "Dye a plain gaming chair with a dying kit"
+    },
+    "icon": {
+      "item": "extraons:red_dying_kit"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "click": {
+      "trigger": "minecraft:item_used_on_block",
+      "conditions": {
+        "location": {
+          "block": {
+            "block": "extraons:plain_gaming_chair"
+          }
+        },
+        "item": {
+          "tag": "extraons:dying_kits"
+        }
+      }
+    }
+  }
+}

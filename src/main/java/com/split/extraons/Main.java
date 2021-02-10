@@ -48,6 +48,8 @@ public class Main implements ModInitializer {
     public static final Item HDMI_SOCKET = new Item(new Item.Settings().group(Main.MAIN_GROUP));
     public static final Item MIC_SOCKET = new Item(new Item.Settings().group(Main.MAIN_GROUP));
     public static final DyingKitItem YELLOW_DYING_KIT = new DyingKitItem(new Item.Settings().group(Main.MAIN_GROUP).maxCount(1), DyeColor.YELLOW);
+    public static final DyingKitItem ORANGE_DYING_KIT = new DyingKitItem(new Item.Settings().group(Main.MAIN_GROUP).maxCount(1), DyeColor.ORANGE);
+    public static final DyingKitItem RED_DYING_KIT = new DyingKitItem(new Item.Settings().group(Main.MAIN_GROUP).maxCount(1), DyeColor.RED);
 
     //Extractor Stuff
     public static final BlockEntityType EXTRACTOR_BLOCK_ENTITY;
@@ -74,6 +76,9 @@ public class Main implements ModInitializer {
     public static final Identifier TV_CLICK_ID = new Identifier("extraons:tv_click");
     public static SoundEvent TV_CLICK_EVENT = new SoundEvent(TV_CLICK_ID);
 
+    public static final Identifier PAINT_SPLASH_ID = new Identifier("extraons:paint_splash");
+    public static SoundEvent PAINT_SPLASH_EVENT = new SoundEvent(PAINT_SPLASH_ID);
+
     @Override
     public void onInitialize() {
         //Items
@@ -94,6 +99,8 @@ public class Main implements ModInitializer {
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "hdmi_socket"), HDMI_SOCKET);
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "mic_socket"), MIC_SOCKET);
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "yellow_dying_kit"), YELLOW_DYING_KIT);
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "orange_dying_kit"), ORANGE_DYING_KIT);
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "red_dying_kit"), RED_DYING_KIT);
 
         //Blocks
         Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "tv"), TV);
@@ -116,6 +123,7 @@ public class Main implements ModInitializer {
         //Sounds
         Registry.register(Registry.SOUND_EVENT, Main.CONSOLE_STARTUP_ID, CONSOLE_STARTUP_EVENT);
         Registry.register(Registry.SOUND_EVENT, Main.TV_CLICK_ID, TV_CLICK_EVENT);
+        Registry.register(Registry.SOUND_EVENT, Main.PAINT_SPLASH_ID, PAINT_SPLASH_EVENT);
     }
 
 
@@ -160,6 +168,9 @@ public class Main implements ModInitializer {
                 stacks.add(new ItemStack(Main.CONSOLE_PIG));
                 stacks.add(new ItemStack(Main.CONSOLE_COW));
                 stacks.add(new ItemStack(Main.MONITOR));
+                stacks.add(new ItemStack(Main.YELLOW_DYING_KIT));
+                stacks.add(new ItemStack(Main.ORANGE_DYING_KIT));
+                stacks.add(new ItemStack(Main.RED_DYING_KIT));
             })
             .build();
 }

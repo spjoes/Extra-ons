@@ -16,6 +16,8 @@
   "item.extraons.hdmi_socket": "HDMI Socket",
   "item.extraons.mic_socket": "Mic Socket",
   "item.extraons.yellow_dying_kit": "Yellow Dying Kit",
+  "item.extraons.orange_dying_kit": "Orange Dying Kit",
+  "item.extraons.red_dying_kit": "Red Dying Kit",
   "block.extraons.tv": "TV",
   "block.extraons.plain_gaming_chair": "Plain Gaming Chair",
   "block.extraons.extractor": "Extractor",
@@ -25,5 +27,6 @@
   "block.extraons.monitor": "Computer Monitor",
   "itemGroup.extraons.main": "Extra-Ons",
   "subtitles.extraons.console_startup": "Console Startup",
-  "subtitles.extraons.tv_click": "TV Click Sound"
+  "subtitles.extraons.tv_click": "TV Click Sound",
+  "subtitles.extraons.paint_splash": "Paint Splash"
 }

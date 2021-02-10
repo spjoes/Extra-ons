@@ -1,6 +1,8 @@
 {
   "replace": false,
   "values": [
-    "extraons:yellow_dying_kit"
+    "extraons:yellow_dying_kit",
+    "extraons:orange_dying_kit",
+    "extraons:red_dying_kit"
   ]
 }

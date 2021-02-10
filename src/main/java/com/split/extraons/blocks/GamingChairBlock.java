@@ -10,11 +10,14 @@ import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.sound.BlockSoundGroup;
+import net.minecraft.sound.SoundCategory;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
+import net.minecraft.state.property.EnumProperty;
 import net.minecraft.state.property.IntProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.ActionResult;
+import net.minecraft.util.DyeColor;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
@@ -30,12 +33,12 @@ import static com.split.extraons.Main.SIT_ENTITY_TYPE;
 public class GamingChairBlock extends HorizontalFacingBlock {
 
     public static final BooleanProperty OCCUPIED;
-    public static final IntProperty COLORID = IntProperty.of("color", 0, 1);
+    public static final EnumProperty COLORID = EnumProperty.of("color", DyeColor.class);
     //ColorID 1 = Yellow
 
     public GamingChairBlock(Settings settings) {
         super(settings);
-        setDefaultState(getStateManager().getDefaultState().with(COLORID, 0));
+        setDefaultState(getStateManager().getDefaultState().with(COLORID, DyeColor.WHITE));
         setDefaultState(this.stateManager.getDefaultState().with(Properties.HORIZONTAL_FACING, Direction.NORTH).with(OCCUPIED, false));
     }
 
@@ -43,10 +46,12 @@ public class GamingChairBlock extends HorizontalFacingBlock {
     public ActionResult onUse(BlockState blockState, World world, BlockPos blockPos, PlayerEntity playerEntity, Hand hand, BlockHitResult blockHitResult) {
 
         if(!world.isClient) {
-                if (playerEntity.getItemsHand().iterator().next().getItem() instanceof DyingKitItem) {
-                    world.setBlockState(blockPos, blockState.with(COLORID,((DyingKitItem) playerEntity.getItemsHand().iterator().next().getItem()).getDyeColor().getId()), 3);
+            if(playerEntity.isSneaking()) {
+                if (playerEntity.getMainHandStack().getItem() instanceof DyingKitItem) {
+                    world.playSound(null, blockPos, Main.PAINT_SPLASH_EVENT, SoundCategory.BLOCKS, 0.5f, 1f);
+                    world.setBlockState(blockPos, blockState.with(COLORID, ((DyingKitItem) playerEntity.getItemsHand().iterator().next().getItem()).getDyeColor()), 3);
                 }
-        }
+            }
 
             else if (!blockState.get(OCCUPIED))
             {
@@ -60,6 +65,7 @@ public class GamingChairBlock extends HorizontalFacingBlock {
                 playerEntity.startRiding(sit);
                 return ActionResult.SUCCESS;
             }
+        }
         return ActionResult.SUCCESS;
     }
 

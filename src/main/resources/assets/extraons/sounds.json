@@ -10,5 +10,11 @@
     "sounds": [
       "extraons:tv_click"
     ]
+  },
+  "paint_splash": {
+    "subtitle": "subtitles.extraons.paint_splash",
+    "sounds": [
+      "extraons:paint_splash"
+    ]
   }
 }
