@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "extraons:item/dying_kits/green_dying_kit"
+  }
+}

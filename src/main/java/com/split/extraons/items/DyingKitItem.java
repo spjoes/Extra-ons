@@ -39,11 +39,14 @@ public class DyingKitItem extends Item {
             System.out.println("sneaking");
             System.out.println(stack.getItem());
             System.out.println(stack.getItem() instanceof DyingKitItem);
-            if (stack.getItem() instanceof DyingKitItem) {
-                System.out.println("kit");
-                world.playSound(null, blockPos, Main.PAINT_SPLASH_EVENT, SoundCategory.BLOCKS, 0.5f, 1f);
-                world.setBlockState(blockPos, blockState.with(COLORID, ((DyingKitItem) stack.getItem()).getDyeColor()), 3);
-                return ActionResult.CONSUME;
+            if(blockState.getBlock() == Main.PLAIN_GAMING_CHAIR_BLOCK) {
+                if (stack.getItem() instanceof DyingKitItem) {
+                    System.out.println("kit");
+                    world.playSound(null, blockPos, Main.PAINT_SPLASH_EVENT, SoundCategory.BLOCKS, 0.3f, 1f);
+                    world.setBlockState(blockPos, blockState.with(COLORID, ((DyingKitItem) stack.getItem()).getDyeColor()), 3);
+                    stack.decrement(1);
+                    return ActionResult.CONSUME;
+                }
             }
         }
         return ActionResult.PASS;

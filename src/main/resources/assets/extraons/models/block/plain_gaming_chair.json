@@ -3,7 +3,7 @@
 	"textures": {
 		"0": "extraons:block/gaming_chair",
 		"1": "block/white_wool",
-		"particle": "extraons:block/gaming_chair"
+		"particle": "minecraft:block/anvil"
 	},
 	"elements": [
 		{

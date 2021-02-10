@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "extraons:item/dying_kits/light_gray_dying_kit"
+  }
+}

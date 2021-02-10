@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "B B",
+    "BCB",
+    " B "
+  ],
+  "key": {
+    "C": {
+      "item": "minecraft:green_dye"
+    },
+    "B": {
+      "item": "minecraft:glass_pane"
+    }
+  },
+  "result": {
+    "item": "extraons:green_dying_kit",
+    "count": 1
+  }
+}

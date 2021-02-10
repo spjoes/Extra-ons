@@ -1,6 +1,7 @@
 package com.split.extraons;
 
 import com.split.extraons.blocks.*;
+import com.split.extraons.entities.MonitorEntity;
 import com.split.extraons.extractor.*;
 import com.split.extraons.items.*;
 import net.minecraft.entity.*;
@@ -30,6 +31,12 @@ public class Main implements ModInitializer {
             FabricEntityTypeBuilder.create(SpawnGroup.MISC, GamingChairSitEntity::new).size(EntityDimensions.fixed(0F, 0.3F)).build()
     );
 
+    public static final EntityType<MonitorEntity> NON_SIT_ENTITY_TYPE = Registry.register(
+            Registry.ENTITY_TYPE,
+            new Identifier("extraons", "monitor_sit"),
+            FabricEntityTypeBuilder.create(SpawnGroup.MISC, MonitorEntity::new).size(EntityDimensions.fixed(0F, 0.3F)).build()
+    );
+
     //items
     public static final Item HDMI_CABLE = new HDMICableItem(new Item.Settings().group(Main.MAIN_GROUP).maxCount(16));
     public static final Item MIC_CABLE = new Item(new Item.Settings().group(Main.MAIN_GROUP).maxCount(16));
@@ -47,9 +54,22 @@ public class Main implements ModInitializer {
     public static final Item COVERED_WIRES = new Item(new Item.Settings().group(Main.MAIN_GROUP));
     public static final Item HDMI_SOCKET = new Item(new Item.Settings().group(Main.MAIN_GROUP));
     public static final Item MIC_SOCKET = new Item(new Item.Settings().group(Main.MAIN_GROUP));
+
+
     public static final DyingKitItem YELLOW_DYING_KIT = new DyingKitItem(new Item.Settings().group(Main.MAIN_GROUP).maxCount(1), DyeColor.YELLOW);
     public static final DyingKitItem ORANGE_DYING_KIT = new DyingKitItem(new Item.Settings().group(Main.MAIN_GROUP).maxCount(1), DyeColor.ORANGE);
     public static final DyingKitItem RED_DYING_KIT = new DyingKitItem(new Item.Settings().group(Main.MAIN_GROUP).maxCount(1), DyeColor.RED);
+    public static final DyingKitItem LIGHT_BLUE_DYING_KIT = new DyingKitItem(new Item.Settings().group(Main.MAIN_GROUP).maxCount(1), DyeColor.LIGHT_BLUE);
+    public static final DyingKitItem GREEN_DYING_KIT = new DyingKitItem(new Item.Settings().group(Main.MAIN_GROUP).maxCount(1), DyeColor.GREEN);
+    public static final DyingKitItem LIME_DYING_KIT = new DyingKitItem(new Item.Settings().group(Main.MAIN_GROUP).maxCount(1), DyeColor.LIME);
+    public static final DyingKitItem BLUE_DYING_KIT = new DyingKitItem(new Item.Settings().group(Main.MAIN_GROUP).maxCount(1), DyeColor.BLUE);
+    public static final DyingKitItem WHITE_DYING_KIT = new DyingKitItem(new Item.Settings().group(Main.MAIN_GROUP).maxCount(1), DyeColor.WHITE);
+    public static final DyingKitItem CYAN_DYING_KIT = new DyingKitItem(new Item.Settings().group(Main.MAIN_GROUP).maxCount(1), DyeColor.CYAN);
+    public static final DyingKitItem MAGENTA_DYING_KIT = new DyingKitItem(new Item.Settings().group(Main.MAIN_GROUP).maxCount(1), DyeColor.MAGENTA);
+    public static final DyingKitItem LIGHT_GRAY_DYING_KIT = new DyingKitItem(new Item.Settings().group(Main.MAIN_GROUP).maxCount(1), DyeColor.LIGHT_GRAY);
+    public static final DyingKitItem BLACK_DYING_KIT = new DyingKitItem(new Item.Settings().group(Main.MAIN_GROUP).maxCount(1), DyeColor.BLACK);
+    public static final DyingKitItem PURPLE_DYING_KIT = new DyingKitItem(new Item.Settings().group(Main.MAIN_GROUP).maxCount(1), DyeColor.PURPLE);
+    public static final DyingKitItem BROWN_DYING_KIT = new DyingKitItem(new Item.Settings().group(Main.MAIN_GROUP).maxCount(1), DyeColor.BROWN);
 
     //Extractor Stuff
     public static final BlockEntityType EXTRACTOR_BLOCK_ENTITY;
@@ -98,9 +118,22 @@ public class Main implements ModInitializer {
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "covered_wires"), COVERED_WIRES);
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "hdmi_socket"), HDMI_SOCKET);
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "mic_socket"), MIC_SOCKET);
+
+        //Dying Kits
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "yellow_dying_kit"), YELLOW_DYING_KIT);
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "orange_dying_kit"), ORANGE_DYING_KIT);
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "red_dying_kit"), RED_DYING_KIT);
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "light_blue_dying_kit"), LIGHT_BLUE_DYING_KIT);
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "green_dying_kit"), GREEN_DYING_KIT);
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "lime_dying_kit"), LIME_DYING_KIT);
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "blue_dying_kit"), BLUE_DYING_KIT);
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "white_dying_kit"), WHITE_DYING_KIT);
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "cyan_dying_kit"), CYAN_DYING_KIT);
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "magenta_dying_kit"), MAGENTA_DYING_KIT);
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "light_gray_dying_kit"), LIGHT_GRAY_DYING_KIT);
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "black_dying_kit"), BLACK_DYING_KIT);
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "purple_dying_kit"), PURPLE_DYING_KIT);
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "brown_dying_kit"), BROWN_DYING_KIT);
 
         //Blocks
         Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "tv"), TV);
@@ -171,6 +204,17 @@ public class Main implements ModInitializer {
                 stacks.add(new ItemStack(Main.YELLOW_DYING_KIT));
                 stacks.add(new ItemStack(Main.ORANGE_DYING_KIT));
                 stacks.add(new ItemStack(Main.RED_DYING_KIT));
+                stacks.add(new ItemStack(Main.LIGHT_BLUE_DYING_KIT));
+                stacks.add(new ItemStack(Main.GREEN_DYING_KIT));
+                stacks.add(new ItemStack(Main.LIME_DYING_KIT));
+                stacks.add(new ItemStack(Main.BLUE_DYING_KIT));
+                stacks.add(new ItemStack(Main.WHITE_DYING_KIT));
+                stacks.add(new ItemStack(Main.CYAN_DYING_KIT));
+                stacks.add(new ItemStack(Main.MAGENTA_DYING_KIT));
+                stacks.add(new ItemStack(Main.LIGHT_GRAY_DYING_KIT));
+                stacks.add(new ItemStack(Main.BLACK_DYING_KIT));
+                stacks.add(new ItemStack(Main.PURPLE_DYING_KIT));
+                stacks.add(new ItemStack(Main.BROWN_DYING_KIT));
             })
             .build();
 }

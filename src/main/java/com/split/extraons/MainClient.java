@@ -23,6 +23,7 @@ public class MainClient implements ClientModInitializer {
         EntityRendererRegistry.INSTANCE.register(Main.SIT_ENTITY_TYPE, (entityRenderDispatcher, context) -> new EmptyRenderer(entityRenderDispatcher));
         ScreenRegistry.register(Main.EXTRACTOR_SCREEN_HANDLER, ExtractorScreen::new);
         ColorProviderRegistry.BLOCK.register((state, view, pos, tintIndex) -> state.get(GamingChairBlock.COLORID).getFireworkColor(), Main.PLAIN_GAMING_CHAIR_BLOCK);
+        ColorProviderRegistry.BLOCK.register((state, view, pos, tintIndex) -> state.get(GamingChairBlock.COLORID).getFireworkColor(), Main.MONITOR);
         registerClientboundPackets();
     }
 

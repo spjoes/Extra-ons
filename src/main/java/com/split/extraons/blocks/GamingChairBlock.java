@@ -30,7 +30,6 @@ public class GamingChairBlock extends HorizontalFacingBlock {
 
     public static final BooleanProperty OCCUPIED;
     public static final EnumProperty<DyeColor> COLORID = EnumProperty.of("color", DyeColor.class);
-    //ColorID 1 = Yellow
 
     public GamingChairBlock(Settings settings) {
         super(settings);

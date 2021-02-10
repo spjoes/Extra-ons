@@ -3,6 +3,17 @@
   "values": [
     "extraons:yellow_dying_kit",
     "extraons:orange_dying_kit",
-    "extraons:red_dying_kit"
+    "extraons:red_dying_kit",
+    "extraons:light_blue_dying_kit",
+    "extraons:green_dying_kit",
+    "extraons:lime_dying_kit",
+    "extraons:blue_dying_kit",
+    "extraons:white_dying_kit",
+    "extraons:cyan_dying_kit",
+    "extraons:magenta_dying_kit",
+    "extraons:gray_dying_kit",
+    "extraons:black_dying_kit",
+    "extraons:brown_dying_kit",
+    "extraons:purple_dying_kit"
   ]
 }
