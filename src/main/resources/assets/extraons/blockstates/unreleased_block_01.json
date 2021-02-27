@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "holding_lava=0": { "model": "extraons:block/unreleased_block_01" },
+    "holding_lava=1": { "model": "extraons:block/unreleased_block_01_lava" },
+    "holding_lava=2": { "model": "extraons:block/unreleased_block_01_crustedlava" }
+  }
+}

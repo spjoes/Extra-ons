@@ -1,7 +1,26 @@
+buildscript {
+	dependencies {
+		classpath 'de.guntram.mcmod:crowdin-translate:1.3+1.16'
+	}
+	repositories {
+		maven {
+			name = 'CrowdinTranslate source'
+			url = "https://minecraft.guntram.de/maven/"
+		}
+		maven { url "https://maven.shedaniel.me/" }
+	}
+}
+
+
 plugins {
 	id 'fabric-loom' version '0.5-SNAPSHOT'
 	id 'maven-publish'
 }
+
+apply plugin: 'de.guntram.mcmod.crowdin-translate'
+crowdintranslate.crowdinProjectName = 'extra-ons-2'
+crowdintranslate.minecraftProjectName = 'extraons'
+crowdintranslate.verbose = false
 
 sourceCompatibility = JavaVersion.VERSION_1_8
 targetCompatibility = JavaVersion.VERSION_1_8
@@ -9,6 +28,20 @@ targetCompatibility = JavaVersion.VERSION_1_8
 archivesBaseName = project.archives_base_name
 version = project.mod_version
 group = project.maven_group
+
+repositories {
+	maven {
+		name = "CottonMC"
+		url = "https://server.bbkr.space/artifactory/libs-release"
+	}
+	maven {
+		url = "https://minecraft.guntram.de/maven/"
+	}
+	maven {
+		name = "Shedaniel"
+		url = "https://maven.shedaniel.me/"
+	}
+}
 
 dependencies {
 	// To change the versions see the gradle.properties file
@@ -18,6 +51,16 @@ dependencies {
 
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+	modImplementation include("io.github.cottonmc:LibGui:3.3.3+1.16.5")
+	modImplementation "de.guntram.mcmod:crowdin-translate:1.3+1.16"
+	include "de.guntram.mcmod:crowdin-translate:1.3+1.16"
+
+	modCompileOnly ("me.shedaniel:RoughlyEnoughItems-api:5.10.181") {
+		exclude(group: "net.fabricmc.fabric-api")
+	}
+	modRuntime ("me.shedaniel:RoughlyEnoughItems:5.10.181") {
+		exclude(group: "net.fabricmc.fabric-api")
+	}
 
 	// PSA: Some older mods, compiled on Loom 0.2.1, might have outdated Maven POMs.
 	// You may need to force-disable transitiveness on them.
@@ -76,11 +119,12 @@ publishing {
 
 	// Select the repositories you want to publish to
 	// To publish to maven local, no extra repositories are necessary. Just use the task `publishToMavenLocal`.
-	repositories {
-		// See https://docs.gradle.org/current/userguide/publishing_maven.html for information on how to set up publishing.
-	}
 
 	minecraft {
 		accessWidener "src/main/resources/extraons.accesswidener"
+	}
+
+	build {
+		dependsOn downloadTranslations
 	}
 }

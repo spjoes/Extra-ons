@@ -1,9 +1,11 @@
 package com.split.extraons;
 
 import com.split.extraons.blocks.GamingChairBlock;
+import com.split.extraons.blocks.MonitorBlock;
 import com.split.extraons.extractor.ExtractorScreen;
 import com.split.extraons.gamingchair.GamingChairSitEntity;
 import com.split.extraons.gamingchair.S2CEntitySpawnPacket;
+import de.guntram.mcmod.crowdintranslate.CrowdinTranslate;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.rendereregistry.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
@@ -21,9 +23,12 @@ public class MainClient implements ClientModInitializer {
     public void onInitializeClient() {
 
         EntityRendererRegistry.INSTANCE.register(Main.SIT_ENTITY_TYPE, (entityRenderDispatcher, context) -> new EmptyRenderer(entityRenderDispatcher));
+        EntityRendererRegistry.INSTANCE.register(Main.DYABLE_ENTITY_TYPE, (entityRenderDispatcher, context) -> new EmptyRenderer(entityRenderDispatcher));
         ScreenRegistry.register(Main.EXTRACTOR_SCREEN_HANDLER, ExtractorScreen::new);
         ColorProviderRegistry.BLOCK.register((state, view, pos, tintIndex) -> state.get(GamingChairBlock.COLORID).getFireworkColor(), Main.PLAIN_GAMING_CHAIR_BLOCK);
-        ColorProviderRegistry.BLOCK.register((state, view, pos, tintIndex) -> state.get(GamingChairBlock.COLORID).getFireworkColor(), Main.MONITOR);
+        ColorProviderRegistry.BLOCK.register((state, view, pos, tintIndex) -> state.get(MonitorBlock.COLORID).getFireworkColor(), Main.MONITOR);
+        ColorProviderRegistry.ITEM.register((stack, tintIndex) -> DyeColor.RED.getFireworkColor(), Main.HEADPHONES);
+        CrowdinTranslate.downloadTranslations("extraons");
         registerClientboundPackets();
     }
 

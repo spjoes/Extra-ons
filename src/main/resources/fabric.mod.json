@@ -23,6 +23,9 @@
     ],
     "client": [
       "com.split.extraons.MainClient"
+    ],
+    "rei_plugins": [
+      "com.split.extraons.REIPlugin"
     ]
   },
   "mixins": [

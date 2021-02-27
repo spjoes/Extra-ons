@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "WSW",
+    " S ",
+    "SWS"
+  ],
+  "key": {
+    "W": {
+      "item": "minecraft:gold_ingot"
+    },
+    "S": {
+      "item": "minecraft:string"
+    }
+  },
+  "result": {
+    "item": "extraons:exposed_wires",
+    "count": 1
+  }
+}

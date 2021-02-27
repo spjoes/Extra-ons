@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " WI",
+    "W I",
+    " WI"
+  ],
+  "key": {
+    "W": {
+      "item": "extraons:plastic"
+    },
+    "I": {
+      "item": "minecraft:gold_ingot"
+    }
+  },
+  "result": {
+    "item": "extraons:mic_socket",
+    "count": 1
+  }
+}

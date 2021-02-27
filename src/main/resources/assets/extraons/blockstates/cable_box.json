@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "extraons:block/cable_box", "y": 180},
+    "facing=east":  { "model": "extraons:block/cable_box", "y": 270},
+    "facing=south": { "model": "extraons:block/cable_box", "y": 360},
+    "facing=west":  { "model": "extraons:block/cable_box", "y": 90}
+  }
+}

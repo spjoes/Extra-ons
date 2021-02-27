@@ -4,8 +4,7 @@
   "package": "com.split.extraons.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-  ],
-  "client": [
+
   ],
   "injectors": {
     "defaultRequire": 1

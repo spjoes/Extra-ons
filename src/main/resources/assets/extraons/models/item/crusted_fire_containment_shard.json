@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "extraons:item/new_unreleased/crusted_fire_containment_shard"
+  }
+}

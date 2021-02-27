@@ -1,10 +1,9 @@
-# Extra-Ons 2
+# Fabric Example Mod
 
-## What is Extra-Ons 2
-Extra-Ons 2 is a new re-imagining of Extra-Ons now in 1.16.5 being developed in Fabric
+## Setup
 
-## What happened to the original Extra-Ons?
-The original Extra-Ons was for Forge 1.12.2 and was made as an addon to Mr.Crayfish's Device Mod.
+For setup instructions please see the [fabric wiki page](https://fabricmc.net/wiki/tutorial:setup) that relates to the IDE that you are using.
 
-## How to stay up-to-date?
-Join the "Split Mods"(my) discord: https://discord.gg/pcYE7Ej
+## License
+
+This template is available under the CC0 license. Feel free to learn from it and incorporate it in your own projects.

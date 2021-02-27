@@ -29,6 +29,12 @@
   "item.extraons.light_gray_dying_kit": "Light Gray Dying Kit",
   "item.extraons.purple_dying_kit": "Purple Dying Kit",
   "item.extraons.brown_dying_kit": "Brown Dying Kit",
+  "item.extraons.pink_dying_kit": "Pink Dying Kit",
+  "item.extraons.gray_dying_kit": "Gray Dying Kit",
+  "item.extraons.headphones": "Headphones",
+  "item.extraons.crusted_fire_containment_shard": "Crusted Fire Shard",
+  "item.extraons.empty_containment_shard": "Empty Shard",
+  "item.extraons.phone": "Phone",
   "block.extraons.tv": "TV",
   "block.extraons.plain_gaming_chair": "Plain Gaming Chair",
   "block.extraons.extractor": "Extractor",
@@ -36,8 +42,11 @@
   "block.extraons.console_pig": "Pig Console",
   "block.extraons.console_cow": "Cow Console",
   "block.extraons.monitor": "Computer Monitor",
+  "block.extraons.cable_box": "Cable Box",
+  "block.extraons.unreleased_block_01": "Casting Slide",
   "itemGroup.extraons.main": "Extra-Ons",
   "subtitles.extraons.console_startup": "Console Startup",
   "subtitles.extraons.tv_click": "TV Click Sound",
-  "subtitles.extraons.paint_splash": "Paint Splash"
+  "subtitles.extraons.paint_splash": "Paint Splash",
+  "gui.extraons.music_play": "Play Music"
 }

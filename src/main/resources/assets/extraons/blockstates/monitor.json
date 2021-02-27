@@ -1,8 +1,12 @@
 {
   "variants": {
-    "facing=north": { "model": "extraons:block/monitor", "y": 180},
-    "facing=east":  { "model": "extraons:block/monitor", "y": 270},
-    "facing=south": { "model": "extraons:block/monitor", "y": 360},
-    "facing=west":  { "model": "extraons:block/monitor", "y": 90}
+    "facing=north,on_wall=false": { "model": "extraons:block/monitor", "y": 180},
+    "facing=east,on_wall=false":  { "model": "extraons:block/monitor", "y": 270},
+    "facing=south,on_wall=false": { "model": "extraons:block/monitor", "y": 360},
+    "facing=west,on_wall=false":  { "model": "extraons:block/monitor", "y": 90},
+    "facing=north,on_wall=true": { "model": "extraons:block/monitor_wall", "y": 180},
+    "facing=east,on_wall=true":  { "model": "extraons:block/monitor_wall", "y": 270},
+    "facing=south,on_wall=true": { "model": "extraons:block/monitor_wall", "y": 360},
+    "facing=west,on_wall=true":  { "model": "extraons:block/monitor_wall", "y": 90}
   }
 }

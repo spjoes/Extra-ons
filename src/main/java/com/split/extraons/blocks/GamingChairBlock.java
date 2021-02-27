@@ -1,5 +1,6 @@
 package com.split.extraons.blocks;
 
+import com.split.extraons.WorldDyable;
 import com.split.extraons.gamingchair.GamingChairSitEntity;
 
 import net.minecraft.block.Block;
@@ -26,10 +27,9 @@ import net.minecraft.world.World;
 
 import static com.split.extraons.Main.SIT_ENTITY_TYPE;
 
-public class GamingChairBlock extends HorizontalFacingBlock {
+public class GamingChairBlock extends HorizontalFacingBlock implements WorldDyable {
 
     public static final BooleanProperty OCCUPIED;
-    public static final EnumProperty<DyeColor> COLORID = EnumProperty.of("color", DyeColor.class);
 
     public GamingChairBlock(Settings settings) {
         super(settings);

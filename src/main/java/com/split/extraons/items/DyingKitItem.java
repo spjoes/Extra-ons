@@ -2,6 +2,7 @@ package com.split.extraons.items;
 
 import com.split.extraons.Main;
 
+import com.split.extraons.WorldDyable;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -39,7 +40,7 @@ public class DyingKitItem extends Item {
             System.out.println("sneaking");
             System.out.println(stack.getItem());
             System.out.println(stack.getItem() instanceof DyingKitItem);
-            if(blockState.getBlock() == Main.PLAIN_GAMING_CHAIR_BLOCK) {
+            if(blockState.getBlock() instanceof WorldDyable) {
                 if (stack.getItem() instanceof DyingKitItem) {
                     System.out.println("kit");
                     world.playSound(null, blockPos, Main.PAINT_SPLASH_EVENT, SoundCategory.BLOCKS, 0.3f, 1f);

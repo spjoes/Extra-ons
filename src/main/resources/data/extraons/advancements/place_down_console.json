@@ -1,0 +1,52 @@
+{
+    "__comment": "Made with TheDestruc7i0n's advancements generator: https://advancements.thedestruc7i0n.ca",
+    "display": {
+        "title": {
+            "text": "A Next Gen Experience!",
+            "bold": false,
+            "italic": false,
+            "underlined": false,
+            "obfuscated": false
+        },
+        "description": {
+            "text": "Place a down a console",
+            "bold": false
+        },
+        "icon": {
+            "item": "extraons:console_creeper"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false,
+        "background": "minecraft:textures/gui/advancements/backgrounds/stone.png"
+    },
+    "criteria": {
+        "Place Creeper Console": {
+            "trigger": "minecraft:placed_block",
+            "conditions": {
+                "block": "extraons:console_creeper"
+            }
+        },
+        "Place Pig Console": {
+            "trigger": "minecraft:placed_block",
+            "conditions": {
+                "block": "extraons:console_pig"
+            }
+        },
+        "Place Cow Console": {
+            "trigger": "minecraft:placed_block",
+            "conditions": {
+                "block": "extraons:console_cow"
+            }
+        }
+    },
+    "parent": "extraons:compressed_plastic",
+    "requirements": [
+        [
+            "Place Creeper Console",
+            "Place Pig Console",
+            "Place Cow Console"
+        ]
+    ]
+}

@@ -25,15 +25,16 @@ public class Main implements ModInitializer {
     public static final String MOD_ID = "extraons";
 
 
+
+
     public static final EntityType<GamingChairSitEntity> SIT_ENTITY_TYPE = Registry.register(
             Registry.ENTITY_TYPE,
             new Identifier("extraons", "gaming_sit"),
             FabricEntityTypeBuilder.create(SpawnGroup.MISC, GamingChairSitEntity::new).size(EntityDimensions.fixed(0F, 0.3F)).build()
     );
-
-    public static final EntityType<MonitorEntity> NON_SIT_ENTITY_TYPE = Registry.register(
+    public static final EntityType<MonitorEntity> DYABLE_ENTITY_TYPE = Registry.register(
             Registry.ENTITY_TYPE,
-            new Identifier("extraons", "monitor_sit"),
+            new Identifier("extraons", "monitor_dyable"),
             FabricEntityTypeBuilder.create(SpawnGroup.MISC, MonitorEntity::new).size(EntityDimensions.fixed(0F, 0.3F)).build()
     );
 
@@ -54,6 +55,10 @@ public class Main implements ModInitializer {
     public static final Item COVERED_WIRES = new Item(new Item.Settings().group(Main.MAIN_GROUP));
     public static final Item HDMI_SOCKET = new Item(new Item.Settings().group(Main.MAIN_GROUP));
     public static final Item MIC_SOCKET = new Item(new Item.Settings().group(Main.MAIN_GROUP));
+    public static final Item EMPTY_SHARD = new Item(new Item.Settings().group(Main.MAIN_GROUP));
+    public static final Item CRUSTEDLAVA_SHARD = new Item(new Item.Settings().group(Main.MAIN_GROUP));
+    public static final PhoneItem PHONE = new PhoneItem(new Item.Settings().group(Main.MAIN_GROUP));
+    public static final Item HEADPHONES = new Item(new FabricItemSettings().group(Main.MAIN_GROUP).equipmentSlot(stack -> EquipmentSlot.HEAD));
 
 
     public static final DyingKitItem YELLOW_DYING_KIT = new DyingKitItem(new Item.Settings().group(Main.MAIN_GROUP).maxCount(1), DyeColor.YELLOW);
@@ -70,6 +75,8 @@ public class Main implements ModInitializer {
     public static final DyingKitItem BLACK_DYING_KIT = new DyingKitItem(new Item.Settings().group(Main.MAIN_GROUP).maxCount(1), DyeColor.BLACK);
     public static final DyingKitItem PURPLE_DYING_KIT = new DyingKitItem(new Item.Settings().group(Main.MAIN_GROUP).maxCount(1), DyeColor.PURPLE);
     public static final DyingKitItem BROWN_DYING_KIT = new DyingKitItem(new Item.Settings().group(Main.MAIN_GROUP).maxCount(1), DyeColor.BROWN);
+    public static final DyingKitItem PINK_DYING_KIT = new DyingKitItem(new Item.Settings().group(Main.MAIN_GROUP).maxCount(1), DyeColor.PINK);
+    public static final DyingKitItem GRAY_DYING_KIT = new DyingKitItem(new Item.Settings().group(Main.MAIN_GROUP).maxCount(1), DyeColor.GRAY);
 
     //Extractor Stuff
     public static final BlockEntityType EXTRACTOR_BLOCK_ENTITY;
@@ -82,6 +89,8 @@ public class Main implements ModInitializer {
     public static final ExtractorBlock EXTRACTOR_BLOCK = new ExtractorBlock(Block.Settings.of(Material.STONE));
     public static final GamingChairBlock PLAIN_GAMING_CHAIR_BLOCK = new GamingChairBlock(Block.Settings.of(Material.STONE).nonOpaque());
     public static final MonitorBlock MONITOR = new MonitorBlock(Block.Settings.of(Material.STONE).nonOpaque());
+    public static final CableBoxBlock CABLE_BOX = new CableBoxBlock(Block.Settings.of(Material.STONE).nonOpaque());
+    public static final UnreleasedTestBlock UNRELEASED_TEST = new UnreleasedTestBlock(Block.Settings.of(Material.STONE).nonOpaque());
 
 
     //Consoles
@@ -98,6 +107,11 @@ public class Main implements ModInitializer {
 
     public static final Identifier PAINT_SPLASH_ID = new Identifier("extraons:paint_splash");
     public static SoundEvent PAINT_SPLASH_EVENT = new SoundEvent(PAINT_SPLASH_ID);
+
+    public static final Identifier TEST_MUSIC_PLAYER_ID = new Identifier("extraons:test_music_player");
+    public static SoundEvent TEST_MUSIC_PLAYER_EVENT = new SoundEvent(TEST_MUSIC_PLAYER_ID);
+
+
 
     @Override
     public void onInitialize() {
@@ -118,6 +132,10 @@ public class Main implements ModInitializer {
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "covered_wires"), COVERED_WIRES);
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "hdmi_socket"), HDMI_SOCKET);
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "mic_socket"), MIC_SOCKET);
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "headphones"), HEADPHONES);
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "phone"), PHONE);
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "crusted_fire_containment_shard"), CRUSTEDLAVA_SHARD);
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "empty_containment_shard"), EMPTY_SHARD);
 
         //Dying Kits
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "yellow_dying_kit"), YELLOW_DYING_KIT);
@@ -134,6 +152,8 @@ public class Main implements ModInitializer {
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "black_dying_kit"), BLACK_DYING_KIT);
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "purple_dying_kit"), PURPLE_DYING_KIT);
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "brown_dying_kit"), BROWN_DYING_KIT);
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "pink_dying_kit"), PINK_DYING_KIT);
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "gray_dying_kit"), GRAY_DYING_KIT);
 
         //Blocks
         Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "tv"), TV);
@@ -143,6 +163,8 @@ public class Main implements ModInitializer {
         Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "console_pig"), CONSOLE_PIG);
         Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "console_cow"), CONSOLE_COW);
         Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "monitor"), MONITOR);
+        Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "cable_box"), CABLE_BOX);
+        Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "unreleased_block_01"), UNRELEASED_TEST);
 
         //Block Items
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "tv"), new BlockItem(TV, new FabricItemSettings().group(Main.MAIN_GROUP).maxCount(1)));
@@ -152,11 +174,14 @@ public class Main implements ModInitializer {
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "console_cow"), new BlockItem(CONSOLE_COW, new FabricItemSettings().group(Main.MAIN_GROUP).maxCount(1)));
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "console_pig"), new BlockItem(CONSOLE_PIG, new FabricItemSettings().group(Main.MAIN_GROUP).maxCount(1)));
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "monitor"), new BlockItem(MONITOR, new FabricItemSettings().group(Main.MAIN_GROUP).maxCount(1)));
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "cable_box"), new BlockItem(CABLE_BOX, new FabricItemSettings().group(Main.MAIN_GROUP).maxCount(16)));
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "unreleased_block_01"), new BlockItem(UNRELEASED_TEST, new FabricItemSettings().group(Main.MAIN_GROUP)));
 
         //Sounds
         Registry.register(Registry.SOUND_EVENT, Main.CONSOLE_STARTUP_ID, CONSOLE_STARTUP_EVENT);
         Registry.register(Registry.SOUND_EVENT, Main.TV_CLICK_ID, TV_CLICK_EVENT);
         Registry.register(Registry.SOUND_EVENT, Main.PAINT_SPLASH_ID, PAINT_SPLASH_EVENT);
+        Registry.register(Registry.SOUND_EVENT, Main.TEST_MUSIC_PLAYER_ID, TEST_MUSIC_PLAYER_EVENT);
     }
 
 
@@ -172,6 +197,8 @@ public class Main implements ModInitializer {
         EXTRACTOR_RECIPE_SERIALIZER = Registry.register(Registry.RECIPE_SERIALIZER, new Identifier(MOD_ID, "extractor"), new CookingRecipeSerializer<>(ExtractorRecipe::new, 200));
 
         EXTRACTOR_SCREEN_HANDLER = ScreenHandlerRegistry.registerSimple(new Identifier(MOD_ID, "extractor"), ExtractorScreenHandler::new);
+
+
     }
 
     public static final ItemGroup MAIN_GROUP = FabricItemGroupBuilder.create(
@@ -201,20 +228,28 @@ public class Main implements ModInitializer {
                 stacks.add(new ItemStack(Main.CONSOLE_PIG));
                 stacks.add(new ItemStack(Main.CONSOLE_COW));
                 stacks.add(new ItemStack(Main.MONITOR));
-                stacks.add(new ItemStack(Main.YELLOW_DYING_KIT));
-                stacks.add(new ItemStack(Main.ORANGE_DYING_KIT));
+                stacks.add(new ItemStack(Main.HEADPHONES));
+                stacks.add(new ItemStack(Main.CABLE_BOX));
+                stacks.add(new ItemStack(Main.PHONE));
+                stacks.add(new ItemStack(Main.UNRELEASED_TEST));
+                stacks.add(new ItemStack(Main.EMPTY_SHARD));
+                stacks.add(new ItemStack(Main.CRUSTEDLAVA_SHARD));
                 stacks.add(new ItemStack(Main.RED_DYING_KIT));
-                stacks.add(new ItemStack(Main.LIGHT_BLUE_DYING_KIT));
+                stacks.add(new ItemStack(Main.ORANGE_DYING_KIT));
+                stacks.add(new ItemStack(Main.YELLOW_DYING_KIT));
                 stacks.add(new ItemStack(Main.GREEN_DYING_KIT));
                 stacks.add(new ItemStack(Main.LIME_DYING_KIT));
-                stacks.add(new ItemStack(Main.BLUE_DYING_KIT));
-                stacks.add(new ItemStack(Main.WHITE_DYING_KIT));
                 stacks.add(new ItemStack(Main.CYAN_DYING_KIT));
+                stacks.add(new ItemStack(Main.BLUE_DYING_KIT));
+                stacks.add(new ItemStack(Main.LIGHT_BLUE_DYING_KIT));
+                stacks.add(new ItemStack(Main.PURPLE_DYING_KIT));
                 stacks.add(new ItemStack(Main.MAGENTA_DYING_KIT));
+                stacks.add(new ItemStack(Main.PINK_DYING_KIT));
+                stacks.add(new ItemStack(Main.BROWN_DYING_KIT));
+                stacks.add(new ItemStack(Main.WHITE_DYING_KIT));
+                stacks.add(new ItemStack(Main.GRAY_DYING_KIT));
                 stacks.add(new ItemStack(Main.LIGHT_GRAY_DYING_KIT));
                 stacks.add(new ItemStack(Main.BLACK_DYING_KIT));
-                stacks.add(new ItemStack(Main.PURPLE_DYING_KIT));
-                stacks.add(new ItemStack(Main.BROWN_DYING_KIT));
             })
             .build();
 }
