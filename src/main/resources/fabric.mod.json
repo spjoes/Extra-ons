@@ -4,13 +4,12 @@
   "version": "${version}",
 
   "name": "Extra-Ons",
-  "description": "An Add-on mod that was originally made for MrCrayfish's Device Mod and now back as a port in 2021!!!",
+  "description": "An Add-on mod that was originally made for MrCrayfish's Device Mod back in 2018 and is now back as a fabric port in 2021!!!",
   "authors": [
     "spjoes"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "sources": "https://github.com/spjoes/Extra-ons/tree/Extra-Ons-2-2021"
   },
 
   "license": "CC0-1.0",

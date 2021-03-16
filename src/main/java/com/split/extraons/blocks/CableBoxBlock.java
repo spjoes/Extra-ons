@@ -36,16 +36,6 @@ public class CableBoxBlock extends HorizontalFacingBlock {
         stateManager.add(Properties.HORIZONTAL_FACING);
     }
 
-//    @Override
-//    public ActionResult onUse(BlockState blockState, World world, BlockPos blockPos, PlayerEntity player, Hand hand, BlockHitResult blockHitResult) {
-//        if (!world.isClient) {
-//            if(player.getItemsHand() == Main.HDMI_CABLE) {
-//                player.sendMessage(new LiteralText("HDMI Cable linked to cable box! Please crouch and right click the TV you would like to link it to"), false);
-//            }
-//        }
-//        return ActionResult.SUCCESS;
-//    }
-
     public BlockState getPlacementState(ItemPlacementContext ctx) {
         return (BlockState)this.getDefaultState().with(FACING, ctx.getPlayerFacing());
     }

@@ -60,23 +60,31 @@ public class Main implements ModInitializer {
     public static final PhoneItem PHONE = new PhoneItem(new Item.Settings().group(Main.MAIN_GROUP));
     public static final Item HEADPHONES = new Item(new FabricItemSettings().group(Main.MAIN_GROUP).equipmentSlot(stack -> EquipmentSlot.HEAD));
 
+    //PC Stuff
+    public static final MotherboardItem MOTHERBOARD = new MotherboardItem(new Item.Settings().group(Main.PC));
+    public static final Item BATTERY = new Item(new Item.Settings().group(Main.PC));
+    public static final Item CPU = new Item(new Item.Settings().group(Main.PC));
+    public static final Item GPU = new Item(new Item.Settings().group(Main.PC));
+    public static final Item HDD = new Item(new Item.Settings().group(Main.PC));
+    public static final Item RAM = new Item(new Item.Settings().group(Main.PC));
+    public static final Item SSD = new Item(new Item.Settings().group(Main.PC));
 
-    public static final DyingKitItem YELLOW_DYING_KIT = new DyingKitItem(new Item.Settings().group(Main.MAIN_GROUP).maxCount(1), DyeColor.YELLOW);
-    public static final DyingKitItem ORANGE_DYING_KIT = new DyingKitItem(new Item.Settings().group(Main.MAIN_GROUP).maxCount(1), DyeColor.ORANGE);
-    public static final DyingKitItem RED_DYING_KIT = new DyingKitItem(new Item.Settings().group(Main.MAIN_GROUP).maxCount(1), DyeColor.RED);
-    public static final DyingKitItem LIGHT_BLUE_DYING_KIT = new DyingKitItem(new Item.Settings().group(Main.MAIN_GROUP).maxCount(1), DyeColor.LIGHT_BLUE);
-    public static final DyingKitItem GREEN_DYING_KIT = new DyingKitItem(new Item.Settings().group(Main.MAIN_GROUP).maxCount(1), DyeColor.GREEN);
-    public static final DyingKitItem LIME_DYING_KIT = new DyingKitItem(new Item.Settings().group(Main.MAIN_GROUP).maxCount(1), DyeColor.LIME);
-    public static final DyingKitItem BLUE_DYING_KIT = new DyingKitItem(new Item.Settings().group(Main.MAIN_GROUP).maxCount(1), DyeColor.BLUE);
-    public static final DyingKitItem WHITE_DYING_KIT = new DyingKitItem(new Item.Settings().group(Main.MAIN_GROUP).maxCount(1), DyeColor.WHITE);
-    public static final DyingKitItem CYAN_DYING_KIT = new DyingKitItem(new Item.Settings().group(Main.MAIN_GROUP).maxCount(1), DyeColor.CYAN);
-    public static final DyingKitItem MAGENTA_DYING_KIT = new DyingKitItem(new Item.Settings().group(Main.MAIN_GROUP).maxCount(1), DyeColor.MAGENTA);
-    public static final DyingKitItem LIGHT_GRAY_DYING_KIT = new DyingKitItem(new Item.Settings().group(Main.MAIN_GROUP).maxCount(1), DyeColor.LIGHT_GRAY);
-    public static final DyingKitItem BLACK_DYING_KIT = new DyingKitItem(new Item.Settings().group(Main.MAIN_GROUP).maxCount(1), DyeColor.BLACK);
-    public static final DyingKitItem PURPLE_DYING_KIT = new DyingKitItem(new Item.Settings().group(Main.MAIN_GROUP).maxCount(1), DyeColor.PURPLE);
-    public static final DyingKitItem BROWN_DYING_KIT = new DyingKitItem(new Item.Settings().group(Main.MAIN_GROUP).maxCount(1), DyeColor.BROWN);
-    public static final DyingKitItem PINK_DYING_KIT = new DyingKitItem(new Item.Settings().group(Main.MAIN_GROUP).maxCount(1), DyeColor.PINK);
-    public static final DyingKitItem GRAY_DYING_KIT = new DyingKitItem(new Item.Settings().group(Main.MAIN_GROUP).maxCount(1), DyeColor.GRAY);
+    public static final DyingKitItem YELLOW_DYING_KIT = new DyingKitItem(new Item.Settings().group(Main.COLOR).maxCount(1), DyeColor.YELLOW);
+    public static final DyingKitItem ORANGE_DYING_KIT = new DyingKitItem(new Item.Settings().group(Main.COLOR).maxCount(1), DyeColor.ORANGE);
+    public static final DyingKitItem RED_DYING_KIT = new DyingKitItem(new Item.Settings().group(Main.COLOR).maxCount(1), DyeColor.RED);
+    public static final DyingKitItem LIGHT_BLUE_DYING_KIT = new DyingKitItem(new Item.Settings().group(Main.COLOR).maxCount(1), DyeColor.LIGHT_BLUE);
+    public static final DyingKitItem GREEN_DYING_KIT = new DyingKitItem(new Item.Settings().group(Main.COLOR).maxCount(1), DyeColor.GREEN);
+    public static final DyingKitItem LIME_DYING_KIT = new DyingKitItem(new Item.Settings().group(Main.COLOR).maxCount(1), DyeColor.LIME);
+    public static final DyingKitItem BLUE_DYING_KIT = new DyingKitItem(new Item.Settings().group(Main.COLOR).maxCount(1), DyeColor.BLUE);
+    public static final DyingKitItem WHITE_DYING_KIT = new DyingKitItem(new Item.Settings().group(Main.COLOR).maxCount(1), DyeColor.WHITE);
+    public static final DyingKitItem CYAN_DYING_KIT = new DyingKitItem(new Item.Settings().group(Main.COLOR).maxCount(1), DyeColor.CYAN);
+    public static final DyingKitItem MAGENTA_DYING_KIT = new DyingKitItem(new Item.Settings().group(Main.COLOR).maxCount(1), DyeColor.MAGENTA);
+    public static final DyingKitItem LIGHT_GRAY_DYING_KIT = new DyingKitItem(new Item.Settings().group(Main.COLOR).maxCount(1), DyeColor.LIGHT_GRAY);
+    public static final DyingKitItem BLACK_DYING_KIT = new DyingKitItem(new Item.Settings().group(Main.COLOR).maxCount(1), DyeColor.BLACK);
+    public static final DyingKitItem PURPLE_DYING_KIT = new DyingKitItem(new Item.Settings().group(Main.COLOR).maxCount(1), DyeColor.PURPLE);
+    public static final DyingKitItem BROWN_DYING_KIT = new DyingKitItem(new Item.Settings().group(Main.COLOR).maxCount(1), DyeColor.BROWN);
+    public static final DyingKitItem PINK_DYING_KIT = new DyingKitItem(new Item.Settings().group(Main.COLOR).maxCount(1), DyeColor.PINK);
+    public static final DyingKitItem GRAY_DYING_KIT = new DyingKitItem(new Item.Settings().group(Main.COLOR).maxCount(1), DyeColor.GRAY);
 
     //Extractor Stuff
     public static final BlockEntityType EXTRACTOR_BLOCK_ENTITY;
@@ -90,7 +98,7 @@ public class Main implements ModInitializer {
     public static final GamingChairBlock PLAIN_GAMING_CHAIR_BLOCK = new GamingChairBlock(Block.Settings.of(Material.STONE).nonOpaque());
     public static final MonitorBlock MONITOR = new MonitorBlock(Block.Settings.of(Material.STONE).nonOpaque());
     public static final CableBoxBlock CABLE_BOX = new CableBoxBlock(Block.Settings.of(Material.STONE).nonOpaque());
-    public static final UnreleasedTestBlock UNRELEASED_TEST = new UnreleasedTestBlock(Block.Settings.of(Material.STONE).nonOpaque());
+    public static final CatingSlideBlock CASTINGSLIDE = new CatingSlideBlock(Block.Settings.of(Material.STONE).nonOpaque());
 
 
     //Consoles
@@ -137,6 +145,15 @@ public class Main implements ModInitializer {
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "crusted_fire_containment_shard"), CRUSTEDLAVA_SHARD);
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "empty_containment_shard"), EMPTY_SHARD);
 
+        //PC Stuff
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "motherboard"), MOTHERBOARD);
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "battery"), BATTERY);
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "cpu"), CPU);
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "gpu"), GPU);
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "hdd"), HDD);
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "ram"), RAM);
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "ssd"), SSD);
+
         //Dying Kits
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "yellow_dying_kit"), YELLOW_DYING_KIT);
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "orange_dying_kit"), ORANGE_DYING_KIT);
@@ -164,7 +181,7 @@ public class Main implements ModInitializer {
         Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "console_cow"), CONSOLE_COW);
         Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "monitor"), MONITOR);
         Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "cable_box"), CABLE_BOX);
-        Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "unreleased_block_01"), UNRELEASED_TEST);
+        Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "castingslide"), CASTINGSLIDE);
 
         //Block Items
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "tv"), new BlockItem(TV, new FabricItemSettings().group(Main.MAIN_GROUP).maxCount(1)));
@@ -175,7 +192,7 @@ public class Main implements ModInitializer {
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "console_pig"), new BlockItem(CONSOLE_PIG, new FabricItemSettings().group(Main.MAIN_GROUP).maxCount(1)));
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "monitor"), new BlockItem(MONITOR, new FabricItemSettings().group(Main.MAIN_GROUP).maxCount(1)));
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "cable_box"), new BlockItem(CABLE_BOX, new FabricItemSettings().group(Main.MAIN_GROUP).maxCount(16)));
-        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "unreleased_block_01"), new BlockItem(UNRELEASED_TEST, new FabricItemSettings().group(Main.MAIN_GROUP)));
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "castingslide"), new BlockItem(CASTINGSLIDE, new FabricItemSettings().group(Main.MAIN_GROUP)));
 
         //Sounds
         Registry.register(Registry.SOUND_EVENT, Main.CONSOLE_STARTUP_ID, CONSOLE_STARTUP_EVENT);
@@ -205,13 +222,13 @@ public class Main implements ModInitializer {
             new Identifier(MOD_ID, "main"))
             .icon(() -> new ItemStack(Main.HDMI_CABLE))
             .appendItems(stacks -> {
-                stacks.add(new ItemStack(Main.EXTRACTOR_BLOCK));
                 stacks.add(new ItemStack(Main.EXPOSED_WIRES));
                 stacks.add(new ItemStack(Main.COVERED_WIRES));
                 stacks.add(new ItemStack(Main.HDMI_CABLE));
                 stacks.add(new ItemStack(Main.HDMI_SOCKET));
                 stacks.add(new ItemStack(Main.MIC_CABLE));
                 stacks.add(new ItemStack(Main.MIC_SOCKET));
+                stacks.add(new ItemStack(Main.EXTRACTOR_BLOCK));
                 stacks.add(new ItemStack(Main.RUBBER));
                 stacks.add(new ItemStack(Main.PLASTIC));
                 stacks.add(new ItemStack(Main.COMPRESSED_PLASTIC));
@@ -231,9 +248,16 @@ public class Main implements ModInitializer {
                 stacks.add(new ItemStack(Main.HEADPHONES));
                 stacks.add(new ItemStack(Main.CABLE_BOX));
                 stacks.add(new ItemStack(Main.PHONE));
-                stacks.add(new ItemStack(Main.UNRELEASED_TEST));
+                stacks.add(new ItemStack(Main.CASTINGSLIDE));
                 stacks.add(new ItemStack(Main.EMPTY_SHARD));
                 stacks.add(new ItemStack(Main.CRUSTEDLAVA_SHARD));
+            })
+            .build();
+
+    public static final ItemGroup COLOR = FabricItemGroupBuilder.create(
+            new Identifier(MOD_ID, "color"))
+            .icon(() -> new ItemStack(Main.RED_DYING_KIT))
+            .appendItems(stacks -> {
                 stacks.add(new ItemStack(Main.RED_DYING_KIT));
                 stacks.add(new ItemStack(Main.ORANGE_DYING_KIT));
                 stacks.add(new ItemStack(Main.YELLOW_DYING_KIT));
@@ -252,4 +276,20 @@ public class Main implements ModInitializer {
                 stacks.add(new ItemStack(Main.BLACK_DYING_KIT));
             })
             .build();
+
+    public static final ItemGroup PC = FabricItemGroupBuilder.create(
+            new Identifier(MOD_ID, "pc"))
+            .icon(() -> new ItemStack(Main.MONITOR))
+            .appendItems(stacks -> {
+                stacks.add(new ItemStack(Main.MOTHERBOARD));
+                stacks.add(new ItemStack(Main.CPU));
+                stacks.add(new ItemStack(Main.RAM));
+                stacks.add(new ItemStack(Main.HDD));
+                stacks.add(new ItemStack(Main.SSD));
+                stacks.add(new ItemStack(Main.GPU));
+                stacks.add(new ItemStack(Main.BATTERY));
+            })
+            .build();
+
+
 }

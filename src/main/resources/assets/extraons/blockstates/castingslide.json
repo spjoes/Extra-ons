@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "holding_lava=0": { "model": "extraons:block/castingslide" },
+    "holding_lava=1": { "model": "extraons:block/castingslide_lava" },
+    "holding_lava=2": { "model": "extraons:block/castingslide_crustedlava" }
+  }
+}

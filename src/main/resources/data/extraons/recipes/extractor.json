@@ -2,21 +2,18 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "GEG",
-    "PDP",
+    "PGP",
     "GPG"
   ],
   "key": {
     "P": {
-      "item": "minecraft:glass_pane"
-    },
-    "D": {
-      "item": "minecraft:diamond"
+      "item": "minecraft:iron_ingot"
     },
     "G": {
-      "item": "minecraft:gold_ingot"
+      "tag": "minecraft:logs"
     },
     "E": {
-      "item": "minecraft:emerald"
+      "item": "minecraft:diamond"
     }
   },
   "result": {

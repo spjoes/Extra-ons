@@ -19,7 +19,7 @@ public class PhoneItem extends Item {
 
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
-        if(!world.isClient) {
+        if(world.isClient) {
             MinecraftClient.getInstance().openScreen(new PhoneScreen(new PhoneGui()));
         }
         return super.use(world, user, hand);

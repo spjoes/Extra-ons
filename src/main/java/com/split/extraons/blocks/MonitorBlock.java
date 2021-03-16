@@ -1,11 +1,15 @@
 package com.split.extraons.blocks;
 
+import com.split.extraons.Main;
 import com.split.extraons.WorldDyable;
 import com.split.extraons.entities.MonitorEntity;
 import com.split.extraons.gamingchair.GamingChairSitEntity;
+import com.split.extraons.gui.MonitorGui;
+import com.split.extraons.gui.MonitorScreen;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.HorizontalFacingBlock;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
@@ -40,7 +44,8 @@ public class MonitorBlock extends HorizontalFacingBlock implements WorldDyable {
 
     @Override
     public ActionResult onUse(BlockState blockState, World world, BlockPos blockPos, PlayerEntity playerEntity, Hand hand, BlockHitResult blockHitResult) {
-        if (!world.isClient) {
+        if (world.isClient) {
+            MinecraftClient.getInstance().openScreen(new MonitorScreen(new MonitorGui()));
 
             if (!playerEntity.isSneaking()) {
                 MonitorEntity sit = DYABLE_ENTITY_TYPE.create(world);
