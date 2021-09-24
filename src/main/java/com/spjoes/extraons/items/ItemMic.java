@@ -8,6 +8,7 @@ public class ItemMic extends ItemLinkable {
 		super();
 		this.setRegistryName("microphone");
 		this.setUnlocalizedName("microphone");
+
 	}
 
 	@Override

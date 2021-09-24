@@ -3,8 +3,6 @@ package com.spjoes.extraons.client;
 import java.util.ArrayList;
 
 import com.spjoes.extraons.Constants;
-
-import net.minecraft.client.audio.PositionedSoundRecord;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraftforge.event.RegistryEvent;

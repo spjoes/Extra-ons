@@ -3,7 +3,7 @@ package com.spjoes.extraons.tileentities;
 import java.lang.reflect.Field;
 
 import com.spjoes.extraons.Constants;
-import com.spjoes.extraons.blocks.BlockHandler;
+import com.spjoes.extraons.handlers.BlockHandler;
 import com.spjoes.extraons.blocks.BlockTV;
 import com.spjoes.extraons.blocks.BlockTV.TVChannels;
 

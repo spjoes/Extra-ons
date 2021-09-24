@@ -10,6 +10,7 @@ import java.util.Date;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.nbt.NBTTagCompound;
+import javax.annotation.Nullable;
 
 public class ApplicationClicker extends Application {
 

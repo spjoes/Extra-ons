@@ -1,7 +1,7 @@
 package com.spjoes.extraons.client;
 
 import com.mrcrayfish.device.api.utils.RenderUtil;
-import com.spjoes.extraons.items.ItemHandler;
+import com.spjoes.extraons.handlers.ItemHandler;
 
 import net.minecraft.client.gui.toasts.GuiToast;
 import net.minecraft.client.gui.toasts.IToast;

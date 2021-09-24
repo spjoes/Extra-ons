@@ -1,5 +1,6 @@
-package com.spjoes.extraons.tileentities;
+package com.spjoes.extraons.handlers;
 
+import com.spjoes.extraons.tileentities.*;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
@@ -12,5 +13,5 @@ public class TileEntityHandler {
 		TileEntity.register("console", TileEntityConsole.class);
 		TileEntity.register("chair", TileEntityChair.class);
 	}
-	
+
 }

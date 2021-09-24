@@ -89,10 +89,10 @@ public class BlockTV extends Block implements ITileEntityProvider {
 		NONE,
 		FREE_REAL_ESTATE("estate"),
 		WOW_WINK("wow"),
-		PIG_RIDING,
-		DIAMOND,
 		HA("ha"),
-		BANANA_MAN;
+		INNER("inner"),
+		BONGO("bongo");
+
 		
 		private String textureName;
 		

@@ -25,7 +25,7 @@ public class GuiHandler implements IGuiHandler {
 				TileEntityMonitor monitor = (TileEntityMonitor) te1;
 				BlockPos pos = monitor.getCentralUnitPos();
 				if(pos == null) {
-					return new GuiMonitorNoCU();
+					return new GuiMonitor(null);
 				} else {
 					TileEntity te2 = world.getTileEntity(monitor.getCentralUnitPos());
 					if(te2 instanceof TileEntityCentralUnit) {

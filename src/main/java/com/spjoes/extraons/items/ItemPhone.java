@@ -1,7 +1,6 @@
 package com.spjoes.extraons.items;
 
 import com.spjoes.extraons.ExtraOns;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;

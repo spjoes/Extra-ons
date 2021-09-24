@@ -3,7 +3,7 @@ package com.spjoes.extraons.items;
 import com.mrcrayfish.device.block.BlockDevice;
 import com.spjoes.extraons.ExtraOns;
 import com.spjoes.extraons.UsefulStuff;
-import com.spjoes.extraons.blocks.BlockHandler;
+import com.spjoes.extraons.handlers.BlockHandler;
 import com.spjoes.extraons.network.ToastMessage;
 import com.spjoes.extraons.tileentities.TileEntityCentralUnit;
 import com.spjoes.extraons.tileentities.TileEntityMonitor;

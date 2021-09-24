@@ -1,8 +1,6 @@
 package com.spjoes.extraons.client;
 
 import com.spjoes.extraons.Constants;
-
-import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.util.ResourceLocation;
 

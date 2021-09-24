@@ -1,8 +1,8 @@
 package com.spjoes.extraons.tileentities;
 
 import com.spjoes.extraons.UsefulStuff;
-import com.spjoes.extraons.blocks.BlockHandler;
-import com.spjoes.extraons.items.ItemHandler;
+import com.spjoes.extraons.handlers.BlockHandler;
+import com.spjoes.extraons.handlers.ItemHandler;
 
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.item.ItemStack;
