@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "xxx",
+    "rsr",
+    "xxx"
+  ],
+  "key":
+  {
+    "x":
+    {
+      "item": "cdm:plastic_frame"
+    },
+    "s":
+    {
+      "item": "cdm:screen"
+    },
+    "r":
+    {
+        "item": "minecraft:wool",
+        "data": 14
+    }
+  },
+  "result":
+  {
+    "item": "extraons:monitor",
+    "count": 1
+  }
+}

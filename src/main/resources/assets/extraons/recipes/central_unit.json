@@ -1,0 +1,41 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "$S$",
+    "GMC",
+    "$R$"
+  ],
+  "key":
+  {
+    "M":
+    {
+      "item": "cdm:motherboard"
+    },
+    "S":
+    {
+      "item": "cdm:solid_state_drive"
+    },
+    "R":
+    {
+      "item": "cdm:ram"
+    },
+    "G":
+    {
+      "item": "cdm:gpu"
+    },
+    "C":
+    {
+      "item": "cdm:cpu"
+    },
+    "$":
+    {
+      "item": "cdm:plastic_frame"
+    }
+  },
+  "result":
+  {
+    "item": "extraons:central_unit",
+    "count": 1
+  }
+}

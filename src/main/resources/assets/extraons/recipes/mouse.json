@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "   ",
+    "RRR",
+    "PPP"
+  ],
+  "key":
+  {
+    "R":
+    {
+      "item": "minecraft:wool",
+      "data": 14
+    },
+    "P":
+    {
+      "item": "cdm:plastic"
+    }
+  },
+  "result":
+  {
+    "item": "extraons:mouse",
+    "count": 1
+  }
+}
