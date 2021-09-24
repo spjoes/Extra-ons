@@ -82,7 +82,7 @@ public class GuiMonitor extends Laptop {
 			"Checking boot sectors",
 			"Initializing boot",
 			"", // See the JOKE_LINES below
-			"Booting into DbrownOS"
+			"Booting into ValOS"
 	};
 	
 	private static String[] JOKE_LINES = {
@@ -93,6 +93,26 @@ public class GuiMonitor extends Laptop {
 		"Searching Google on Google",
 		"Snapping dat like button",
 		"Uninstalling all apps from the store",
+		"Deleting System32",
+		"Installing Extra-Ons 1.17",
+		"Looking up your home location on Apple Maps",
+		"Contacting FBI",
+		"Hacking into the mainframe",
+		"Installing Datapacks... Oh wait.",
+		"Opening fabricmc.net...",
+		"DDOSing your friends",
+		"Blocking your friends on Myspace",
+		"Deleting your AOL account",
+		"Canceling Discord Nitro",
+		"Connecting to Netscape",
+		"Booting up Internet Explorer 9",
+		"Updating to ValOS xD",
+		"Starting Windows 9",
+		"Opening Microsoft Paint",
+		"Updating to 20w14Infinte",
+		"Loading new cave generation",
+		"Spawning in a Glow Squid... Wait.",
+		"Opening Steam...",
 		"Executing \"while(true) { Thread.sleep(1); }\""
 	};
 	
