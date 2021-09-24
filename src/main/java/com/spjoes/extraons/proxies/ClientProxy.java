@@ -47,32 +47,29 @@ public abstract class ClientProxy extends CommonProxy {
 
 	@Override
 	public void registerItemColors() {
-		IItemColor jeb = new IItemColor() {
-			@Override
-			public int colorMultiplier(ItemStack stack, int tintIndex) {
-				int time = (int) (Minecraft.getSystemTime()%6000);
-				int r = 0, g = 0, b = 0;
-				if(time < 1000) {
-					r = 255;
-					g = (int) ((time/1000.0)*255);
-				} else if(time < 2000) {
-					g = 255;
-					r = (int) ((1.0-((time-1000)/1000.0))*255);
-				} else if(time < 3000) {
-					g = 255;
-					b = (int) (((time-2000)/1000.0)*255);
-				} else if(time < 4000) {
-					b = 255;
-					g = (int) ((1.0-((time-3000)/1000.0))*255);
-				} else if(time < 5000) {
-					b = 255;
-					r = (int) (((time-4000)/1000.0)*255);
-				} else {
-					r = 255;
-					b = (int) ((1.0-((time-5000)/1000.0))*255);
-				}
-				return tintIndex == 1 && stack.getItemDamage() == 16 ? ((r & 0xFF) << 16) | ((g & 0xFF) << 8) | ((b & 0xFF) << 0) : 0xFFFFFF;
+		IItemColor jeb = (stack, tintIndex) -> {
+			int time = (int) (Minecraft.getSystemTime()%6000);
+			int r = 0, g = 0, b = 0;
+			if(time < 1000) {
+				r = 255;
+				g = (int) ((time/1000.0)*255);
+			} else if(time < 2000) {
+				g = 255;
+				r = (int) ((1.0-((time-1000)/1000.0))*255);
+			} else if(time < 3000) {
+				g = 255;
+				b = (int) (((time-2000)/1000.0)*255);
+			} else if(time < 4000) {
+				b = 255;
+				g = (int) ((1.0-((time-3000)/1000.0))*255);
+			} else if(time < 5000) {
+				b = 255;
+				r = (int) (((time-4000)/1000.0)*255);
+			} else {
+				r = 255;
+				b = (int) ((1.0-((time-5000)/1000.0))*255);
 			}
+			return tintIndex == 1 && stack.getItemDamage() == 16 ? ((r & 0xFF) << 16) | ((g & 0xFF) << 8) | ((b & 0xFF)) : 0xFFFFFF;
 		};
 		Minecraft.getMinecraft().getItemColors().registerItemColorHandler(jeb, ItemHandler.HEADPHONES, ItemHandler.MICROPHONE);
 	}
