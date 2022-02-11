@@ -13,10 +13,10 @@
 	},
 	"variants": {
 		"on": {
-			true: {
+			"true": {
 			
 			},
-			false: {
+			"false": {
 				"textures": {
 					"1": "blocks/concrete_red"
 				}

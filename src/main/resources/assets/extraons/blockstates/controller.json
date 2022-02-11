@@ -19,7 +19,7 @@
 			}
 		},
 		"type": {
-			"creeper": { }, // Already the default
+			"creeper": { },
 			"pig": { "model": "extraons:controller_pig" },
 			"cow": { "model": "extraons:controller_cow" }
 		}

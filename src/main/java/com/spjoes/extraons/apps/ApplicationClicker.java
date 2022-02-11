@@ -21,25 +21,6 @@ public class ApplicationClicker extends Application {
 	private int timeCheck = 20;
 
 	@Override
-	public void init() {
-		this.clickMeButton = new Button(80, 75, "Click Me!");
-		this.clickMeButton.setClickListener((button, mouse,  par3) -> {
-			this.score++;
-			this.scoreLabel.setText("Your Score : " + score);
-		});
-		this.scoreLabel = new Label("Your Score : 0", 65, 55);
-
-		this.timeLabel = new Label("00:00:00", 10, 10);
-		this.updateTime();
-
-		this.addComponent(clickMeButton);
-		this.addComponent(scoreLabel);
-		this.addComponent(timeLabel);
-		
-		this.score = 0;
-	}
-
-	@Override
 	public void load(NBTTagCompound tagCompound) {}
 
 	@Override
@@ -54,7 +35,26 @@ public class ApplicationClicker extends Application {
 		String ampm = c.get(Calendar.AM_PM) == Calendar.AM ? "AM" : "PM";
 		timeLabel.setText(String.format("%02d", hour) + ":" + String.format("%02d", minute) + ":" + String.format("%02d", second) + " " + ampm);
 	}
-	
+
+	@Override
+	public void init(@Nullable NBTTagCompound intent) {
+		this.clickMeButton = new Button(80, 75, "Click Me!");
+		this.clickMeButton.setClickListener((button, mouse,  par3) -> {
+			this.score++;
+			this.scoreLabel.setText("Your Score : " + score);
+		});
+		this.scoreLabel = new Label("Your Score : 0", 65, 55);
+
+		this.timeLabel = new Label("00:00:00", 10, 10);
+		this.updateTime();
+
+		this.addComponent(clickMeButton);
+		this.addComponent(scoreLabel);
+		this.addComponent(timeLabel);
+
+		this.score = 0;
+	}
+
 	@Override
 	public void onTick() {
 		this.timeCheck--;

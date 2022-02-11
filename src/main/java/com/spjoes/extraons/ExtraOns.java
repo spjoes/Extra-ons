@@ -21,6 +21,7 @@ import net.minecraftforge.fml.common.event.*;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 @Mod(modid=Constants.MODID, name=Constants.NAME, version=Constants.VERSION, dependencies=Constants.DEPS, acceptedMinecraftVersions=Constants.MCVER)
 public class ExtraOns {
@@ -47,8 +48,9 @@ public class ExtraOns {
 		
 		proxy.registerModels();
 		proxy.registerTERenders();
-		
-		wrapper.registerMessage(ToastMessageHandler.class, ToastMessage.class, 0, Side.CLIENT);
+		if(!Side.SERVER.isServer()) {
+			wrapper.registerMessage(ToastMessageHandler.class, ToastMessage.class, 0, Side.CLIENT);
+		}
 	}
 	
 	@EventHandler

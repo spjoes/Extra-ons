@@ -3,9 +3,11 @@ package com.spjoes.extraons.network;
 import com.spjoes.extraons.client.ExtraToast;
 
 import net.minecraft.client.Minecraft;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
+import net.minecraftforge.fml.relauncher.Side;
 
 public class ToastMessageHandler implements IMessageHandler<ToastMessage, IMessage> {
 

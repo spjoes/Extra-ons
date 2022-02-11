@@ -65,7 +65,7 @@ public abstract class ItemLinkable extends Item {
 		return EnumActionResult.PASS;
 	}
 
-	private static boolean hasDevicePos(ItemStack stack) {
+	public static boolean hasDevicePos(ItemStack stack) {
 		return stack.hasTagCompound() && stack.getTagCompound().hasKey("devicePos", Constants.NBT.TAG_INT_ARRAY);
 	}
 

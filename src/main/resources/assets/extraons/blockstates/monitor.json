@@ -11,8 +11,8 @@
 			"west" : { "y":  90 }
 		},
 		"on_wall": {
-			false: {	},
-			true : { "model": "extraons:monitor_wall" }
+			"false": {	},
+			"true" : { "model": "extraons:monitor_wall" }
 		}
 	}
 }

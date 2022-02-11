@@ -26,6 +26,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.math.BlockPos;
 
@@ -48,7 +49,7 @@ public class ApplicationKaraoke extends Application {
 	private Karaoke karaoke;
 	
 	@Override
-	public void init() {
+	public void init(@Nullable NBTTagCompound intent) {
 		this.menuLayout = new Layout(100, 100);
 		
 		this.openFileButton = new Button(5, 75, "Open file");
@@ -81,8 +82,9 @@ public class ApplicationKaraoke extends Application {
 		EntityPlayer pl = Minecraft.getMinecraft().player;
 		InventoryPlayer inv = pl.inventory;
 		boolean hasMic = false;
+		BlockPos c = new BlockPos(Laptop.getPos());
 		for(int i = 0; i < inv.getSizeInventory(); i++) {
-			if(ItemLinkable.isLinked(inv.getStackInSlot(i), this.getLaptopPositon())) {
+			if(ItemLinkable.isLinked(inv.getStackInSlot(i), c)) {
 				hasMic = true;
 			}
 		}
