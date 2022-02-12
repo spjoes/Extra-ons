@@ -60,20 +60,21 @@ repositories {
     maven {
         url = "https://mrcrayfish.com/maven"
     }
-}
-
-dependencies {
-    implementation "com.mrcrayfish:device-api:0.4.0-1.12.2"
-    implementation group: 'com.googlecode.soundlibs', name: 'basicplayer', version: '3.0.0.0'
-}
-
-repositories {
+    maven {
+        url = "https://cursemaven.com"
+        content {
+            includeGroup "curse.maven"
+        }
+    }
     maven {
         url = "https://clojars.org/repo/"
     }
 }
 
 dependencies {
+    implementation "com.mrcrayfish:device-api:0.4.0-1.12.2"
+    implementation ("curse.maven:eguilib-332522:2812291")
+    implementation group: 'com.googlecode.soundlibs', name: 'basicplayer', version: '3.0.0.0'
     implementation 'org.clojars.aseipp:jorbis:0.0.15'
 }
 

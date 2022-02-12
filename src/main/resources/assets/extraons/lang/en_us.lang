@@ -27,3 +27,6 @@ hdmi_cable.infos.not_monitor=You need to right-click a monitor now
 hdmi_cable.infos.go_click_monitor=Now right-click a monitor to link it
 hdmi_cable.infos.success=Link successful
 hdmi_cable.infos.fail=Link failed
+
+smb.infos.success=Disc Inserted Successfully!
+smb.infos.fail=Oops! Looks like that disc has a scratch!

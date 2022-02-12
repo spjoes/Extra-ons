@@ -27,7 +27,7 @@ public class ItemHandler {
 		PHONE = new ItemPhone();
 		HEADPHONES = new ItemHeadphones();
 		CONTROLLER = new ItemBase(1, "controller");
-		SMB = new ItemBase(1, "smb");
+		SMB = new ItemSMB(1, "smb");
 		MIC_HANDLE = new ItemBase(64, "mic_handle");
 		MIC_CABLE = new ItemBase(64, "mic_cable");
 

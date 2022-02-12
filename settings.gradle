@@ -1,0 +1,12 @@
+pluginManagement {
+    repositories {
+        maven {
+            url = "https://cursemaven.com"
+            content {
+                includeGroup "curse.maven"
+            }
+        }
+        gradlePluginPortal()
+    }
+}
+include("curse.maven:eguilib-332522:2812291")

@@ -1,6 +1,9 @@
 package com.spjoes.extraons.items;
 
 import com.spjoes.extraons.ExtraOns;
+import com.spjoes.extraons.client.GuiPhone;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.Gui;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -22,19 +25,16 @@ public class ItemPhone extends Item {
     @Override
     public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         ItemStack stack = playerIn.getHeldItem(handIn);
-        if(worldIn.isRemote) {
             BlockPos pos = playerIn.getPosition();
-            playerIn.openGui(ExtraOns.INSTANCE, 1, worldIn, pos.getX(), pos.getY(), pos.getZ());
-        }
+            Minecraft.getMinecraft().displayGuiScreen(new GuiPhone(pos, worldIn));
+            //playerIn.openGui(ExtraOns.INSTANCE, 1, worldIn, pos.getX(), pos.getY(), pos.getZ());
         return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, stack);
     }
     
     @Override
     public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         ItemStack stack = player.getHeldItem(hand);
-        if(worldIn.isRemote) {
-            player.openGui(ExtraOns.INSTANCE, 1, worldIn, pos.getX(), pos.getY(), pos.getZ());
-        }
+            Minecraft.getMinecraft().displayGuiScreen(new GuiPhone(pos, worldIn));
         return EnumActionResult.SUCCESS;
     }
     

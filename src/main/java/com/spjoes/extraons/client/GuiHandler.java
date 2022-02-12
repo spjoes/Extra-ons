@@ -35,7 +35,7 @@ public class GuiHandler implements IGuiHandler {
 			}
 			return null;
 		case 1:
-			return new GuiPhone();
+			return null;
 		default:
 			return null;
 		}
