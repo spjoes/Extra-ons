@@ -5,6 +5,6 @@
     "version": "0.1",
     "icon": "extraons:textures/app/icon/karaoke.png",
     "screenshots": [
-        "textures/app/store/karaoke.png"
+        "extraons:textures/app/store/karaoke.png"
     ]
 }

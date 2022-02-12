@@ -20,6 +20,7 @@ import com.mrcrayfish.device.api.app.component.Button;
 import com.mrcrayfish.device.api.app.component.Label;
 import com.mrcrayfish.device.core.Laptop;
 import com.spjoes.extraons.RunnableSelectFile;
+import com.spjoes.extraons.RunnableSelectFileNew;
 import com.spjoes.extraons.items.ItemLinkable;
 
 import net.minecraft.client.Minecraft;
@@ -123,9 +124,9 @@ public class ApplicationKaraoke extends Application {
 					while(entries.hasMoreElements()){
 						ZipEntry entry = entries.nextElement();
 						String name = entry.getName();
-						
+
 						BufferedReader in = new BufferedReader(new InputStreamReader(zip.getInputStream(entry)));
-						
+
 						if((name.equalsIgnoreCase("music.ogg") || name.equalsIgnoreCase("music.mp3")) && music == null) {
 							String tmpFile = Minecraft.getMinecraft().mcDataDir + "/data.tmp";
 							FileSystem fs = FileSystems.newFileSystem(Paths.get(zipPath), null);
@@ -146,9 +147,9 @@ public class ApplicationKaraoke extends Application {
 							text = fileContent.toString();
 						}
 					}
-					
+
 					this.karaoke = new Karaoke(this, music, text);
-					
+
 					this.setCurrentLayout(new Layout(200, 100));
 				} catch(Throwable e) {
 					e.printStackTrace();

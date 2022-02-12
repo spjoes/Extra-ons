@@ -5,6 +5,6 @@
     "version": "1.0",
     "icon": "extraons:textures/app/icon/clicker.png",
     "screenshots": [
-        "textures/app/store/clicker.png"
+        "extraons:textures/app/store/clicker.png"
     ]
 }
