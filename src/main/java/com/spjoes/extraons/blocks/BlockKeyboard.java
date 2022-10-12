@@ -25,6 +25,7 @@ public class BlockKeyboard extends Block {
 		super(Material.IRON);
 		this.setRegistryName("keyboard");
 		this.setUnlocalizedName("keyboard");
+		this.setDefaultState(this.blockState.getBaseState().withProperty(BlockHorizontal.FACING, EnumFacing.NORTH));
 	}
 	
 	@Override

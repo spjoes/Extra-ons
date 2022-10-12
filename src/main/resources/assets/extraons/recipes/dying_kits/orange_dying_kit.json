@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "B B",
+    "BCB",
+    " B "
+  ],
+  "key": {
+    "C": {
+      "item": "minecraft:dye",
+      "data": 14
+    },
+    "B": {
+      "item": "minecraft:glass_pane"
+    }
+  },
+  "result": {
+    "item": "extraons:dyingkit_orange",
+    "count": 1
+  }
+}

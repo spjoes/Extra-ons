@@ -44,14 +44,14 @@ public class GuiPhone extends BetterGuiScreen {
 	public void buildGui() {
 		lbl = new Label("SPhone X", 10, 50);
 		tagline = new Label(JOKE_LINES[new Random().nextInt(JOKE_LINES.length)], 10, 70);
-		textButton = new Button(10, 100, 90, "Click Me!");
+		textButton = new Button(10, 100, 110, "Call in an airstrike");
 		addComponent(lbl);
 		addComponent(tagline);
 		addComponent(textButton);
 
 
 		textButton.setClickListener(() -> {
-			this.getWorldin().createExplosion(mc.player, this.getPos().getX(), this.getPos().getY(), this.getPos().getZ(), 10F, true);
+			this.getWorldin().createExplosion(mc.player, this.getPos().getX(), this.getPos().getY(), this.getPos().getZ(), 5F, true);
 			//this.getWorldin().spawnEntity(new EntityTNTPrimed(this.getWorldin(), this.getPos().getX(), this.getPos().getY(), this.getPos().getZ(), mc.player));
 		});
 

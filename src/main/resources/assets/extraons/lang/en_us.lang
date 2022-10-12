@@ -10,6 +10,23 @@ item.controller.name=Controller
 item.smb.name=Super Minecraft Bros
 item.mic_handle.name=Microphone Handle
 
+item.dyingkit_black.name=Black Dying Kit
+item.dyingkit_blue.name=Blue Dying Kit
+item.dyingkit_brown.name=Brown Dying Kit
+item.dyingkit_cyan.name=Cyan Dying Kit
+item.dyingkit_gray.name=Gray Dying Kit
+item.dyingkit_green.name=Green Dying Kit
+item.dyingkit_light_blue.name=Light Blue Dying Kit
+item.dyingkit_lime.name=Lime Dying Kit
+item.dyingkit_magenta.name=Magenta Dying Kit
+item.dyingkit_orange.name=Orange Dying Kit
+item.dyingkit_pink.name=Pink Dying Kit
+item.dyingkit_purple.name=Purple Dying Kit
+item.dyingkit_red.name=Red Dying Kit
+item.dyingkit_silver.name=Silver Dying Kit
+item.dyingkit_white.name=White Dying Kit
+item.dyingkit_yellow.name=Yellow Dying Kit
+
 
 tile.monitor.name=Monitor
 tile.central_unit.name=Central Unit

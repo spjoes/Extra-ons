@@ -42,6 +42,25 @@ public class ClientProxy extends CommonProxy {
 		this.registerModel(ItemHandler.CHAIR, 0, new ResourceLocation(Constants.MODID, "chair"));
 		this.registerModel(ItemHandler.MIC_HANDLE, 0, new ResourceLocation(Constants.MODID, "mic_handle"));
 		this.registerModel(ItemHandler.MIC_CABLE, 0, new ResourceLocation(Constants.MODID, "mic_cable"));
+
+
+		this.registerModel(ItemHandler.DYINGKIT_BLACK, 0, new ResourceLocation(Constants.MODID, "dying_kits/black"));
+		this.registerModel(ItemHandler.DYINGKIT_BLUE, 0, new ResourceLocation(Constants.MODID, "dying_kits/blue"));
+		this.registerModel(ItemHandler.DYINGKIT_BROWN, 0, new ResourceLocation(Constants.MODID, "dying_kits/brown"));
+		this.registerModel(ItemHandler.DYINGKIT_CYAN, 0, new ResourceLocation(Constants.MODID, "dying_kits/cyan"));
+		this.registerModel(ItemHandler.DYINGKIT_GRAY, 0, new ResourceLocation(Constants.MODID, "dying_kits/gray"));
+		this.registerModel(ItemHandler.DYINGKIT_GREEN, 0, new ResourceLocation(Constants.MODID, "dying_kits/green"));
+		this.registerModel(ItemHandler.DYINGKIT_LIGHT_BLUE, 0, new ResourceLocation(Constants.MODID, "dying_kits/light_blue"));
+		this.registerModel(ItemHandler.DYINGKIT_LIME, 0, new ResourceLocation(Constants.MODID, "dying_kits/lime"));
+		this.registerModel(ItemHandler.DYINGKIT_MAGENTA, 0, new ResourceLocation(Constants.MODID, "dying_kits/magenta"));
+		this.registerModel(ItemHandler.DYINGKIT_ORANGE, 0, new ResourceLocation(Constants.MODID, "dying_kits/orange"));
+		this.registerModel(ItemHandler.DYINGKIT_PINK, 0, new ResourceLocation(Constants.MODID, "dying_kits/pink"));
+		this.registerModel(ItemHandler.DYINGKIT_PURPLE, 0, new ResourceLocation(Constants.MODID, "dying_kits/purple"));
+		this.registerModel(ItemHandler.DYINGKIT_RED, 0, new ResourceLocation(Constants.MODID, "dying_kits/red"));
+		this.registerModel(ItemHandler.DYINGKIT_SILVER, 0, new ResourceLocation(Constants.MODID, "dying_kits/silver"));
+		this.registerModel(ItemHandler.DYINGKIT_WHITE, 0, new ResourceLocation(Constants.MODID, "dying_kits/white"));
+		this.registerModel(ItemHandler.DYINGKIT_YELLOW, 0, new ResourceLocation(Constants.MODID, "dying_kits/yellow"));
+
 	}
 
 	@Override

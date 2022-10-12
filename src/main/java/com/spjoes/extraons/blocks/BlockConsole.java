@@ -96,10 +96,6 @@ public class BlockConsole extends Block implements ITileEntityProvider {
 			return name().toLowerCase();
 		}
 		
-		public TileEntity createNewTileEntity(World worldIn, int meta) {
-			return new TileEntityMonitor();
-		}
-		
 		public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
 			if(worldIn.isRemote) {
 				playerIn.openGui(ExtraOns.INSTANCE, 0, worldIn, pos.getX(), pos.getY(), pos.getZ());

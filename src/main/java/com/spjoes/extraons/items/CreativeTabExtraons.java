@@ -28,6 +28,23 @@ public class CreativeTabExtraons extends CreativeTabs {
 			list.add(new ItemStack(ItemHandler.HEADPHONES, 1, i));
 		}
 
+		list.add(new ItemStack(ItemHandler.DYINGKIT_BLACK));
+		list.add(new ItemStack(ItemHandler.DYINGKIT_BLUE));
+		list.add(new ItemStack(ItemHandler.DYINGKIT_BROWN));
+		list.add(new ItemStack(ItemHandler.DYINGKIT_CYAN));
+		list.add(new ItemStack(ItemHandler.DYINGKIT_GRAY));
+		list.add(new ItemStack(ItemHandler.DYINGKIT_GREEN));
+		list.add(new ItemStack(ItemHandler.DYINGKIT_LIGHT_BLUE));
+		list.add(new ItemStack(ItemHandler.DYINGKIT_LIME));
+		list.add(new ItemStack(ItemHandler.DYINGKIT_MAGENTA));
+		list.add(new ItemStack(ItemHandler.DYINGKIT_ORANGE));
+		list.add(new ItemStack(ItemHandler.DYINGKIT_PINK));
+		list.add(new ItemStack(ItemHandler.DYINGKIT_PURPLE));
+		list.add(new ItemStack(ItemHandler.DYINGKIT_RED));
+		list.add(new ItemStack(ItemHandler.DYINGKIT_SILVER));
+		list.add(new ItemStack(ItemHandler.DYINGKIT_WHITE));
+		list.add(new ItemStack(ItemHandler.DYINGKIT_YELLOW));
+
 		list.add(new ItemStack(ItemHandler.MONITOR_ITEM));
 		list.add(new ItemStack(ItemHandler.CENTRAL_UNIT_ITEM));
 		list.add(new ItemStack(ItemHandler.HDMI_CABLE));
